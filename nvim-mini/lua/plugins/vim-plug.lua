@@ -21,7 +21,7 @@ Plug('Yggdroot/LeaderF', { ['do']= './install.sh' })
 -- Debugger
 Plug ('puremourning/vimspector', {['do']= './install_gadget.py --enable-c --enable-python --enable-go'})
 -- coc
-Plug('neoclide/coc.nvim',{['branch']='release'})
+--Plug('neoclide/coc.nvim',{['branch']='release'})
 -- Plug('neoclide/coc.nvim')
 Plug('SirVer/ultisnips')
 
