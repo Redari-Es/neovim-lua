@@ -5,7 +5,7 @@ end
 
 --local nvim_lsp = require('lspconfig')
 --typescript支持
-require("lspconf.typescript")
+--require("lspconf.typescript")
 --json支持
 --require("lspconf.json")
 --lua
