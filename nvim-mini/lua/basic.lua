@@ -83,7 +83,7 @@ end
 -- cannot2lua
 vim.cmd [[
 set re=0
-set shell=zsh\ -i
+--set shell=zsh\ -i
 syntax enable
 "触摸板
 "set mouse=nicr
@@ -101,9 +101,6 @@ filetype indent on
 "mutt
 au BufRead /tmp/mutt-* set tw=72  ""tw=zh
 ""let g:indentLine_concealcursor = ''
-
-
-
 ]]
 
 

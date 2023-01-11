@@ -1,30 +1,27 @@
--- print("init source")
---
 local array = {
-  "checks.check-first",
+  'checks.check-first',
   -- basic
-  "basic",
-  --"usermod.settings",
-  "usermod.keys",
-  "plugins.packer",
-  "plugins.vim-plug",
-  "themes.ui",
+  'basic',
+  --'usermod.settings',
+  'usermod.keys',
+  'plugins.packer',
+  'plugins.vim-plug',
+  'themes.ui',
   -- config
   'config.lsp-saga',
-  "config.lsp-installer",
+  'config.lsp-installer',
   'config.lsp-config',
-  "config.cmp",
+  'config.cmp',
   --'config.nvim-cmp',
-  "config.luasnip-config",
+  'config.luasnip-config',
   'usermod.luasnip-key',
   'config.autopairs-conf',
   -- 'config.indent_blankline-conf',
   'config.mdpreview',
   'config.dap',
-  "config.tree",
+  'config.tree',
   'config.go',
   --old-vim-config
-  --
   'vim-config',
 
   -- testing

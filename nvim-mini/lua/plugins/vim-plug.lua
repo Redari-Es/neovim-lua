@@ -16,7 +16,7 @@ vim.call('plug#begin','~/.config/nvim/plugged')
 -- Plug 'tpope/vim-repeat'
 Plug('scrooloose/nerdtree',{on = 'NERDTreeToggle'})
 Plug('junegunn/goyo.vim',{['for'] = 'markdown'})
-Plug('RRethy/vim-hexokinase',{['do']='maker hexokinase'})
+--Plug('RRethy/vim-hexokinase',{['do']='maker hexokinase'})
 Plug('Yggdroot/LeaderF', { ['do']= './install.sh' })
 -- Debugger
 Plug ('puremourning/vimspector', {['do']= './install_gadget.py --enable-c --enable-python --enable-go'})
@@ -25,7 +25,7 @@ Plug ('puremourning/vimspector', {['do']= './install_gadget.py --enable-c --enab
 -- Plug('neoclide/coc.nvim')
 Plug('SirVer/ultisnips')
 
---Plug('theniceboy/vim-deus')
+-- Plug('theniceboy/vim-deus')
 --[[
 vim.cmd[[
 " vim-gitignore"

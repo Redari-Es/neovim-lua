@@ -35,18 +35,8 @@ require('packer').init({
       use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"}) -- Snippets plugin
       --'kyazdani42/nvim-tree.lua'--LuaSnip',-- Snippets plugin
     }
-    -- tree
-    use {
-      'kyazdani42/nvim-tree.lua',
-      requires = {
-        'kyazdani42/nvim-web-devicons',
-      },
-      -- config = function() require'nvim-tree'.setup {} end
-    }
-
     -- treesitter config
     use( "nvim-treesitter/nvim-treesitter",{['do']=':TSUpdate'})
-
 
     use{
       'tami5/lspsaga.nvim',
@@ -59,13 +49,17 @@ require('packer').init({
       'ray-x/go.nvim',
       'ray-x/guihua.lua',
     }
-
-    -- bug
-    --use 'rstacruz/vim-closer'
-    -- use { 'nvim-treesiteer/playground'}
-
-    -- markdown
-    -- install without yarn or npm
+    use(
+    'RRethy/vim-hexokinase',{['do']='maker hexokinase'}
+    )
+    -- tree
+    use {
+      'kyazdani42/nvim-tree.lua',
+      requires = {
+        'kyazdani42/nvim-web-devicons',
+      },
+      -- config = function() require'nvim-tree'.setup {} end
+    }
 
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
@@ -91,25 +85,17 @@ require('packer').init({
       use{
         'windwp/nvim-ts-autotag',
         'blackCauldron7/surround.nvim',
-        --'numToStr/Comment.nvim'
-        -- 'lukas-reineke/indent-blankline.nvim',
       }
-
-
       -- vim-plug move to packer
       use{
-
-
         'tpope/vim-surround',
         'jiangmiao/auto-pairs',
         'tpope/vim-repeat',
         'junegunn/vim-easy-align',
-        'tiagofumo/dart-vim-flutter-layout',
         'AndrewRadev/splitjoin.vim',
         'junkblocker/git-time-lapse',
         'KabbAmine/vCoolor.vim',
         'theniceboy/eleline.vim',
-        --'theniceboy/vim-deus',
         'Redari-Es/vim-deus',
         'theniceboy/vim-calc',
         --  'theniceboy/vim-gitignore',
@@ -128,7 +114,6 @@ require('packer').init({
         'liuchengxu/vista.vim',
         --tagbar
         'majutsushi/tagbar',
-
         --auto complete
         'wellle/tmux-complete.vim',
         --snippets
@@ -137,7 +122,6 @@ require('packer').init({
         -- undo tree
         'mbbill/undotree',
         -- Git
-        --'tpope-vim-fugitive',
         'airblade/vim-gitgutter',
         'cohama/agit.vim',
         --AutoFormat
@@ -156,27 +140,16 @@ require('packer').init({
         -- Swift
         'keith/swift.vim',
         'arzg/vim-swift',
-        --'google/vim-maktaba',
         'dkarter/bullets.vim',
-        --'hotoo/pangu.vim',
         'godlygeek/tabular',
         'ferrine/md-img-paste.vim',
-        --'plasticboy/vim-markdown',
-        -- Other filetypes
-        --use('jceb/vim-orgmode', {['for']='vim-plug', 'org'}),
-        --Editor Enhancement
         'mg979/vim-visual-multi',
         'tomtom/tcomment_vim', -- in <space>cn to comment a line
         'theniceboy/antovim', -- gs to switch
         --'tpope/vim-surround', -- type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
         'gcmt/wildfire.vim', -- in Visual mode, type k' to select all text in '', or type k) k] k} kp
         'junegunn/vim-after-object', -- da= to delete what's after =
-        -- 'godlygeek/tabular',-- " ga, or :Tabularize <regex> to align
-        --'tpope/vim-capslock'  " Ctrl+L (insert) to toggle capslock
         'easymotion/vim-easymotion',
-        --'Konfekt/FastFold'
-        --'junegunn/vim-peekaboo'
-        -- 'wellle/context.vim'
         'svermeulen/vim-subversive',
         'theniceboy/argtextobj.vim',
         'rhysd/clever-f.vim',
@@ -188,7 +161,7 @@ require('packer').init({
         -- 'rlue/vim-barbaric' " slowing down vim-multiple-cursors
         'osyo-manga/vim-anzu',
         -- For general writing
-        -- 'junegunn/goyo.vim',
+        'junegunn/goyo.vim',
         -- 'reedes/vim-wordy'
         -- 'ron89/thesaurus_query.vim'
         -- Documentation
@@ -209,9 +182,6 @@ require('packer').init({
         -- Other useful utilities
         'lambdalisue/suda.vim',-- " do stuff like :sudowrite
         'makerj/vim-pdf',
-        -- 'xolox/vim-session'
-        -- 'xolox/vim-misc' " vim-session dep
-
         -- Dependencies
         'MarcWeber/vim-addon-mw-utils',
         'kana/vim-textobj-user',
@@ -220,10 +190,6 @@ require('packer').init({
         -- 'kshenoy/vim-signature'
         'MattesGroeger/vim-bookmarks',
         --Tex
-        'lervag/vimtex',
-        use ('xuhdev/vim-latex-live-preview', {['for']= 'tex'}),
-        use ('KeitaNakamura/tex-conceal.vim', {['for']='tex'}),
-        -- 'wjakob/wjakob.vim',
         -- CSharp
         use ('ctrlpvim/ctrlp.vim' , { ['for']= 'cs', 'vim-plug' }),
         -- HTML, CSS, JavaScript, Typescript, PHP, JSON, etc.
@@ -231,7 +197,7 @@ require('packer').init({
         use('styled-components/vim-styled-components', { ['branch']= 'main' }),
         'pantharshit00/vim-prisma',
         -- Go
-        use('fatih/vim-go' , {['do']='GoUpdateBinaries' }),
+        --use('fatih/vim-go' , {['do']='GoUpdateBinaries' }),
         -- PHP
         use('Vimjas/vim-python-pep8-indent', { ['for'] ='python', 'vim-plug' }),
         -- Flutter
@@ -242,42 +208,15 @@ require('packer').init({
         use('suan/vim-instant-markdown', {['for']='markdown'}),
         use('dhruvasagar/vim-table-mode', { ['on']='TableModeToggle', ['for']='text', 'markdown', 'vim-plug' }),
         use('mzlogin/vim-markdown-toc', { ['for']='gitignore', 'markdown', 'vim-plug' }),
-
         -- Find & Replace
         use('brooth/far.vim', { ['on']= 'F', 'Far', 'Fardo' }),
-
+        use('neoclide/coc.nvim',{['branch']='release'})
         ----Plug('neoclide/coc.nvim',{['branch']='release'})
-
         --old-vim-plug-end
       }
-
-
-      -- Genreal Highlighter
-      --[[
-      " 1
-      "Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-      "2
-      Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
-      Plug 'RRethy/vim-illuminate'
-
-      --
-      -- 'arzg/vim-colors-xcode',
-      'liuchengxu/space-vim-theme'
-      'morhetz/gruvbox'
-      'ayu-theme/ayu-vim'
-      'rakr/vim-one'
-      'mhartington/oceanic-next'
-      'kristijanhusak/vim-hybrid-material'
-      'ajmwagar/vim-deus'
-      'arzg/vim-colors-xcode'
-      --]]
-
-
 
       --endingplug
       if packer_bootstrap then
         require('packer',sync())
       end
-
-
     end)
