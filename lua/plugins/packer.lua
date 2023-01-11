@@ -60,8 +60,8 @@ use {
   -- config = function() require'nvim-tree'.setup {} end
 }
 
--- 
- use 'rstacruz/vim-closer'
+-- bug
+ --use 'rstacruz/vim-closer'
 -- use { 'nvim-treesiteer/playground'}
 
 -- markdown
@@ -85,21 +85,23 @@ use {
   'rcarriga/nvim-dap-ui',
   'theHamsta/nvim-dap-virtual-text'
 }
-use {
-  "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end}
-use{
-  'windwp/nvim-ts-autotag',
-  'blackCauldron7/surround.nvim',
-  --'numToStr/Comment.nvim'
-  --'lukas-reineke/indent-blankline.nvim'
+ use {
+   "windwp/nvim-autopairs",
+   config = function() require().startup {} end}
+ use{
+   'windwp/nvim-ts-autotag',
+ 'blackCauldron7/surround.nvim',
+   --'numToStr/Comment.nvim'
+ -- 'lukas-reineke/indent-blankline.nvim',
 }
+
 
 -- vim-plug move to packer
 use{
 
 
   'tpope/vim-surround',
+ 'jiangmiao/auto-pairs',
   'tpope/vim-repeat',
   'junegunn/vim-easy-align',
   'tiagofumo/dart-vim-flutter-layout',
@@ -162,7 +164,6 @@ use{
 -- Other filetypes
 --use('jceb/vim-orgmode', {['for']='vim-plug', 'org'}),
 --Editor Enhancement
-'jiangmiao/auto-pairs',
  'mg979/vim-visual-multi',
  'tomtom/tcomment_vim', -- in <space>cn to comment a line
  'theniceboy/antovim', -- gs to switch

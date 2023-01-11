@@ -38,48 +38,48 @@ nnoremap gb :Gblame<CR>
 " === coc
 " ===
 let g:coc_global_extensions = [
-  \ 'coc-actions',
-  \ 'coc-diagnostic',
-  \ 'coc-explorer',
-  \ 'coc-flutter-tools',
-  \ 'coc-gitignore',
-  \ 'coc-html',
-  \ 'coc-htmldjango',
-  \ 'coc-css',
-  \ 'coc-html-css-support',
-  \ 'coc-tsserver',
-  \ 'coc-vue',
-  \ 'coc-docker',
-  \ 'coc-omnisharp',
-  \ 'coc-json',
-  \ 'coc-lists',
-	\ 'coc-phpls',
-	\ 'coc-vetur',
-  \ 'coc-clangd',
-  \ 'coc-prettier',
-  \ 'coc-prisma',
-  \ 'coc-pyright',
-  \ 'coc-python',
-  \ 'coc-snippets',
-  \ 'coc-sourcekit',
-  \ 'coc-stylelint',
-  \ 'coc-tailwindcss',
-  \ 'coc-syntax',
-  \ 'coc-tasks',
-  \ 'coc-todolist',
-  \ 'coc-lua',
-  \ 'coc-translator',
-  \ 'coc-tsserver',
-  \ 'coc-tslint-plugin',
-  \ 'coc-vimlsp',
-  \ 'coc-yaml',
-  \ 'coc-vimtex',
-  \ 'coc-yank']
+      \ 'coc-actions',
+      \ 'coc-diagnostic',
+      \ 'coc-explorer',
+      \ 'coc-flutter-tools',
+      \ 'coc-gitignore',
+      \ 'coc-html',
+      \ 'coc-htmldjango',
+      \ 'coc-css',
+      \ 'coc-html-css-support',
+      \ 'coc-tsserver',
+      \ 'coc-vue',
+      \ 'coc-docker',
+      \ 'coc-omnisharp',
+      \ 'coc-json',
+      \ 'coc-lists',
+      \ 'coc-phpls',
+      \ 'coc-vetur',
+      \ 'coc-clangd',
+      \ 'coc-prettier',
+      \ 'coc-prisma',
+      \ 'coc-pyright',
+      \ 'coc-python',
+      \ 'coc-snippets',
+      \ 'coc-sourcekit',
+      \ 'coc-stylelint',
+      \ 'coc-tailwindcss',
+      \ 'coc-syntax',
+      \ 'coc-tasks',
+      \ 'coc-todolist',
+      \ 'coc-lua',
+      \ 'coc-translator',
+      \ 'coc-tsserver',
+      \ 'coc-tslint-plugin',
+      \ 'coc-vimlsp',
+      \ 'coc-yaml',
+      \ 'coc-vimtex',
+      \ 'coc-yank']
 
-  "\ 'coc-java',
+"\ 'coc-java',
 "backup test or have some erro
-  "\ 'coc-eslint',
-  "\ 'coc-ccls',
+      "\ 'coc-eslint',
+      "\ 'coc-ccls',
 "
 "
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
@@ -87,28 +87,28 @@ let g:coc_global_extensions = [
 "xmap <silent> <TAB> <Plug>(coc-range-select)
 " use <tab> for trigger completion and navigate to the next complete item
 "function! s:check_back_space() abort
-"	let col = col('.') - 1
-"	return !col || getline('.')[col - 1]	=~ '\s'
+" let col = col('.') - 1
+" return !col || getline('.')[col - 1]  =~ '\s'
 "endfunction
 inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <c-o> coc#refresh()
 function! Show_documentation()
-	call CocActionAsync('highlight')
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h '.expand('<cword>')
-	else
-		call CocAction('doHover')
-	endif
+  call CocActionAsync('highlight')
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
 endfunction
 nnoremap <LEADER>h :call Show_documentation()<CR>
 " set runtimepath^=~/.config/nvim/coc-extensions/coc-flutter-tools/
@@ -187,14 +187,19 @@ let g:instant_markdown_slow = 0
 let g:instant_markdown_autostart = 1
 "let g:instant_markdown_open_to_the_world = 1
 "let g:instant_markdown_allow_unsafe_content = 1
-"let g:instant_markdown_allow_external_content = 0 
+"let g:instant_markdown_allow_external_content = 0
 let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
 let g:instant_markdown_mathjax = 1
 let g:instant_markdown_autoscroll = 1
 let g:instant_markdown_browser = "chromium"
 let g:instant_markdown_port = 8888
 
-
+" ==
+" == md-img-paste
+" ==
+let g:mdip_imgdir = 'pic'
+let g:mdip_imgname='pic-'
+autocmd FileType markdown nnoremap <silent> <C-p> call mdip#MarkdownClipboardImage()<CR>
 "===
 " === vim-table-mode
 " === 自动矫正md表格格式
@@ -236,10 +241,10 @@ function! s:delete_buffers(lines)
 endfunction
 
 command! BD call fzf#run(fzf#wrap({
-  \ 'source': s:list_buffers(),
-  \ 'sink*': { lines -> s:delete_buffers(lines) },
-  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
-\ }))
+      \ 'source': s:list_buffers(),
+      \ 'sink*': { lines -> s:delete_buffers(lines) },
+      \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+      \ }))
 
 noremap <c-d> :BD<CR>
 
@@ -266,17 +271,17 @@ let g:Lf_PreviewCode = 1
 let g:Lf_ShowHidden = 1
 let g:Lf_ShowDevIcons = 1
 let g:Lf_CommandMap = {
-\   '<C-k>': ['<C-u>'],
-\   '<C-j>': ['<C-e>'],
-\   '<C-]>': ['<C-v>'],
-\   '<C-p>': ['<C-n>'],
-\}
+      \   '<C-k>': ['<C-u>'],
+      \   '<C-j>': ['<C-e>'],
+      \   '<C-]>': ['<C-v>'],
+      \   '<C-p>': ['<C-n>'],
+      \}
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
 let g:Lf_WildIgnore = {
-        \ 'dir': ['.git', 'vendor', 'node_modules'],
-        \ 'file': ['__vim_project_root', 'class']
-        \}
+      \ 'dir': ['.git', 'vendor', 'node_modules'],
+      \ 'file': ['__vim_project_root', 'class']
+      \}
 let g:Lf_UseMemoryCache = 0
 let g:Lf_UseCache = 0
 
@@ -323,10 +328,10 @@ let g:undotree_WindowLayout = 2
 let g:undotree_DiffpanelHeight = 8
 let g:undotree_SplitWidth = 24
 function g:Undotree_CustomMap()
-	nmap <buffer> u <plug>UndotreeNextState
-	nmap <buffer> e <plug>UndotreePreviousState
-	nmap <buffer> U 5<plug>UndotreeNextState
-	nmap <buffer> E 5<plug>UndotreePreviousState
+  nmap <buffer> u <plug>UndotreeNextState
+  nmap <buffer> e <plug>UndotreePreviousState
+  nmap <buffer> U 5<plug>UndotreeNextState
+  nmap <buffer> E 5<plug>UndotreePreviousState
 endfunc
 
 
@@ -369,8 +374,8 @@ let g:VM_maps["Redo"]               = '<C-r>'
 " ===
 noremap <LEADER>f :F  **/*<left><left><left><left><left>
 let g:far#mapping = {
-		\ "replace_undo" : ["l"],
-		\ }
+      \ "replace_undo" : ["l"],
+      \ }
 
 
 " ===
@@ -388,17 +393,17 @@ noremap <LEADER>a :call Calc()<CR>
 " ===
 " let g:bullets_set_mappings = 0
 let g:bullets_enabled_file_types = [
-			\ 'markdown',
-			\ 'text',
-			\ 'gitcommit',
-			\ 'scratch'
-			\]
+      \ 'markdown',
+      \ 'text',
+      \ 'gitcommit',
+      \ 'scratch'
+      \]
 
 
 " ===
 " === Vista.vim
 " ===
-noremap <LEADER>v :Vista!!<CR>
+noremap <LEADER>v :Vista<CR>
 noremap <c-t> :silent! Vista ocfinder coc<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 "let g:vista_default_executive = 'ctags'
@@ -406,9 +411,9 @@ let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
 let g:vista#renderer#enable_icon = 1
 let g:vista#renderer#icons = {
-\   "function": "\uf794",
-\   "variable": "\uf71b",
-\  }
+      \   "function": "\uf794",
+      \   "variable": "\uf71b",
+      \  }
 " function! NearestMethodOrFunction() abort
 " return get(b:, 'vista_nearest_method_or_function', '')
 " endfunction
@@ -438,8 +443,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']"silent! au BufEnter,BufRead,BufNewFile * silent! unmap <c-r>
 " Solve extreme insert-mode lag on macOS (by disabling autotrigger)
 augroup ultisnips_no_auto_expansin
-au!
-au VimEnter * au! UltiSnips_AutoTrigger
+  au!
+  au VimEnter * au! UltiSnips_AutoTrigger
 augroup END
 
 
@@ -479,13 +484,13 @@ set conceallevel=1
 "let g:vimtex_view_general_viewer = 'zathura'
 "let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 "let g:vimtex_view_general_opion s
-"\ = '-reuse-instance -forward-search @tex @line @pdf'
-"\ . ' -inverse-search "' . exepath(v:progpath)
-"\ . ' --servername' . v:servername
-"\ . ' --remote-send \"^<C-\^>^<C-n^>'
-"\ . ':execute ''drop '' . fnamescape(''\%f'')^<CR^)'
-"\ . ':\%l^<CR^>:normal\! zzzv^<CR^>'
-"\ . ':call remote_foreground('''.v:servername.''')^<CR^>^<CR^>\""'
+      "\ = '-reuse-instance -forward-search @tex @line @pdf'
+      "\ . ' -inverse-search "' . exepath(v:progpath)
+      "\ . ' --servername' . v:servername
+      "\ . ' --remote-send \"^<C-\^>^<C-n^>'
+      "\ . ':execute ''drop '' . fnamescape(''\%f'')^<CR^)'
+      "\ . ':\%l^<CR^>:normal\! zzzv^<CR^>'
+      "\ . ':call remote_foreground('''.v:servername.''')^<CR^>^<CR^>\""'
 "set conceallevel=0
 "let g:tex_conceal='abdmg'
 
@@ -510,21 +515,21 @@ noremap \\ :Calendar -view=clock -position=here<CR>
 let g:calendar_google_calendar = 0
 let g:calendar_google_task = 0
 augroup calendar-mappings
-	autocmd!
-	" diamond cursor
-	autocmd FileType calendar nmap <buffer> u <Plug>(calendar_up)
-	autocmd FileType calendar nmap <buffer> n <Plug>(calendar_left)
-	autocmd FileType calendar nmap <buffer> e <Plug>(calendar_down)
-	autocmd FileType calendar nmap <buffer> i <Plug>(calendar_right)
-	autocmd FileType calendar nmap <buffer> <c-u> <Plug>(calendar_move_up)
-	autocmd FileType calendar nmap <buffer> <c-n> <Plug>(calendar_move_left)
-	autocmd FileType calendar nmap <buffer> <c-e> <Plug>(calendar_move_down)
-	autocmd FileType calendar nmap <buffer> <c-i> <Plug>(calendar_move_right)
-	autocmd FileType calendar nmap <buffer> k <Plug>(calendar_start_insert)
-	autocmd FileType calendar nmap <buffer> K <Plug>(calendar_start_insert_head)
-	" unmap <C-n>, <C-p> for other plugins
-	autocmd FileType calendar nunmap <buffer> <C-n>
-	autocmd FileType calendar nunmap <buffer> <C-p>
+  autocmd!
+  " diamond cursor
+  autocmd FileType calendar nmap <buffer> u <Plug>(calendar_up)
+  autocmd FileType calendar nmap <buffer> n <Plug>(calendar_left)
+  autocmd FileType calendar nmap <buffer> e <Plug>(calendar_down)
+  autocmd FileType calendar nmap <buffer> i <Plug>(calendar_right)
+  autocmd FileType calendar nmap <buffer> <c-u> <Plug>(calendar_move_up)
+  autocmd FileType calendar nmap <buffer> <c-n> <Plug>(calendar_move_left)
+  autocmd FileType calendar nmap <buffer> <c-e> <Plug>(calendar_move_down)
+  autocmd FileType calendar nmap <buffer> <c-i> <Plug>(calendar_move_right)
+  autocmd FileType calendar nmap <buffer> k <Plug>(calendar_start_insert)
+  autocmd FileType calendar nmap <buffer> K <Plug>(calendar_start_insert_head)
+  " unmap <C-n>, <C-p> for other plugins
+  autocmd FileType calendar nunmap <buffer> <C-n>
+  autocmd FileType calendar nunmap <buffer> <C-p>
 augroup END
 
 
@@ -576,17 +581,18 @@ let g:go_doc_keywordprg_enabled = 0
 "let g:formatters_javascript = ['custom_js']
 "au BufWrite *.js :Autoformat
 augroup autoformat_settings
-	" autocmd FileType bzl AutoFormatBuffer buildifier
-	" autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
-	" autocmd FileType dart AutoFormatBuffer dartfmt
-	" autocmd FileType go AutoFormatBuffer gofmt
-	" autocmd FileType gn AutoFormatBuffer gn
-	" autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
-	autocmd FileType java AutoFormatBuffer google-java-format
-	" autocmd FileType python AutoFormatBuffer yapf
-	" Alternative: autocmd FileType python AutoFormatBuffer autopep8
-	" autocmd FileType rust AutoFormatBuffer rustfmt
-	" autocmd FileType vue AutoFormatBuffer prettier
+
+  " autocmd FileType bzl AutoFormatBuffer buildifier
+  " autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
+  " autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  " autocmd FileType gn AutoFormatBuffer gn
+  " autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  " autocmd FileType python AutoFormatBuffer yapf
+  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+  " autocmd FileType rust AutoFormatBuffer rustfmt
+  " autocmd FileType vue AutoFormatBuffer prettier
 augroup END
 
 
@@ -610,27 +616,27 @@ autocmd Filetype cs nnoremap <buffer> <LEADER>rn :OmniSharpRename<CR><C-N>:res +
 sign define OmniSharpCodeActions text=💡
 
 augroup OSCountCodeActions
-	autocmd!
-	autocmd FileType cs set signcolumn=yes
-	autocmd CursorHold *.cs call OSCountCodeActions()
+  autocmd!
+  autocmd FileType cs set signcolumn=yes
+  autocmd CursorHold *.cs call OSCountCodeActions()
 augroup END
 
 function! OSCountCodeActions() abort
-	if bufname('%') ==# '' || OmniSharp#FugitiveCheck() | return | endif
-	if !OmniSharp#IsServerRunning() | return | endif
-	let opts = {
-				\ 'CallbackCount': function('s:CBReturnCount'),
-				\ 'CallbackCleanup': {-> execute('sign unplace 99')}
-				\}
-	call OmniSharp#CountCodeActions(opts)
+  if bufname('%') ==# '' || OmniSharp#FugitiveCheck() | return | endif
+  if !OmniSharp#IsServerRunning() | return | endif
+  let opts = {
+        \ 'CallbackCount': function('s:CBReturnCount'),
+        \ 'CallbackCleanup': {-> execute('sign unplace 99')}
+        \}
+  call OmniSharp#CountCodeActions(opts)
 endfunction
 
 function! s:CBReturnCount(count) abort
-	if a:count
-		let l = getpos('.')[1]
-		let f = expand('%:p')
-		execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
-	endif
+  if a:count
+    let l = getpos('.')[1]
+    let f = expand('%:p')
+    execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
+  endif
 endfunction
 
 
@@ -727,7 +733,7 @@ noremap \p :echo expand('%:p')<CR>
 "set sessionoptions-=options
 "noremap sl :OpenSession<CR>
 "noremap sS :SaveSession<CR>
-"noremap ss :SaveSession 
+"noremap ss :SaveSession
 "noremap sc :SaveSession<CR>:CloseSession<CR>:q<CR>
 "noremap so :OpenSession default<CR>
 "noremap sD :DeleteSession<CR>
@@ -753,14 +759,14 @@ cnoreabbrev sw w suda://%
 " ===
 let g:vimspector_enable_mappings = 'HUMAN'
 function! s:read_template_into_buffer(template)
-	" has to be a function to avoid the extra space fzf#run insers otherwise
-	execute '0r $HOME/.config/nvim/sample_vimspector_json/'.a:template
+  " has to be a function to avoid the extra space fzf#run insers otherwise
+  execute '0r $HOME/.config/nvim/sample_vimspector_json/'.a:template
 endfunction
 command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
-			\   'source': 'ls -1 $HOME/.config/nvim/sample_vimspector_json',
-			\   'down': 20,
-			\   'sink': function('<sid>read_template_into_buffer')
-			\ })
+      \   'source': 'ls -1 $HOME/.config/nvim/sample_vimspector_json',
+      \   'down': 20,
+      \   'sink': function('<sid>read_template_into_buffer')
+      \ })
 noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
 sign define vimspectorBP text=☛ texthl=Normal
 sign define vimspectorBPDisabled text=☞ texthl=Normal
@@ -778,8 +784,8 @@ sign define vimspectorPC text=🔶 texthl=SpellBad
 " ===
 " === vim-markdown-toc
 " ===
-"let g:vmt_auto_update_on_save = 0
-"let g:vmt_dont_insert_fence = 1
+let g:vmt_auto_update_on_save = 1
+let g:vmt_dont_insert_fence = 1
 let g:vmt_cycle_list_item_markers = 1
 let g:vmt_fence_text = 'TOC'
 let g:vmt_fence_closing_text = '/TOC'
@@ -795,18 +801,18 @@ let g:rnvimr_draw_border = 0
 highlight link RnvimrNormal CursorLine
 nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
 let g:rnvimr_action = {
-            \ '<C-t>': 'NvimEdit tabedit',
-            \ '<C-x>': 'NvimEdit split',
-            \ '<C-v>': 'NvimEdit vsplit',
-            \ 'gw': 'JumpNvimCwd',
-            \ 'yw': 'EmitRangerCwd'
-            \ }
+      \ '<C-t>': 'NvimEdit tabedit',
+      \ '<C-x>': 'NvimEdit split',
+      \ '<C-v>': 'NvimEdit vsplit',
+      \ 'gw': 'JumpNvimCwd',
+      \ 'yw': 'EmitRangerCwd'
+      \ }
 let g:rnvimr_layout = { 'relative': 'editor',
-            \ 'width': &columns,
-            \ 'height': &lines,
-            \ 'col': 0,
-            \ 'row': 0,
-            \ 'style': 'minimal' }
+      \ 'width': &columns,
+      \ 'height': &lines,
+      \ 'col': 0,
+      \ 'row': 0,
+      \ 'style': 'minimal' }
 let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
 
 
@@ -912,6 +918,6 @@ exec "nohlsearch"
 
 " Open the _machine_specific.vim file if it has just been created
 if has_machine_specific_file == 0
-	exec "e $HOME/.config/nvim/_machine_specific.vim"
+  exec "e $HOME/.config/nvim/_machine_specific.vim"
 endif
 

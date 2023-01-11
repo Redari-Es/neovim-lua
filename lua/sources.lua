@@ -17,6 +17,8 @@
  "config.luasnip-config",
  'usermod.luasnip-key',
  'config.autopairs-conf',
+-- 'config.indent_blankline-conf',
+ 'config.mdpreview',
  'config.dap',
  "config.tree",
  --old-vim-config

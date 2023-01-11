@@ -132,6 +132,6 @@ func! CompileRunGcc()
 endfunc
 
 ]]
-vim.cmd 'source ~/.config/nvim/lua/plugins/plug-config.vim'
+vim.cmd 'source $HOME/.config/nvim/lua/plugins/plug-config.vim'
 -- require'./plugins/plug-config.vim'
 -- vim.cmd 'source ./plugins/plug.config.vim'

@@ -92,8 +92,9 @@ map('v','<LEADER>tt',':s/    /\\t/g',opts)
 -- Folding
 map('','<silent><LEADER>o','za',opts)
 -- Open up lazygit
-map('','\\g',':Git',opts)
-map('','<c-g>',':tabe<CR>:-tabmove<CR>:term lazygit<CR>',opts)
+vim.cmd [[noremap \g :Git]]
+map('','<c-g>',':term',opts)
+
 
 
 
