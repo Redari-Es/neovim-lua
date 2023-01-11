@@ -4,5 +4,8 @@ npminstall-debug.log
 tmp/
 demo.png
 _machine_specific.vim
+plugged/
+./packer.nvim/
 
-./*/*.git
+./**/.git
+*.git

@@ -74,7 +74,10 @@ use {
   'nvim-telescope/telescope-media-files.nvim',
   'nvim-telescope/telescope.nvim', tag = '0.1.0',
 -- or                            , branch = '0.1.x',
-  requires = { {'nvim-lua/plenary.nvim'} }
+  requires = { {'nvim-lua/plenary.nvim'},{"kdheepak/lazygit.nvim"} },
+  config = function() 
+    require("telescope").load_extension("lazygit")
+  end,
 }
 use 'folke/which-key.nvim'
 use {
@@ -134,7 +137,6 @@ use{
 --'tpope-vim-fugitive',
 'airblade/vim-gitgutter',
 'cohama/agit.vim',
-'kdheepak/lazygit.nvim',
 --AutoFormat
 'Chiel92/vim-autoformat',
  'google/vimcodefmt',
