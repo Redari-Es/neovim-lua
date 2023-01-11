@@ -1,0 +1,157 @@
+# TODO: PHP  <25-09-21, Redari-Es> #
+priority -10
+
+# php
+snippet php "start php"
+<?php
+${0:start coding!}
+?>
+endsnippet
+
+# br
+snippet br "newline" 
+"<br>" ${1};
+${0}
+endsnippet
+
+# echo 
+snippet echo "echo return none and faster than print()"
+echo "${0:text}";
+
+endsnippet
+
+# print
+snippet print "print() return 1 or false"
+print "${0:text,return T/F}";
+endsnippet
+
+#printf
+snippet printf "The output formatted string and added echo will return length of string"
+printf ("%${1:parameter}",$${2:variable});
+${0}
+endsnippet
+
+#sprintf()
+snippet sprintf "sprintf() return string itself must be through echo to output"
+echo sprintf ("%${1:parameter}",$${2:variable}");
+${0}
+endsnippet
+
+#var_dump() 
+snippet dump "return data type and value"
+echo var_dump($${1:variable}) ."<br>";
+${0}
+endsnippet
+
+#function()
+snippet fu "function" b
+function ${1:function_name}($${2:param}){
+	${0:statement}
+}
+$1();
+endsnippet
+
+#global
+snippet glo "Global variable"
+global $${1:varible};
+${0}
+endsnippet
+
+#static
+snippet sta ""
+static $${1:varible};
+${0}
+endsnippet
+
+# $ 
+snippet $4 ""
+$${1:varible_name} = ${2:value};
+${0}
+endsnippet
+
+# Eof
+snippet eof "Eof"
+echo <<<Eof
+${1:statement}
+Eof;
+${0}
+endsnippet
+
+# class
+snippet clas "class & object"
+class ${1:Class_Name} {
+	function ${2:Function_Name}($${3:param}){
+	return $$3;
+	}
+}
+$${4:} = new $1();
+endsnippet
+
+# array
+snippet arr "array" 
+$${1:Array_Name} = array(${2:index}=>"${3:value}"$0);
+endsnippet
+
+# =>
+snippet => "" 
+${1:index}=>"${2:value}",$0
+endsnippet
+
+# unset()
+snippet unset "" 
+unset($${1:varible=NULL});
+$0
+endsnippet
+
+# type
+snippet type "Force type conversion" 
+$${3:new} = (${2:type})$${1:old};
+$0
+endsnippet
+
+# a += b a = a+b
+snippet =
+$${1:${VISUAL}} ${2:${VISUAL}}= ${3:VISUAL};
+$0
+endsnippet
+
+#condition
+snippet if "if else" b
+if(${1:${VISUAL}}){
+	${2}
+}else{
+	${3}
+}
+$0
+endsnippet
+
+#
+snippet elf "elseif" b
+elseif($1){
+	$2
+}
+endsnippet
+
+# for plusplus
+snippet for "loop" b
+for($${1:${VISUAL:valuename}};$$1<10;$$1++){
+	${2:${VISUAL:}}
+$0
+endsnippet
+
+# func
+snippet func "function" b
+function ${1:${VISUAL:Function_Name}}{
+	${2:${VISUAL:TODO}}
+	return ${3:${VISUAL}};
+}
+$0
+endsnippet
+
+# header
+snippet header "header" b
+header('Content-type:text/html;charset=UTF-8');
+$0
+endsnippet
+
+extends html
