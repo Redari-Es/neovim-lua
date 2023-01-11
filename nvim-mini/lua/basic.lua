@@ -83,7 +83,7 @@ end
 -- cannot2lua
 vim.cmd [[
 set re=0
---set shell=zsh\ -i
+set shell=zsh\ -i
 syntax enable
 "触摸板
 "set mouse=nicr
