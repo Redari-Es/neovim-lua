@@ -207,7 +207,7 @@ require('packer').init({
           use('mzlogin/vim-markdown-toc', { ['for']='gitignore', 'markdown', 'vim-plug' }),
           -- Find & Replace
           use('brooth/far.vim', { ['on']= 'F', 'Far', 'Fardo' }),
-          use('neoclide/coc.nvim',{['branch']='release'})
+          --  use('neoclide/coc.nvim',{['branch']='release'})
           ----Plug('neoclide/coc.nvim',{['branch']='release'})
           --old-vim-plug-end
         }

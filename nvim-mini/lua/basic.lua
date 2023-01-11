@@ -100,7 +100,15 @@ filetype indent on
 "set ambiwidth=double
 "mutt
 au BufRead /tmp/mutt-* set tw=72  ""tw=zh
+set guicursor=n-c-v:ver50-ncvCursor
 ""let g:indentLine_concealcursor = ''
+""显示当前的行和列
+""set cursorline cursorcolumn
+""设置行列的颜色
+"":highlight CursorLine guibg=lightblue ctermbg=lightgray
+""改变光标的前景色和背景色
+"":highlight Cursor guifg=white guibg=black
+"":highlight iCursor guifg=white guibg=steelblue
 ]]
 
 
