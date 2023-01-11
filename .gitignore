@@ -6,5 +6,5 @@ README-legacy.md
 tmp/
 demo.png
 _machine_specific.vim
-./plugged/*/.git
 
+*.git
