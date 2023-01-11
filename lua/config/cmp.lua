@@ -4,6 +4,7 @@
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 
+--
 cmp.setup({
   onattach = onattach,
     snippet = {
@@ -12,7 +13,7 @@ cmp.setup({
         end,
     },
     --[[
-    mapping = cmp.mapping.preset.insert({
+    mapping = cmp.mapping.preset.insert( {
         ["<C-u>"] = cmp.mapping.select_prev_item(),
         ["<C-e>"] = cmp.mapping.select_next_item(),
         ["<C-Space>"] = cmp.mapping.complete(),
@@ -23,10 +24,10 @@ cmp.setup({
         }),
         ["<C-e>"] = cmp.mapping(function()
             luasnip.jump(1)
-        end, { "k", "s" }),
+        end, { "i", "s" }),
         ["<C-u>"] = cmp.mapping(function()
             luasnip.jump(-1)
-        end, { "k", "s" }),
+        end, { "i", "s" }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -35,7 +36,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { "k", "s" }),
+        end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -44,18 +45,24 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { "k", "s" }),
+        end, { "i", "s" }),
     }),
     --]]
+    
     sources = cmp.config.sources({
         { name = "luasnip" },
         { name = "nvim_lsp" },
         { name = "buffer" },
-        { name = "path" },
+    {name = "look"},
+    {name = "path"},
+    {name = "cmp_tabnine"},
+   -- {name = "calc"},
+    {name = "spell"},
+    {name = "emoji"}
     }),
 
 })
-
+--
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ "/", "?" }, {
    -- mapping = cmp.mapping.preset.cmdline(),
@@ -84,3 +91,67 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 vim.cmd([[
 autocmd FileType markdown lua require('cmp').setup.buffer { enabled = true }
 ]])
+
+
+--[[
+cmp.setup {
+  formatting = {
+    format = cmpFormat1
+  },
+  snippet = {
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body)
+    end
+  },
+  mapping = {
+    ["<C-u>"] = cmp.mapping.select_prev_item(),
+    ["<C-e>"] = cmp.mapping.select_next_item(),
+    ["<C-n>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-i>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-y>"] = cmp.mapping.close(),
+    ["<CR>"] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false
+    },
+    ["<Tab>"] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+      else
+        fallback()
+      end
+    end,
+    ["<S-Tab>"] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+      else
+        fallback()
+      end
+    end
+  },
+  sources = {
+    {name = "nvim_lsp"},
+    {name = "luasnip"}, --{name = "nvim_lua"},
+    {
+      name = "buffer",
+      options = {
+        get_bufnrs = function()
+          return vim.api.nvim_list_bufs()
+        end
+      }
+    },
+    {name = "look"},
+    {name = "path"},
+    {name = "cmp_tabnine"},
+   -- {name = "calc"},
+    {name = "spell"},
+    {name = "emoji"}
+  }
+}
+--]]
+
+

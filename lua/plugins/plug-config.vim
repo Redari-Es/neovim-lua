@@ -59,7 +59,6 @@ let g:coc_global_extensions = [
       \ 'coc-prettier',
       \ 'coc-prisma',
       \ 'coc-pyright',
-      \ 'coc-python',
       \ 'coc-snippets',
       \ 'coc-sourcekit',
       \ 'coc-stylelint',
@@ -67,7 +66,7 @@ let g:coc_global_extensions = [
       \ 'coc-syntax',
       \ 'coc-tasks',
       \ 'coc-todolist',
-      \ 'coc-lua',
+      \ 'coc-sumneko-lua',
       \ 'coc-translator',
       \ 'coc-tsserver',
       \ 'coc-tslint-plugin',
@@ -76,7 +75,9 @@ let g:coc_global_extensions = [
       \ 'coc-vimtex',
       \ 'coc-yank']
 
-"\ 'coc-java',
+      "\ 'coc-python',
+      "\ 'coc-lua',
+      "\ 'coc-java',
 "backup test or have some erro
       "\ 'coc-eslint',
       "\ 'coc-ccls',
