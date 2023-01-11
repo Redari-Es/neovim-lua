@@ -1,0 +1,8 @@
+./vim-backup/
+./init0.vim
+./npminstall-debug.log
+./README_cn.md/
+./README-legacy.md/
+./tmp/
+./demo.png/
+./_machine_specific.vim
