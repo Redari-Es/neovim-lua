@@ -13,7 +13,8 @@
  'config.lsp-saga',
  "config.lsp-installer",
  'config.lsp-config',
- "config.cmp",
+ --"config.cmp",
+ 'config.nvim-cmp',
  "config.luasnip-config",
  'usermod.luasnip-key',
  'config.autopairs-conf',
@@ -22,6 +23,7 @@
  'config.dap',
  "config.tree",
  --old-vim-config
+ --
  'vim-config',
  
  -- testing

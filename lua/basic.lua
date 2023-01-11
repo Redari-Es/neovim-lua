@@ -69,7 +69,7 @@ local set = {
   virtualedit = 'block',
   lazyredraw = true,
   --
-  --history = 1000,
+  history = 1000,
 
 
 

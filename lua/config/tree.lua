@@ -13,7 +13,7 @@ vim.g.loaded_netrwPlugin = 1
 
 -- OR setup with some options
 --
-    --[[
+--[[
 require("nvim-tree").setup{
   sort_by = "case_sensitive",
 
@@ -32,8 +32,6 @@ require("nvim-tree").setup{
     dotfiles = true,
   },
 }
-}
-  --]]
 --]]
 -- empty setup using defaults
 --[[

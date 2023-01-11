@@ -2,11 +2,24 @@
 将原本用vimscript的配置更换成了使用lua的配置，并解决了之前更新后尚未解决的错误
 
 
-# lua 配置
+## 说明
 
-## 目录
+### bug
 
-默认配置可使用 
+- 旧nvim中编辑markdown实时渲染需要手动换行敲两个空格或者在加一行的问题，回车不能自动换行，应该与EOF有关。  
+- nvim中的字符显示，中文只能显示半边，设置了全宽也没用，待解决, 英语正常  
+- 回车会自动输入一行![bug](pic/autopair-0) 
+在编辑lua和一些文件时会出现，最后在[issues](https://github.com/windwp/nvim-autopairs/issues/93) 中找到
+![fix](pic/autopair-1) 
+删掉插件vim-close 另一个同autopairl类似的插件，它在vimscript中也设置了\<CR> 
+
+- 准备配置下lazygit 本来很好看的但更新后没了，原本使用的是theniceboy的，现在看能不能自已配置一个颜色出来。
+
+## lua 配置
+
+### 目录
+
+默认配置可使用
 
 > init.lua
 > init.vim (目前还是这个)
@@ -18,13 +31,13 @@
  vim.cmd("set numbers")
 方法2
  vim.o.number=true
-方法3 
+方法3
 用for 迭代
 
 ```lua
 vim.opt.shortmess:append 'c'
 for k, v in pairs(local name) do
-	vim.opt[k]=v
+  vim.opt[k]=v
 end
 ```
 
@@ -69,6 +82,6 @@ end
 > git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
- [packer.lua](https://github.com/wbthomason/packer.nvim) 
+ [packer.lua](https://github.com/wbthomason/packer.nvim)
 
 

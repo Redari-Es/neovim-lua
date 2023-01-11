@@ -11,8 +11,7 @@ cmp.setup({
             luasnip.lsp_expand(args.body)
         end,
     },
-    --
-  --[[
+    --[[
     mapping = cmp.mapping.preset.insert({
         ["<C-u>"] = cmp.mapping.select_prev_item(),
         ["<C-e>"] = cmp.mapping.select_next_item(),
@@ -48,7 +47,6 @@ cmp.setup({
         end, { "k", "s" }),
     }),
     --]]
-    --
     sources = cmp.config.sources({
         { name = "luasnip" },
         { name = "nvim_lsp" },
