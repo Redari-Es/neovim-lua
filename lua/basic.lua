@@ -20,6 +20,7 @@ local set = {
   cursorline = true,
   cursorcolumn = false,
   --
+  backspace = '2',
   showmode = true,
   mouse = 'a',
   ignorecase = true,
