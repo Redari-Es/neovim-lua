@@ -1,7 +1,7 @@
 vim-backup/
 init0.vim
 npminstall-debug.log
-tmp/
+tmp/*
 demo.png
 _machine_specific.vim
 plugged/

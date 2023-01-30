@@ -96,11 +96,11 @@ require('packer').init({
         -- 'lukas-reineke/indent-blankline.nvim',
       }
 
-
       -- vim-plug move to packer
       use{
-
-
+        --database
+        'tpope/vim-dadbod',
+        'kristijanhusak/vim-dadbod-ui',
         'tpope/vim-surround',
         'jiangmiao/auto-pairs',
         'tpope/vim-repeat',
