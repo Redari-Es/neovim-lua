@@ -71,6 +71,7 @@ require('packer').init({
 
     -- telecope
     use {
+      'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-media-files.nvim',
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
       -- or                            , branch = '0.1.x',

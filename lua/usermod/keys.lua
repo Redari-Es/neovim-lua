@@ -94,7 +94,6 @@ map('','<silent><LEADER>o','za',opts)
 -- Open up lazygit
 vim.cmd [[noremap \g :Git
 noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
-
 ]]
 
 
