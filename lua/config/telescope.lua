@@ -1,5 +1,5 @@
 
---[[ vima 
+--[[ vima
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -22,32 +22,59 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 --
 
 local telescope = require("telescope")
-local action_layout = require("telescope.actions.layout")
+--local action_layout = require("telescope.actions.layout")
 telescope.setup({
-    defaults = {
-        borderchars = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" },
-        mappings = {
-            n = {
-                ["<M-p>"] = action_layout.toggle_preview
-            },
-            i = {
-                ["<M-p>"] = action_layout.toggle_preview
-            },
-        },
+  defaults = {
+    borderchars = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" },
+    mappings = {
+      n = {
+        ["<M-p>"] = action_layout.toggle_preview
+      },
+      i = {
+        ["<M-p>"] = action_layout.toggle_preview
+      },
     },
+  },
+  bottom_pane = {
+    height = 25,
+    preview_cutoff = 120,
+    prompt_position = "top"
+  },
+  center = {
+    height = 0.4,
+    preview_cutoff = 40,
+    prompt_position = "top",
+    width = 0.5
+  },
+  cursor = {
+    height = 0.9,
+    preview_cutoff = 40,
+    width = 0.8
+  },
+  horizontal = {
+    height = 0.9,
+    preview_cutoff = 120,
+    prompt_position = "bottom",
+    width = 0.8
+  },
+  vertical = {
+    height = 0.9,
+    preview_cutoff = 40,
+    prompt_position = "bottom",
+    width = 0.8},
     extensions = {
-        media_files = {
-            filetypes = { "png", "webp", "jpg", "jpeg" },
-            find_cmd = "rg",
-        },
+      media_files = {
+        filetypes = { "png", "webp", "jpg", "jpeg" },
+        find_cmd = "rg",
+      },
     },
-})
-telescope.load_extension("media_files")
+  })
+  telescope.load_extension("media_files")
 
-local opt = { noremap = true, silent = true }
--- mappings
-vim.keymap.set("n", "<Leader>sf", require("telescope.builtin").find_files, opt)
-vim.keymap.set("n", "<Leader>sg", require("telescope.builtin").live_grep, opt)
-vim.keymap.set("n", "<Leader>sb", require("telescope.builtin").buffers, opt)
-vim.keymap.set("n", "<Leader>sh", require("telescope.builtin").help_tags, opt)
-vim.keymap.set("n", "<Leader>sp", require("telescope").extensions.media_files.media_files, opt)
+  local opt = { noremap = true, silent = true }
+  -- mappings
+  vim.keymap.set("n", "<Leader>sf", require("telescope.builtin").find_files, opt)
+  vim.keymap.set("n", "<Leader>sg", require("telescope.builtin").live_grep, opt)
+  vim.keymap.set("n", "<Leader>sb", require("telescope.builtin").buffers, opt)
+  vim.keymap.set("n", "<Leader>sh", require("telescope.builtin").help_tags, opt)
+  vim.keymap.set("n", "<Leader>sp", require("telescope").extensions.media_files.media_files, opt)

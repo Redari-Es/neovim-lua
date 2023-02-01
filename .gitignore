@@ -1,10 +1,12 @@
 vim-backup/
 init0.vim
-npminstall-debug.log
+*.log
+*.json
 tmp/*
 demo.png
 _machine_specific.vim
 plugged/
+
 ./packer.nvim/
 
 ./**/.git

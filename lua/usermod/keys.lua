@@ -67,10 +67,11 @@ map('','I','$',opts)
 map('','W','8w',opts)
 map('','B','8b',opts)
 --
-map('','Q',':q<CR>',opts)
+map('','Q',':q!<CR>',opts)
 map('','<C-q>',':qa<CR>',opts)
 map('','S',':w<CR>',opts)
 map('','<LEADER>rc',':e $HOME/.config/nvim/init.vim<CR>',opts)
+map('','<LEADER>ra',':e $HOME/.config/nvim/init.lua<CR>',opts)
 map('','<LEADER>st',':Startify<CR>',opts)
 -- undo operations
 map('','l','u',opts)
@@ -160,8 +161,8 @@ map('','tmi',':+tabmove<CR>',opts)
 map('i','<C-u>','<ESC>lx$p',opts)
 -- Opening a terminal window
 map('','<LEADER>/',':set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>',opts)
--- Press space twice to jump to the next '<++>' and edit it
-map('','<LEADER><Leader>','<Esc>/<++><CR>:nohlsearch<CR>c4l',opts)
+-- Press space twice to jump to the next '    ' and edit it
+map('','<LEADER><Leader>','<Esc>/<CR>:nohlsearch<CR>c4l',opts)
 -- Spelling Check with <space>sc
 map('','<LEADER>sc','set spell!<CR>',opts)
 --

@@ -10,7 +10,7 @@ local array = {
   -- config
   'config.lsp-saga',
   'config.lsp-installer',
-  'config.lsp-config',
+  --'config.lsp-config',
   'config.cmp',
   --'config.nvim-cmp',
   'config.luasnip-config',

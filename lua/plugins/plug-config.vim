@@ -45,7 +45,6 @@ let g:coc_global_extensions = [
       \ 'coc-gitignore',
       \ 'coc-go',
       \ 'coc-godot',
-      \ 'coc-html',
       \ 'coc-htmldjango',
       \ 'coc-css',
       \ 'coc-html-css-support',
@@ -71,7 +70,6 @@ let g:coc_global_extensions = [
       \ 'coc-tasks',
       \ 'coc-todolist',
       \ 'coc-sumneko-lua',
-      \ 'coc-lua',
       \ 'coc-translator',
       \ 'coc-tsserver',
       \ 'coc-tslint-plugin',
@@ -79,6 +77,8 @@ let g:coc_global_extensions = [
       \ 'coc-vimtex',
       \ 'coc-yank']
 
+"\ 'coc-lua',
+"\ 'coc-html',
 "\ 'coc-python',
 "\ 'coc-java',
 "\ 'coc-gocode',
@@ -197,13 +197,14 @@ let g:instant_markdown_autostart = 1
 let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
 let g:instant_markdown_mathjax = 1
 let g:instant_markdown_autoscroll = 1
-let g:instant_markdown_browser = "chromium"
-let g:instant_markdown_port = 8888
+"let g:instant_markdown_browser = "chromium"
+let g:instant_markdown_browser = "surf"
+let g:instant_markdown_port = 8880
 
 " ==
 " == md-img-paste
 " ==
-let g:mdip_imgdir = 'pic'
+let g:mdip_imgdir = './pic'
 let g:mdip_imgname='pic-'
 autocmd FileType markdown nnoremap <silent> <C-p> call mdip#MarkdownClipboardImage()<CR>
 "===

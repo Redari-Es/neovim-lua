@@ -73,7 +73,7 @@ require('packer').init({
     use {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-media-files.nvim',
-      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      'nvim-telescope/telescope.nvim', tag = '0.1.1',
       -- or                            , branch = '0.1.x',
       requires = { {'nvim-lua/plenary.nvim'},{"kdheepak/lazygit.nvim"} },
       config = function()
@@ -150,7 +150,7 @@ require('packer').init({
         'othree/html5.vim',
         'alvan/vim-closetag',
         'HerringtonDarkholme/yats.vim',
-        'jaxbot/browserlink.vim',
+        --'jaxbot/browserlink.vim',
         'posva/vim-vue',
         'leafgarland/typescript-vim',
         'MaxMEllon/vim-jsx-pretty',

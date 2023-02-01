@@ -29,7 +29,8 @@ local array = {
 
   -- testing
   -- "config.treesitter-config",
-  -- "config.telescope",
+  --  "config.telescope",
+  "config.telescope-conf"
   -- "config.mdpreview",
 }
 for k,v in pairs(array) do
