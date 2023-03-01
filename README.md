@@ -6,14 +6,14 @@
 
 ### bug
 
-- 旧nvim中编辑markdown实时渲染需要手动换行敲两个空格或者在加一行的问题，回车不能自动换行，应该与EOF有关。  
-- nvim中的字符显示，中文只能显示半边，设置了全宽也没用，待解决, 英语正常  
-- 回车会自动输入一行![bug](pic/autopair-0) 
+- 旧nvim中编辑markdown实时渲染需要手动换行敲两个空格或者在加一行的问题，回车不能自动换行，应该与EOF有关。
+- nvim中的字符显示，中文只能显示半边，设置了全宽也没用，待解决, 英语正常
+- 回车会自动输入一行![bug](pic/autopair-0)
 在编辑lua和一些文件时会出现，最后在[issues](https://github.com/windwp/nvim-autopairs/issues/93) 中找到
-![fix](pic/autopair-1) 
-删掉插件vim-close 另一个同autopairl类似的插件，它在vimscript中也设置了\<CR> 
+![fix](pic/autopair-1)
+删掉插件vim-close 另一个同autopairl类似的插件，它在vimscript中也设置了\<CR>
 
-- 准备配置下lazygit 本来很好看的但更新后没了，原本使用的是theniceboy的，现在看能不能自已配置一个颜色出来。
+- 准备配置下lazygit ，原本使用的是theniceboy的，现在看能不能自已配置一个颜色出来。
 
 ## lua 配置
 
@@ -21,8 +21,14 @@
 
 默认配置可使用
 
-> init.lua
-> init.vim (目前还是这个)
+| 目录                        | 说明                                                   |
+|-----------------------------|--------------------------------------------------------|
+| init.lua                    | 配置                                                   |
+| init.vim                    | (目前还是这个)只是稍微用下，有空换成上面的             |
+| lua/                        | 关于lua的配置存放在这里                                |
+| lua/vim-config.lua          | 部分coc                                                |
+| lua/plugins/plug-config.vim | 原旧的配置                                             |
+| ./nvim-mini                 | 简单化的配置，用于服务器使用（目前ui显示有冲突，待解决 |
 
 
 在编辑时可以用nvim -u config 来更换配置

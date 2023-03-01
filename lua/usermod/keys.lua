@@ -162,7 +162,7 @@ map('i','<C-u>','<ESC>lx$p',opts)
 -- Opening a terminal window
 map('','<LEADER>/',':set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>',opts)
 -- Press space twice to jump to the next '    ' and edit it
-map('','<LEADER><Leader>','<Esc>/<CR>:nohlsearch<CR>c4l',opts)
+map('','<LEADER><LEADER>','<Esc>/<++><CR>:nohlsearch<CR>c4l',opts)
 -- Spelling Check with <space>sc
 map('','<LEADER>sc','set spell!<CR>',opts)
 --

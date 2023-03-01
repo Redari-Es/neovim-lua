@@ -207,10 +207,21 @@ let g:instant_markdown_autoscroll = 1
 let g:instant_markdown_browser = "surf"
 let g:instant_markdown_port = 8880
 
+
+" ===
+" === vim-markdown-toc
+" ===
+let g:vmt_auto_update_on_save = 1
+let g:vmt_dont_insert_fence = 1
+let g:vmt_cycle_list_item_markers = 1
+let g:vmt_fence_text = 'TOC'
+let g:vmt_fence_closing_text = 'TOC'
+"let g:vmt_cycle_list_item_markers = 1
+
 " ==
 " == md-img-paste
 " ==
-let g:mdip_imgdir = './pic'
+let g:mdip_imgdir = 'pic'
 let g:mdip_imgname='pic-'
 autocmd FileType markdown nnoremap <silent> <C-p> call mdip#MarkdownClipboardImage()<CR>
 "===
@@ -600,9 +611,9 @@ augroup autoformat_settings
   " autocmd FileType bzl AutoFormatBuffer buildifier
   " autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
   " autocmd FileType dart AutoFormatBuffer dartfmt
-  " autocmd FileType go AutoFormatBuffer gofmt
+  "  autocmd FileType go AutoFormatBuffer gofmt
   " autocmd FileType gn AutoFormatBuffer gn
-  " autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
   autocmd FileType java AutoFormatBuffer google-java-format
   " autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
@@ -795,15 +806,6 @@ sign define vimspectorPC text=🔶 texthl=SpellBad
 "noremap <LEADER>rs :ReplSend<CR><C-w><C-l>a<CR><C-\><C-N><C-w><C-h>
 "noremap <LEADER>rt :ReplStop<CR>
 
-
-" ===
-" === vim-markdown-toc
-" ===
-let g:vmt_auto_update_on_save = 1
-let g:vmt_dont_insert_fence = 1
-let g:vmt_cycle_list_item_markers = 1
-let g:vmt_fence_text = 'TOC'
-let g:vmt_fence_closing_text = '/TOC'
 
 
 " ===

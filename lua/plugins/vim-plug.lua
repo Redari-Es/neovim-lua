@@ -24,6 +24,7 @@ Plug ('puremourning/vimspector', {['do']= './install_gadget.py --enable-c --enab
 Plug('neoclide/coc.nvim',{['branch']='release'})
 -- Plug('neoclide/coc.nvim')
 Plug('SirVer/ultisnips')
+--Plug('alvan/vim-closetag')
 
 --Plug('theniceboy/vim-deus')
 --[[

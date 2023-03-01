@@ -22,13 +22,14 @@ local array = {
   'config.mdpreview',
   'config.dap',
   "config.tree",
-  'config.go',
+  --'config.go',
+  --'config.golsp',
   --old-vim-config
   --
   'vim-config',
 
   -- testing
-  -- "config.treesitter-config",
+  --"config.treesitter-config",
   --  "config.telescope",
   "config.telescope-conf"
   -- "config.mdpreview",

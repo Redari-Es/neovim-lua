@@ -30,14 +30,22 @@ let g:terminal_color_14 = '#9AEDFE'
 
 vim.opt.termguicolors = true
 vim.cmd [[
-    
-    syntax enable
-    "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-     colorscheme deus
-    "color deus
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    hi NonText ctermfg = gray guifg = grey10
-    hi SpecialKey ctermfg = blue guifg = grey70
+
+syntax enable
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme deus
+"color deus
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+hi NonText ctermfg = gray guifg = grey10
+hi SpecialKey ctermfg = blue guifg = grey70
+"set CursorLine color
+""hi CursorLine guifg = #ff770f
+""hi CursorLine guifg = #42A5F5
+"" set CursorLineNr color
+hi CursorLineNr guifg = #ff770f
+
+""
+
 
 "let background=dark
 "let ayucolor="mirage"
@@ -54,7 +62,7 @@ vim.cmd [[
 "color xcodelighthc
 "set background=light
 "set cursorcolumn
-    
+
 ]]
 
 

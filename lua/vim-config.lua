@@ -119,6 +119,9 @@ if has('persistent_undo')
     set splitbelow
     :sp
     :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+  elseif &filetype == 'jsp'
+    :sp
+    :term surf "localhost:8900/jsp/%<.jsp" &
   elseif &filetype == 'java'
     set splitbelow
     :sp
