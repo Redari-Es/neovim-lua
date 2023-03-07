@@ -44,7 +44,7 @@ local on_attach = function(_, bufnr)
 end
 
 
-local servers = {'clangd','gopls' ,'pyright', 'tsserver' ,'html'}
+local servers = {'clangd','gopls' ,'pyright', 'tsserver' ,'html',}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup( {
     on_attach = on_attach,
@@ -53,6 +53,7 @@ for _, lsp in ipairs(servers) do
 end
 
 local luasnip = require 'luasnip'
+
 --[[
 local cmp = require 'cmp'
 cmp.setup {

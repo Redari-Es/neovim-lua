@@ -1,7 +1,7 @@
 ##Java-snippets
 
 #println
-snippet st "System.out.println" 
+snippet st "System.out.println"
 System.out.println("$1");
 endsnippet
 
@@ -17,8 +17,12 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner i = new Scanner(System.in);
 		int x=i.nextInt();
-		//code	
+		//code
 		$0
 }}
 endsnippet
 
+snippet print "out.println|printf|print"
+out.println(${1})
+$0
+endsnippet

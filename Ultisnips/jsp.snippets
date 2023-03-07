@@ -1,5 +1,11 @@
-extend html
+priority -30
 
-snippets jsp "jsp code"
-% ${1} %
-endsnipets
+extends java
+
+
+snippet jsp "jsp code"
+<%
+${1}
+%>
+$0
+endsnippet

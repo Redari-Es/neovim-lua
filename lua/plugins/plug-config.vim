@@ -88,7 +88,7 @@ let g:coc_global_extensions = [
 "\ 'coc-python',
 "\ 'coc-java',
 "\ 'coc-gocode',
-"\ 'coc-picgo',
+"\'coc-picgo',
 "backup test or have some erro
       "\ 'coc-eslint',
       "\ 'coc-ccls',
@@ -613,7 +613,7 @@ augroup autoformat_settings
   " autocmd FileType dart AutoFormatBuffer dartfmt
   "  autocmd FileType go AutoFormatBuffer gofmt
   " autocmd FileType gn AutoFormatBuffer gn
-  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  "  autocmd FileType html,css,sass,scss,less,json,jsp AutoFormatBuffer "js-beautify
   autocmd FileType java AutoFormatBuffer google-java-format
   " autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
