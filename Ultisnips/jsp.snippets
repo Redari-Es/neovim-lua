@@ -1,6 +1,6 @@
 priority -30
 
-extends java
+extends java,html
 
 
 snippet jsp "jsp code"
@@ -9,3 +9,8 @@ ${1}
 %>
 $0
 endsnippet
+
+snippet utf "support the chinese language" -b
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>$0
+endsnippet
+
