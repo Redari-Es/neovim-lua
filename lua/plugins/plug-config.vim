@@ -606,7 +606,9 @@ let g:go_doc_keywordprg_enabled = 0
 "let g:formatters_javascript = ['custom_js']
 "au BufWrite *.js :Autoformat
 au BufWrite * :Autoformat
+"au BufWrite *.jsp g:AutoFormatBuffer google-java-format
 augroup autoformat_settings
+
 
   " autocmd FileType bzl AutoFormatBuffer buildifier
   " autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
@@ -614,7 +616,7 @@ augroup autoformat_settings
   "  autocmd FileType go AutoFormatBuffer gofmt
   " autocmd FileType gn AutoFormatBuffer gn
   "  autocmd FileType html,css,sass,scss,less,json,jsp AutoFormatBuffer "js-beautify
-  autocmd FileType jsp,java AutoFormatBuffer google-java-format
+  autocmd FileType java AutoFormatBuffer google-java-format
   " autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
   " autocmd FileType rust AutoFormatBuffer rustfmt
