@@ -34,7 +34,7 @@ if has('persistent_undo')
   "设置默认储存文件夹。这里表示储存在当前文档所在文件夹下的'pic'文件夹下，相当于 ./pic/
   let g:mdip_imgdir = 'pic'
   "设置默认图片名称。当图片名称没有给出时，使用默认图片名称
-  let g:mdip_imgname = 'image'
+  let g:mdip_imgname = 'pic'
   "设置快捷键，个人喜欢 Ctrl+p 的方式，比较直观
   autocmd FileType markdown nnoremap <silent> <C-p> :call mdip#MarkdownClipboardImage()<CR>F%i
 
@@ -105,10 +105,16 @@ if has('persistent_undo')
     :term web "127.0.0.1:8080/PHP/%<.php"&
   elseif &filetype == 'html'
     :sp
-    silent! :term surf %
-    ""silent!   exec "!".g:mkdp_browser." % &"
+    silent! :term web %<.html &
+    "silent! :term surf %<.html &
+    "silent!   exec "!".g:mkdp_browser." % &"
   elseif &filetype == 'markdown'
-    exec "InstantMarkdownPreview"
+    ""exec "InstantMarkdownPreview"
+    exec "MarkdownPreview"
+  elseif &filetype =='dbout'
+    set splitbelow
+    :sp
+    :res -5
   elseif &filetype == 'tex'
     silent! exec "VimtexStop"
     silent! exec "VimtexCompile"
@@ -121,12 +127,13 @@ if has('persistent_undo')
     :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
   elseif &filetype == 'jsp'
     :sp
-    :term surf "localhost:8900/jsp/%<.jsp" &
+    :term web "127.0.1:8900/jsp/%<.jsp" &
   elseif &filetype == 'java'
     set splitbelow
     :sp
     :res -5
     term javac % && time java %<
+  else
     endif
     endfunc
     ]]

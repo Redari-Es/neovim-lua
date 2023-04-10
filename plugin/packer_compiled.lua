@@ -84,10 +84,50 @@ _G.packer_plugins = {
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/agit.vim",
     url = "https://gitclone.com/github.com/cohama/agit.vim"
   },
+  antovim = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/antovim",
+    url = "https://gitclone.com/github.com/theniceboy/antovim"
+  },
   ["any-jump.vim"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/any-jump.vim",
     url = "https://gitclone.com/github.com/pechorin/any-jump.vim"
+  },
+  ["argtextobj.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/argtextobj.vim",
+    url = "https://gitclone.com/github.com/theniceboy/argtextobj.vim"
+  },
+  ["asyncrun.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/asyncrun.vim",
+    url = "https://gitclone.com/github.com/skywind3000/asyncrun.vim"
+  },
+  ["asynctasks.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/asynctasks.vim",
+    url = "https://gitclone.com/github.com/skywind3000/asynctasks.vim"
+  },
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://gitclone.com/github.com/jiangmiao/auto-pairs"
+  },
+  ["bullets.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/bullets.vim",
+    url = "https://gitclone.com/github.com/dkarter/bullets.vim"
+  },
+  ["calendar.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/calendar.vim",
+    url = "https://gitclone.com/github.com/itchyny/calendar.vim"
+  },
+  ["clever-f.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/clever-f.vim",
+    url = "https://gitclone.com/github.com/rhysd/clever-f.vim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -159,10 +199,20 @@ _G.packer_plugins = {
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/guihua.lua",
     url = "https://gitclone.com/github.com/ray-x/guihua.lua"
   },
-  ["lazygit.nvim"] = {
+  ["html5.vim"] = {
     loaded = true,
-    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
-    url = "https://gitclone.com/github.com/kdheepak/lazygit.nvim"
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/html5.vim",
+    url = "https://gitclone.com/github.com/othree/html5.vim"
+  },
+  indentLine = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/indentLine",
+    url = "https://gitclone.com/github.com/Yggdroot/indentLine"
+  },
+  ["jsonc.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/jsonc.vim",
+    url = "https://gitclone.com/github.com/neoclide/jsonc.vim"
   },
   ["lspsaga.nvim"] = {
     config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\flspsaga\frequire\0" },
@@ -176,6 +226,16 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
     url = "https://gitclone.com/github.com/iamcco/markdown-preview.nvim"
+  },
+  ["mathjax-support-for-mkdp"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/mathjax-support-for-mkdp",
+    url = "https://gitclone.com/github.com/iamcco/mathjax-support-for-mkdp"
+  },
+  ["md-img-paste.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/md-img-paste.vim",
+    url = "https://gitclone.com/github.com/ferrine/md-img-paste.vim"
   },
   nerdcommenter = {
     loaded = true,
@@ -228,25 +288,45 @@ _G.packer_plugins = {
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://gitclone.com/github.com/nvim-treesitter/nvim-treesitter"
   },
-  ["nvim-ts-autotag"] = {
-    loaded = true,
-    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
-    url = "https://gitclone.com/github.com/windwp/nvim-ts-autotag"
-  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://gitclone.com/github.com/kyazdani42/nvim-web-devicons"
+  },
+  ["nvim-yarp"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/nvim-yarp",
+    url = "https://gitclone.com/github.com/roxma/nvim-yarp"
+  },
+  ["omnisharp-vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/omnisharp-vim",
+    url = "https://gitclone.com/github.com/OmniSharp/omnisharp-vim"
   },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://gitclone.com/github.com/wbthomason/packer.nvim"
   },
+  ["pair-maker.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/pair-maker.vim",
+    url = "https://gitclone.com/github.com/theniceboy/pair-maker.vim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://gitclone.com/github.com/nvim-lua/plenary.nvim"
+  },
   ["pubspec-assist-nvim"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/pubspec-assist-nvim",
     url = "https://gitclone.com/github.com/f-person/pubspec-assist-nvim"
+  },
+  rainbow = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/rainbow",
+    url = "https://gitclone.com/github.com/luochen1990/rainbow"
   },
   rnvimr = {
     loaded = true,
@@ -258,15 +338,30 @@ _G.packer_plugins = {
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/splitjoin.vim",
     url = "https://gitclone.com/github.com/AndrewRadev/splitjoin.vim"
   },
-  ["surround.nvim"] = {
+  ["suda.vim"] = {
     loaded = true,
-    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/surround.nvim",
-    url = "https://gitclone.com/github.com/blackCauldron7/surround.nvim"
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/suda.vim",
+    url = "https://gitclone.com/github.com/lambdalisue/suda.vim"
+  },
+  ["swift.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/swift.vim",
+    url = "https://gitclone.com/github.com/keith/swift.vim"
+  },
+  tabular = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/tabular",
+    url = "https://gitclone.com/github.com/godlygeek/tabular"
   },
   tagbar = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/tagbar",
     url = "https://gitclone.com/github.com/majutsushi/tagbar"
+  },
+  tcomment_vim = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/tcomment_vim",
+    url = "https://gitclone.com/github.com/tomtom/tcomment_vim"
   },
   ["telescope-media-files.nvim"] = {
     loaded = true,
@@ -278,6 +373,11 @@ _G.packer_plugins = {
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://gitclone.com/github.com/nvim-telescope/telescope.nvim"
   },
+  terminus = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/terminus",
+    url = "https://gitclone.com/github.com/wincent/terminus"
+  },
   ["tex-conceal.vim"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/tex-conceal.vim",
@@ -287,6 +387,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/tmux-complete.vim",
     url = "https://gitclone.com/github.com/wellle/tmux-complete.vim"
+  },
+  ["typescript-vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/typescript-vim",
+    url = "https://gitclone.com/github.com/leafgarland/typescript-vim"
   },
   ultisnips = {
     loaded = true,
@@ -303,6 +408,21 @@ _G.packer_plugins = {
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vCoolor.vim",
     url = "https://gitclone.com/github.com/KabbAmine/vCoolor.vim"
   },
+  ["vim-addon-mw-utils"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-addon-mw-utils",
+    url = "https://gitclone.com/github.com/MarcWeber/vim-addon-mw-utils"
+  },
+  ["vim-after-object"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-after-object",
+    url = "https://gitclone.com/github.com/junegunn/vim-after-object"
+  },
+  ["vim-anzu"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-anzu",
+    url = "https://gitclone.com/github.com/osyo-manga/vim-anzu"
+  },
   ["vim-autoformat"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-autoformat",
@@ -312,6 +432,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-bolt",
     url = "https://gitclone.com/github.com/bpietravalle/vim-bolt"
+  },
+  ["vim-bookmarks"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-bookmarks",
+    url = "https://gitclone.com/github.com/MattesGroeger/vim-bookmarks"
   },
   ["vim-bufferline"] = {
     loaded = true,
@@ -323,20 +448,40 @@ _G.packer_plugins = {
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-calc",
     url = "https://gitclone.com/github.com/theniceboy/vim-calc"
   },
-  ["vim-closer"] = {
+  ["vim-closetag"] = {
     loaded = true,
-    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-closer",
-    url = "https://gitclone.com/github.com/rstacruz/vim-closer"
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-closetag",
+    url = "https://gitclone.com/github.com/alvan/vim-closetag"
+  },
+  ["vim-dadbod"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-dadbod",
+    url = "https://gitclone.com/github.com/tpope/vim-dadbod"
+  },
+  ["vim-dadbod-ui"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui",
+    url = "https://gitclone.com/github.com/kristijanhusak/vim-dadbod-ui"
   },
   ["vim-deus"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-deus",
-    url = "https://gitclone.com/github.com/theniceboy/vim-deus"
+    url = "https://gitclone.com/github.com/Redari-Es/vim-deus"
+  },
+  ["vim-devicons"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-devicons",
+    url = "https://gitclone.com/github.com/ryanoasis/vim-devicons"
   },
   ["vim-easy-align"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-easy-align",
     url = "https://gitclone.com/github.com/junegunn/vim-easy-align"
+  },
+  ["vim-easymotion"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-easymotion",
+    url = "https://gitclone.com/github.com/easymotion/vim-easymotion"
   },
   ["vim-gitgutter"] = {
     loaded = true,
@@ -363,6 +508,16 @@ _G.packer_plugins = {
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-js",
     url = "https://gitclone.com/github.com/yuezk/vim-js"
   },
+  ["vim-json"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-json",
+    url = "https://gitclone.com/github.com/elzr/vim-json"
+  },
+  ["vim-jsx-pretty"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-jsx-pretty",
+    url = "https://gitclone.com/github.com/MaxMEllon/vim-jsx-pretty"
+  },
   ["vim-latex-live-preview"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-latex-live-preview",
@@ -372,6 +527,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-markdown-toc",
     url = "https://gitclone.com/github.com/mzlogin/vim-markdown-toc"
+  },
+  ["vim-move"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-move",
+    url = "https://gitclone.com/github.com/theniceboy/vim-move"
+  },
+  ["vim-pdf"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-pdf",
+    url = "https://gitclone.com/github.com/makerj/vim-pdf"
   },
   ["vim-python-pep8-indent"] = {
     loaded = true,
@@ -398,25 +563,60 @@ _G.packer_plugins = {
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-snippets",
     url = "https://gitclone.com/github.com/theniceboy/vim-snippets"
   },
+  ["vim-startify"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-startify",
+    url = "https://gitclone.com/github.com/mhinz/vim-startify"
+  },
   ["vim-styled-components"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-styled-components",
     url = "https://gitclone.com/github.com/styled-components/vim-styled-components"
+  },
+  ["vim-subversive"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-subversive",
+    url = "https://gitclone.com/github.com/svermeulen/vim-subversive"
   },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://gitclone.com/github.com/tpope/vim-surround"
   },
+  ["vim-swift"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-swift",
+    url = "https://gitclone.com/github.com/arzg/vim-swift"
+  },
   ["vim-table-mode"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-table-mode",
     url = "https://gitclone.com/github.com/dhruvasagar/vim-table-mode"
   },
+  ["vim-textobj-user"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-textobj-user",
+    url = "https://gitclone.com/github.com/kana/vim-textobj-user"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://gitclone.com/github.com/mg979/vim-visual-multi"
+  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://gitclone.com/github.com/hrsh7th/vim-vsnip"
+  },
+  ["vim-vue"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-vue",
+    url = "https://gitclone.com/github.com/posva/vim-vue"
+  },
+  ["vim-xtabline"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-xtabline",
+    url = "https://gitclone.com/github.com/mg979/vim-xtabline"
   },
   vimcodefmt = {
     loaded = true,
@@ -437,6 +637,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://gitclone.com/github.com/folke/which-key.nvim"
+  },
+  ["wildfire.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/wildfire.vim",
+    url = "https://gitclone.com/github.com/gcmt/wildfire.vim"
+  },
+  ["yats.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/yats.vim",
+    url = "https://gitclone.com/github.com/HerringtonDarkholme/yats.vim"
+  },
+  ["zeavim.vim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/zeavim.vim",
+    url = "https://gitclone.com/github.com/KabbAmine/zeavim.vim"
   }
 }
 

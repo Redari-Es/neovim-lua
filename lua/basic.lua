@@ -8,15 +8,19 @@ local set = {
   wrap = true, -- default on
   wrapscan = true, -- default on
   tabstop = 2,
-  expandtab = true,
   shiftwidth = 2,
+  expandtab = true,
+  --noexpandtab=true,
   softtabstop = -1,
+  -- softtabstop = 2,
   smartindent = true,
   autoindent = true,
   cindent = true,
+  secure=true,
   sidescroll = 1,
   list = true,
   listchars = "eol:↴,tab:| ,trail:▫",
+  viewoptions="cursor,folds,slash,unix",
   cursorline = true,
   cursorcolumn = false,
   --
@@ -41,7 +45,7 @@ local set = {
   ruler = true,
   matchtime = 1,
   showmatch = true,
-  scrolloff = 5,
+  scrolloff = 10,--999
   --
   ttimeoutlen = 0,
   timeout = false, -- set notimeout, if you use vim-which-key
@@ -94,6 +98,8 @@ set incsearch
 set ruler
 set matchtime=1
 set nocompatible
+"exrc
+set exrc
 "set autoread
 filetype on
 filetype plugin on

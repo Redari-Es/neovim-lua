@@ -54,7 +54,6 @@ let g:coc_global_extensions = [
       \ 'coc-htmldjango',
       \ 'coc-css',
       \ 'coc-html-css-support',
-      \ 'coc-tsserver',
       \ 'coc-vue',
       \ 'coc-docker',
       \ 'coc-omnisharp',
@@ -76,19 +75,21 @@ let g:coc_global_extensions = [
       \ 'coc-tasks',
       \ 'coc-todolist',
       \ 'coc-sumneko-lua',
+      \ 'coc-sql',
+      \ 'coc-db',
       \ 'coc-translator',
-      \ 'coc-tsserver',
       \ 'coc-tslint-plugin',
       \ 'coc-yaml',
+      \'coc-java',
       \ 'coc-vimtex',
       \ 'coc-yank']
 
 "\ 'coc-lua',
 "\ 'coc-html',
 "\ 'coc-python',
-"\ 'coc-java',
 "\ 'coc-gocode',
 "\'coc-picgo',
+      "\ 'coc-tsserver',
 "backup test or have some erro
       "\ 'coc-eslint',
       "\ 'coc-ccls',
@@ -203,9 +204,22 @@ let g:instant_markdown_autostart = 1
 let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
 let g:instant_markdown_mathjax = 1
 let g:instant_markdown_autoscroll = 1
-"let g:instant_markdown_browser = "chromium"
-let g:instant_markdown_browser = "surf"
+let g:instant_markdown_browser = "chromium"
+"let g:instant_markdown_browser = "surf"
 let g:instant_markdown_port = 8880
+
+" ===
+" === markdown-preview.nvim
+" ===
+" normal/insert
+" <Plug>MarkdownPreview
+" <Plug>MarkdownPreviewStop
+" <Plug>MarkdownPreviewToggle
+
+" example
+nmap <C-s> <Plug>MarkdownPreview
+nmap <M-s> <Plug>MarkdownPreviewStop
+nmap <C-p> <Plug>MarkdownPreviewToggle
 
 
 " ===
@@ -372,8 +386,21 @@ endfunc
 "let g:multi_cursor_skip_key = '<C-s>'
 "let g:multi_cursor_quit_key = '<Esc>'
 
+" ==
+" == vim-dadbod
+" ==
+let g:dbs = [] "设定链接列表 不推荐 容易暴露敏感信息
+let g:db_ui_save_location = '~/.config/dbui' "相关内容储存路径
+let g:db_ui_auto_execute_table_helpers = 1
+let g:db_ui_use_nerd_fonts=1
+let g:db_ui_show_help = 1
+let g:db_ui_winwidth = 30 "default 40"
+let g:db_ui_default_query = 'select * from "{table}" limit 10'
+let g:db_ui_disable_mappings = 0 "If you don’t want any mappings to be added
+" autocmd FileType dbui nmap <buffer> v <Plug>(DBUI_SelectLineVsplit)
 
-" ===
+
+"" ===
 " === vim-visual-multi
 " ===
 let g:VM_theme             = 'iceblue'
@@ -569,13 +596,13 @@ augroup END
 " === vim-go
 " ===
 let g:go_gopls_enabled = 1
-let g:go_echo_go_info = 0
+let g:go_echo_go_info = 1
 let g:go_doc_popup_window = 1
-let g:go_def_mapping_enabled = 0
+let g:go_def_mapping_enabled = 1
 let g:go_template_autocreate = 0
 let g:go_textobj_enabled = 0
 let g:go_auto_type_info = 1
-let g:go_def_mapping_enabled = 0
+let g:go_def_mapping_enabled = 1
 let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_chan_whitespace_error = 1
@@ -595,7 +622,7 @@ let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_types = 1
 let g:go_highlight_variable_assignments = 1
 let g:go_highlight_variable_declarations = 1
-let g:go_doc_keywordprg_enabled = 0
+let g:go_doc_keywordprg_enabled = 1
 
 
 " ===
@@ -615,8 +642,8 @@ augroup autoformat_settings
   " autocmd FileType dart AutoFormatBuffer dartfmt
   "  autocmd FileType go AutoFormatBuffer gofmt
   " autocmd FileType gn AutoFormatBuffer gn
-  "  autocmd FileType html,css,sass,scss,less,json,jsp AutoFormatBuffer "js-beautify
-  autocmd FileType java AutoFormatBuffer google-java-format
+  "autocmd FileType html,css,sass,scss,less,json,jsp AutoFormatBuffer "js-beautify
+  " autocmd FileType java AutoFormatBuffer google-java-format
   " autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
   " autocmd FileType rust AutoFormatBuffer rustfmt

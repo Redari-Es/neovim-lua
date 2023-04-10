@@ -1,5 +1,20 @@
+--
+vim.cmd[[
+let g:neoterm_autoscroll=1
+autocmd TermOpen term://* startinsert
+tnoremap <C-N> <C-\><C-N>
+tnoremap <C-O> <C-\><C-N><C-O>
+""
+augroup NVIMRC
+autocmd!
+autocmd BufWritePost *.nvimrc exec ":so %"
+augroup END
+
+]]
+--
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
 --[[ local map = vim.api.nvim_set_keymap
 local buf = vim.api.nvim_buf_set_keymap
 --]]
@@ -58,9 +73,10 @@ map('','U','5k',opts)
 map('','E','5j',opts)
 -- set h (same as n, cursor left) to 'end of word'
 map('','h','e',opts)
--- set h (same as n, cursor left) to 'end of word'
-map('','N','0',opts)
-map('','I','$',opts)
+-- go to the start of the line
+map('','<silent>N','0',opts)
+-- go to the end of the line
+map('','<silent>I','$',opts)
 
 
 -- U/E K/J keys for 5 times u/e (faster navigation)
@@ -71,13 +87,13 @@ map('','Q',':q!<CR>',opts)
 map('','<C-q>',':qa<CR>',opts)
 map('','S',':w<CR>',opts)
 map('','<LEADER>rc',':e $HOME/.config/nvim/init.vim<CR>',opts)
-map('','<LEADER>ra',':e $HOME/.config/nvim/init.lua<CR>',opts)
+map('','<LEADER>rv',':e $HOME/.config/nvim/init.lua<CR>',opts)
 map('','<LEADER>st',':Startify<CR>',opts)
 -- undo operations
 map('','l','u',opts)
 -- k>i inserd mode
 map('','k','i',opts)
-map('','K','K',opts)
+map('','K','I',opts)
 -- make Y to copy till the end of the line
 map('n','Y','y$',opts)
 -- Copy to system clipboard
@@ -92,23 +108,20 @@ map('n','<LEADER>tt',':%s/    /\t/g',opts)
 map('v','<LEADER>tt',':s/    /\t/g',opts)
 -- Folding
 map('','<silent><LEADER>o','za',opts)
--- Open up lazygit
-vim.cmd [[noremap \g :Git
-noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
-]]
 
-
-
-
+map('n','<Leader>w', ':write<CR>', {noremap = true})
 
 -- Ctrl + U/K or E/J will move up/down the view port without moving the cursor
 map('','<C-U>','5<C-y>',opts)
 map('','<C-E>','5<C-e>',opts)
+
 -- Insert Mode Cursor Movement
-map('i','C-a>','<ESC>A',opts)
+map('i','<C-a>','<ESC>A',opts)
+
 -- for c language eof
 map('i','<space>;','<esc>A;<esc>o',opts)
 map('i','<space><Tab>','<esc>A<Tab><Tab><Tab><Tab>//',opts)
+
 -- Command Mode Cursor Movement
 map('c','<C-a>','<Home>',opts)
 map('c','<C-e>','End',opts)
@@ -118,6 +131,9 @@ map('c','<C-b>','<Left>',opts)
 map('c','<C-f>','<Right>',opts)
 map('c','<M-b>','<S-Left>',opts)
 map('c','<M-w>','<Right>',opts)
+
+-- Disable the default s key
+map('','s','<nop>',opts)
 -- Searching
 map('','-','N',opts)
 map('','=','n',opts)
@@ -130,8 +146,6 @@ map('','<LEADER>e','<C-w>j',opts)
 map('','<LEADER>n','<C-w>h',opts)
 map('','<LEADER>i','<C-w>l',opts)
 map('','qf','<C-w>o',opts)
--- Disable the default s key
-map('','s','<nop>',opts)
 --split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical) 用于分割窗口
 map('','su',':set nosplitbelow<CR>:split<CR>:set splitbelow<CR>',opts)
 map('','se',':set splitbelow<CR>:split<CR>',opts)
@@ -185,9 +199,15 @@ map('','<LEADER>=',':lne<CR>',opts)
 map('','<LEADER>sw',':set wrap<CR>',opts)
 
 
---
 vim.cmd[[
-"noremap <LEADER>- :lN<CR>
-"noremap <LEADER>= :lne<CR>
+noremap \g :git
+noremap <c-g> :tabe<cr>:-tabmove<cr>:term lazygit<cr>
+"noremap <leader>- :ln<cr>
+"noremap <leader>= :lne<cr>
 
+"find pair
+""noremap , . %
+""vnoremap ki $%
+
+""open up lazygit
 ]]

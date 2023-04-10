@@ -3,12 +3,14 @@
 
 vim.cmd[[
 " set to 1, nvim will open the preview window after entering the markdown buffer
-"" default: 0
-let g:mkdp_auto_start = 1
+" default: 0
+
+" let g:mkdp_auto_start = 1
 
 " set to 1, the nvim will auto close current preview window when change
 " from markdown buffer to another buffer
 " default: 1
+let g:mkdp_auto_start = 1
 let g:mkdp_auto_close = 1
 
 " set to 1, the vim will refresh markdown when save the buffer or
@@ -38,11 +40,11 @@ let g:mkdp_open_ip = ''
 " valid: `/path/with\ space/xxx`
 " invalid: `/path/with\\ space/xxx`
 " default: ''
-let g:mkdp_browser = ''
+let g:mkdp_browser = 'chromium'
 
 " set to 1, echo preview page url in command line when open preview page
 " default is 0
-let g:mkdp_echo_preview_url = 0
+let g:mkdp_echo_preview_url = 1
 
 " a custom vim function name to open preview page
 " this function will receive url as param
@@ -99,5 +101,5 @@ let g:mkdp_preview_options = {
 
   " set default theme (dark or light)
   " By default the theme is define according to the preferences of the system
-  let g:mkdp_theme = 'dark'
+  let g:mkdp_theme = 'light'
   ]]
