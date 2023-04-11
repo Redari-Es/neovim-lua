@@ -73,10 +73,11 @@ map('','U','5k',opts)
 map('','E','5j',opts)
 -- set h (same as n, cursor left) to 'end of word'
 map('','h','e',opts)
--- go to the start of the line
-map('','<silent>N','0',opts)
--- go to the end of the line
-map('','<silent>I','$',opts)
+-- -- go to the start of the line
+map('','N','0',opts)
+-- -- go to the end of the line
+map('','I','$',opts)
+
 
 
 -- U/E K/J keys for 5 times u/e (faster navigation)
