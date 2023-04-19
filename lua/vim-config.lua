@@ -7,6 +7,8 @@ vim.cmd [[
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 set formatoptions-=tc
+]]
+vim.cmd [[
 silent !mkdir -p $HOME/.config/nvim/tmp/backup
 silent !mkdir -p $HOME/.config/nvim/tmp/undo
 "silent !mkdir -p ~/.config/nvim/tmp/sessions
@@ -16,6 +18,7 @@ if has('persistent_undo')
   set undofile
   set undodir=$HOME/.config/nvim/tmp/undo,.
   endif
+
   ]]
 
   -- sources
@@ -48,6 +51,9 @@ if has('persistent_undo')
   autocmd FileType vue syntax sync fromstart
   autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 
+  ]]
+
+  vim.cmd [[
   " Auto change directory to current dir
   autocmd BufEnter * silent! lcd %:p:h
 
@@ -104,9 +110,7 @@ if has('persistent_undo')
     :sp
     :term web "127.0.0.1:8080/PHP/%<.php"&
   elseif &filetype == 'html'
-    :sp
-    silent! :term surf %
-    ""silent!   exec "!".g:mkdp_browser." % &"
+    silent! exec "!".g:mkdp_browser." % &"
   elseif &filetype == 'markdown'
     exec "InstantMarkdownPreview"
   elseif &filetype == 'tex'
@@ -119,9 +123,6 @@ if has('persistent_undo')
     set splitbelow
     :sp
     :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
-  elseif &filetype == 'jsp'
-    :sp
-    :term surf "localhost:8900/jsp/%<.jsp" &
   elseif &filetype == 'java'
     set splitbelow
     :sp
@@ -129,9 +130,8 @@ if has('persistent_undo')
     term javac % && time java %<
     endif
     endfunc
-    ]]
 
-    vim.cmd 'source $HOME/.config/nvim/lua/plugins/plug-config.vim'
-    --vim.cmd 'source $HOME/.config/nvim/lua/config/coc.vim '
+    ]]
+    vim.cmd 'source ~/.config/nvim/lua/plugins/plug-config.vim'
     -- require'./plugins/plug-config.vim'
     -- vim.cmd 'source ./plugins/plug.config.vim'
