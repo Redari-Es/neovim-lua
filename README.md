@@ -4,6 +4,19 @@
 
 ## 说明
 
+### branch
+
+原始未配置lua的neovim在Redari-Es/nvim 中
+
+#### main
+目前主要使用的分支
+
+#### mini
+最简化的分支，用于在服务器上使用
+
+#### backup
+用于备份
+
 ### bug
 
 - 旧nvim中编辑markdown实时渲染需要手动换行敲两个空格或者在加一行的问题，回车不能自动换行，应该与EOF有关。
