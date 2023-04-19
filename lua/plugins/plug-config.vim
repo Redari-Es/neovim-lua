@@ -33,6 +33,12 @@ nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 " ===
 nnoremap gb :Gblame<CR>
 
+" ===
+" === 回到上次编辑的位置
+" ===
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 " ===
 " === coc
@@ -45,11 +51,9 @@ let g:coc_global_extensions = [
       \ 'coc-gitignore',
       \ 'coc-go',
       \ 'coc-godot',
-      \ 'coc-html',
       \ 'coc-htmldjango',
       \ 'coc-css',
       \ 'coc-html-css-support',
-      \ 'coc-tsserver',
       \ 'coc-vue',
       \ 'coc-docker',
       \ 'coc-omnisharp',
@@ -61,6 +65,7 @@ let g:coc_global_extensions = [
       \ 'coc-prettier',
       \ 'coc-prisma',
       \ 'coc-pyright',
+      \ 'coc-python',
       \ 'coc-vimlsp',
       \ 'coc-snippets',
       \ 'coc-sourcekit',
@@ -70,16 +75,21 @@ let g:coc_global_extensions = [
       \ 'coc-tasks',
       \ 'coc-todolist',
       \ 'coc-sumneko-lua',
+      \ 'coc-sql',
+      \ 'coc-db',
       \ 'coc-translator',
-      \ 'coc-tsserver',
+      \ 'coc-tslint-plugin',
       \ 'coc-yaml',
       \ 'coc-vimtex',
       \ 'coc-yank']
 
-"\ 'coc-python',
-"\ 'coc-java',
-"\ 'coc-gocode',
-"\ 'coc-picgo',
+" \'coc-java',
+      "\ 'coc-lua',
+      "\ 'coc-html',
+      "\ 'coc-python',
+      "\ 'coc-gocode',
+"\'coc-picgo',
+      "\ 'coc-tsserver',
 "backup test or have some erro
       "\ 'coc-eslint',
       "\ 'coc-ccls',
@@ -195,7 +205,32 @@ let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
 let g:instant_markdown_mathjax = 1
 let g:instant_markdown_autoscroll = 1
 let g:instant_markdown_browser = "chromium"
-let g:instant_markdown_port = 8888
+"let g:instant_markdown_browser = "surf"
+let g:instant_markdown_port = 8880
+
+" ===
+" === markdown-preview.nvim
+" ===
+" normal/insert
+" <Plug>MarkdownPreview
+" <Plug>MarkdownPreviewStop
+" <Plug>MarkdownPreviewToggle
+
+" example
+nmap <C-s> <Plug>MarkdownPreview
+nmap <M-s> <Plug>MarkdownPreviewStop
+nmap <C-p> <Plug>MarkdownPreviewToggle
+
+
+" ===
+" === vim-markdown-toc
+" ===
+let g:vmt_auto_update_on_save = 1
+let g:vmt_dont_insert_fence = 1
+let g:vmt_cycle_list_item_markers = 1
+let g:vmt_fence_text = 'TOC'
+let g:vmt_fence_closing_text = '/TOC'
+"let g:vmt_cycle_list_item_markers = 1
 
 " ==
 " == md-img-paste
@@ -337,7 +372,35 @@ function g:Undotree_CustomMap()
   nmap <buffer> E 5<plug>UndotreePreviousState
 endfunc
 
-" ===
+
+" ==
+" == vim-multiple-cursor
+" ==
+"let g:multi_cursor_use_default_mapping = 0
+"let g:multi_cursor_start_word_key = '<c-k>'
+"let g:multi_cursor_select_all_word_key = '<a-k>'
+"let g:multi_cursor_start_key = 'g<c-k>'
+"let g:multi_cursor_select_all_key = 'g<a-k>'
+"let g:multi_cursor_next_key = '<c-k>'
+"let g:multi_cursor_prev_key = '<c-p>'
+"let g:multi_cursor_skip_key = '<C-s>'
+"let g:multi_cursor_quit_key = '<Esc>'
+
+" ==
+" == vim-dadbod
+" ==
+let g:dbs = [] "设定链接列表 不推荐 容易暴露敏感信息
+let g:db_ui_save_location = '~/.config/dbui' "相关内容储存路径
+let g:db_ui_auto_execute_table_helpers = 0
+let g:db_ui_use_nerd_fonts=1
+let g:db_ui_show_help = 1
+let g:db_ui_winwidth = 30 "default 40"
+let g:db_ui_default_query = 'select * from "{table}" limit 10'
+let g:db_ui_disable_mappings = 0 "If you don’t want any mappings to be added
+" autocmd FileType dbui nmap <buffer> v <Plug>(DBUI_SelectLineVsplit)
+
+
+"" ===
 " === vim-visual-multi
 " ===
 let g:VM_theme             = 'iceblue'
@@ -436,6 +499,64 @@ augroup ultisnips_no_auto_expansin
 augroup END
 
 
+
+" ===
+" === inkscape
+" ===
+"inoremap <C-i> <Esc>: silent exec '.!inkscape-figures create '.getline('.').''.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+"nnoremap <C-i> : silent exec '!inkscape-figures edit '.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+
+
+
+" ===
+" === vimtex
+" ===
+"let g:vimtex_view_method = ''
+let g:vimtex_view_general_viewer = 'llpp'
+"let g:vimtex_view_general_viewer = 'zathura'
+"let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_mappings_enabled = 0
+let g:vimtex_text_obj_enabled = 0
+let g:vimtex_motion_enabled = 0
+let maplocalleader=' '
+let g:Tex_CompileRule_pdf = 'xelatex -synctex=1 --interaction=nonstopmode $*'
+let g:vimtex_compiler_latexmk_engines = {'_':'-xelatex'}
+let g:vimtex_compiler_laterun_engines = {'_':'-xelatex'}
+let g:tex_flavor='latex'
+let g:tex_conceal='abdmg'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+
+
+" === zhihu vimtex
+"let g:tex_flavor='latex'
+"let g:vimtex_view_method = 'zathura'
+"let g:vimtex_view_general_viewer = 'SumatraPDF'
+"let g:vimtex_view_general_viewer = 'zathura'
+"let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+"let g:vimtex_view_general_opion s
+      "\ = '-reuse-instance -forward-search @tex @line @pdf'
+      "\ . ' -inverse-search "' . exepath(v:progpath)
+      "\ . ' --servername' . v:servername
+      "\ . ' --remote-send \"^<C-\^>^<C-n^>'
+      "\ . ':execute ''drop '' . fnamescape(''\%f'')^<CR^)'
+      "\ . ':\%l^<CR^>:normal\! zzzv^<CR^>'
+      "\ . ':call remote_foreground('''.v:servername.''')^<CR^>^<CR^>\""'
+"set conceallevel=0
+"let g:tex_conceal='abdmg'
+
+
+
+" ===
+" === vim-latex-live-preview
+" ===
+" latex preview
+"let g:livepreview_previewer = 'your_viewer'
+"let g:livepreview_previewer = 'okular'
+"let g:livepreview_previewer = 'zathura'
+let g:livepreview_previewer = 'llpp'
+
+
 "
 " ===
 " === vim-calendar
@@ -464,16 +585,24 @@ augroup END
 
 
 " ===
+" === Anzu
+" ===#YES!
+"set statusline=%{anzu#search_status()}
+"nnoremap = n
+"nnoremap - N
+
+
+" ===
 " === vim-go
 " ===
-let g:go_gopls_enabled = 0
-let g:go_echo_go_info = 0
+let g:go_gopls_enabled = 1
+let g:go_echo_go_info = 1
 let g:go_doc_popup_window = 1
-let g:go_def_mapping_enabled = 0
+let g:go_def_mapping_enabled = 1
 let g:go_template_autocreate = 0
 let g:go_textobj_enabled = 0
 let g:go_auto_type_info = 1
-let g:go_def_mapping_enabled = 0
+let g:go_def_mapping_enabled = 1
 let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_chan_whitespace_error = 1
@@ -493,7 +622,7 @@ let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_types = 1
 let g:go_highlight_variable_assignments = 1
 let g:go_highlight_variable_declarations = 1
-let g:go_doc_keywordprg_enabled = 0
+let g:go_doc_keywordprg_enabled = 1
 
 
 " ===
@@ -503,16 +632,18 @@ let g:go_doc_keywordprg_enabled = 0
 "let g:formatdef_custom_js = '"js-beautify -t"'
 "let g:formatters_javascript = ['custom_js']
 "au BufWrite *.js :Autoformat
-"au BufWrite * :Autoformat
+au BufWrite * :Autoformat
+"au BufWrite *.jsp g:AutoFormatBuffer google-java-format
 augroup autoformat_settings
+
 
   " autocmd FileType bzl AutoFormatBuffer buildifier
   " autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
   " autocmd FileType dart AutoFormatBuffer dartfmt
-  autocmd FileType go AutoFormatBuffer gofmt
+  "  autocmd FileType go AutoFormatBuffer gofmt
   " autocmd FileType gn AutoFormatBuffer gn
-  " autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
-  "  autocmd FileType java AutoFormatBuffer google-java-format
+  "autocmd FileType html,css,sass,scss,less,json,jsp AutoFormatBuffer "js-beautify
+  " autocmd FileType java AutoFormatBuffer google-java-format
   " autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
   " autocmd FileType rust AutoFormatBuffer rustfmt
@@ -593,6 +724,29 @@ map <LEADER>gy :Goyo<CR>
 " === jsx
 " ===
 let g:vim_jsx_pretty_colorful_config = 1
+
+
+" ===
+" === fastfold
+" ===
+"nmap zuz <Plug>(FastFoldUpdate)
+"let g:fastfold_savehook = 1
+"let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+"let g:fastfold_fold_movement_commands = [']z', '[z', 'ze', 'zu']
+"let g:markdown_folding = 1
+"let g:tex_fold_enabled = 1
+"let g:vimsyn_folding = 'af'
+"let g:xml_syntax_folding = 1
+"let g:javaScript_fold = 1
+"let g:sh_fold_enabled= 7
+"let g:ruby_fold = 1
+"let g:perl_fold = 1
+"let g:perl_fold_blocks = 1
+"let g:r_syntax_folding = 1
+"let g:rust_fold = 1
+"let g:php_folding = 1
+
+
 " ===
 " === tabular
 " ===
@@ -622,6 +776,32 @@ let g:xtabline_settings.last_open_first = 1
 noremap to :XTabCycleMode<CR>
 noremap \p :echo expand('%:p')<CR>
 
+
+" ===
+" === vim-session
+" ===
+"let g:session_directory = $HOME."/.config/nvim/tmp/sessions"
+"let g:session_autosave = 'no'
+"let g:session_autoload = 'no'
+"let g:session_command_aliases = 1
+"set sessionoptions-=buffers
+"set sessionoptions-=options
+"noremap sl :OpenSession<CR>
+"noremap sS :SaveSession<CR>
+"noremap ss :SaveSession
+"noremap sc :SaveSession<CR>:CloseSession<CR>:q<CR>
+"noremap so :OpenSession default<CR>
+"noremap sD :DeleteSession<CR>
+""noremap sA :AppendTabSession<CR>
+
+
+" ===
+" === context.vim
+" ===
+"let g:context_add_mappings = 0
+"noremap <leader>ct :ContextToggle<CR>
+
+
 " ===
 " === suda.vim
 " ===
@@ -649,13 +829,12 @@ sign define vimspectorPC text=🔶 texthl=SpellBad
 
 
 " ===
-" === vim-markdown-toc
+" === reply.vim
 " ===
-let g:vmt_auto_update_on_save = 1
-let g:vmt_dont_insert_fence = 1
-let g:vmt_cycle_list_item_markers = 1
-let g:vmt_fence_text = 'TOC'
-let g:vmt_fence_closing_text = '/TOC'
+"noremap <LEADER>rp :w<CR>:Repl<CR><C-\><C-N><C-w><C-h>
+"noremap <LEADER>rs :ReplSend<CR><C-w><C-l>a<CR><C-\><C-N><C-w><C-h>
+"noremap <LEADER>rt :ReplStop<CR>
+
 
 
 " ===
