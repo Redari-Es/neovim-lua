@@ -8,26 +8,18 @@ local set = {
   wrap = true, -- default on
   wrapscan = true, -- default on
   tabstop = 2,
-  shiftwidth = 2,
   expandtab = true,
-  --noexpandtab=true,
+  shiftwidth = 2,
   softtabstop = -1,
-  -- softtabstop = 2,
   smartindent = true,
   autoindent = true,
   cindent = true,
-  secure=true,
   sidescroll = 1,
   list = true,
   listchars = "eol:↴,tab:| ,trail:▫",
-  viewoptions="cursor,folds,slash,unix",
   cursorline = true,
   cursorcolumn = false,
-  -- coc
-  pumblend=15,
-  pumheight=12,
   --
-  backspace = '2',
   showmode = true,
   mouse = 'a',
   ignorecase = true,
@@ -48,7 +40,7 @@ local set = {
   ruler = true,
   matchtime = 1,
   showmatch = true,
-  scrolloff = 10,--999
+  scrolloff = 5,
   --
   ttimeoutlen = 0,
   timeout = false, -- set notimeout, if you use vim-which-key
@@ -101,8 +93,6 @@ set incsearch
 set ruler
 set matchtime=1
 set nocompatible
-"exrc
-set exrc
 "set autoread
 filetype on
 filetype plugin on
@@ -110,10 +100,6 @@ filetype indent on
 "set ambiwidth=double
 "mutt
 au BufRead /tmp/mutt-* set tw=72  ""tw=zh
-""let g:indentLine_concealcursor = ''
-
-
-
 ]]
 
 
