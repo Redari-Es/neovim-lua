@@ -201,6 +201,10 @@
 		"eelixir": "mix_format"
 	},
 	"languageserver": {
+		"java": {
+			"semanticTokens.enable": true,
+			"filteypes": ["java"]
+		},
 		"lua": {
 			"command": "lua-lsp",
 			"filetypes": ["lua"]
@@ -214,7 +218,8 @@
 		},
 		"golang": {
 			"command": "gopls",
-			"rootPatterns": ["go.mod",".git/"],
+			"rootPatterns": ["go.mod", ".git/"],
+			"trace.server": "verbose",
 			"filetypes": ["go"],
 			"initializationOptions": {
 				"gocodeCompletionEnabled": true,
@@ -237,8 +242,7 @@
 					"directory": "/tmp/ccls"
 				}
 			}
-
 		}
-  },
-  "Lua.telemetry.enable": true
+	},
+	"Lua.telemetry.enable": true
 }

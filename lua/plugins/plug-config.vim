@@ -80,14 +80,14 @@ let g:coc_global_extensions = [
       \ 'coc-translator',
       \ 'coc-tslint-plugin',
       \ 'coc-yaml',
-      \'coc-java',
       \ 'coc-vimtex',
       \ 'coc-yank']
 
-"\ 'coc-lua',
-"\ 'coc-html',
-"\ 'coc-python',
-"\ 'coc-gocode',
+" \'coc-java',
+      "\ 'coc-lua',
+      "\ 'coc-html',
+      "\ 'coc-python',
+      "\ 'coc-gocode',
 "\'coc-picgo',
       "\ 'coc-tsserver',
 "backup test or have some erro
@@ -391,7 +391,7 @@ endfunc
 " ==
 let g:dbs = [] "设定链接列表 不推荐 容易暴露敏感信息
 let g:db_ui_save_location = '~/.config/dbui' "相关内容储存路径
-let g:db_ui_auto_execute_table_helpers = 1
+let g:db_ui_auto_execute_table_helpers = 0
 let g:db_ui_use_nerd_fonts=1
 let g:db_ui_show_help = 1
 let g:db_ui_winwidth = 30 "default 40"

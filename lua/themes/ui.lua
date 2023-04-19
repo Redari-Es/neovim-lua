@@ -36,7 +36,8 @@ syntax enable
 colorscheme deus
 "color deus
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-hi NonText ctermfg = gray guifg = grey10
+hi NonText ctermfg = blue guifg = grey10
+""hi NonText ctermfg = gray guifg = grey10
 hi SpecialKey ctermfg = blue guifg = grey70
 "set CursorLine color
 ""hi CursorLine guifg = #ff770f

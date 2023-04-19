@@ -79,12 +79,19 @@ if has('persistent_undo')
     :res -5
     exec "!gcc % -o %<"
     :term ./%< && time
+    ""term gcc % -o %< && time ./%<
   elseif &filetype == 'cpp'
     set splitbelow
     exec "!g++ -std=c++11 % -Wall -o %<"
     :sp
     :res -5
     :term ./%< && time
+  elseif &filetype=='cs'
+    set splitbelow
+    silent! exec "!mcs %"
+    :sp
+    :res -5
+    :term mono %<.exe
   elseif &filetype == 'go'
     set splitbelow
     :sp
@@ -132,8 +139,7 @@ if has('persistent_undo')
     set splitbelow
     :sp
     :res -5
-    term javac % && time java %<
-  else
+    :term javac % && time java %<
     endif
     endfunc
     ]]

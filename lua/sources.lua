@@ -13,8 +13,10 @@ local array = {
   'config.lsp-saga',
   "config.lsp-installer",
   'config.lsp-config',
-  "config.cmp",
+  --cmp
+  -- "config.cmp",
   --'config.nvim-cmp',
+  -- 'config.'
   "config.luasnip-config",
   'usermod.luasnip-key',
   'config.autopairs-conf',
@@ -27,6 +29,8 @@ local array = {
   --old-vim-config
   --
   'vim-config',
+  -- fix
+  'fix.handlers',
 
   -- testing
   --"config.treesitter-config",

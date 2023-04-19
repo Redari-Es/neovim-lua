@@ -23,6 +23,9 @@ local set = {
   viewoptions="cursor,folds,slash,unix",
   cursorline = true,
   cursorcolumn = false,
+  -- coc
+  pumblend=15,
+  pumheight=12,
   --
   backspace = '2',
   showmode = true,

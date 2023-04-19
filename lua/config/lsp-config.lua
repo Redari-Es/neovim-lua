@@ -57,42 +57,42 @@ local luasnip = require 'luasnip'
 --[[
 local cmp = require 'cmp'
 cmp.setup {
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-i>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-n>'] = cmp.mapping.scroll_docs(4),
-    ['<C-e>'] = cmp.mapping.complete(),
-    ['<C>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-  }),
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
+snippet = {
+expand = function(args)
+luasnip.lsp_expand(args.body)
+end,
+},
+mapping = cmp.mapping.preset.insert({
+['<C-i>'] = cmp.mapping.scroll_docs(-4),
+['<C-n>'] = cmp.mapping.scroll_docs(4),
+['<C-e>'] = cmp.mapping.complete(),
+['<C>'] = cmp.mapping.confirm {
+behavior = cmp.ConfirmBehavior.Replace,
+select = true,
+},
+['<Tab>'] = cmp.mapping(function(fallback)
+if cmp.visible() then
+cmp.select_next_item()
+elseif luasnip.expand_or_jumpable() then
+luasnip.expand_or_jump()
+else
+fallback()
+end
+end, { 'i', 's' }),
+['<S-Tab>'] = cmp.mapping(function(fallback)
+if cmp.visible() then
+cmp.select_prev_item()
+elseif luasnip.jumpable(-1) then
+luasnip.jump(-1)
+else
+fallback()
+end
+end, { 'i', 's' }),
+}),
+sources = {
+{ name = 'nvim_lsp' },
+{ name = 'luasnip' },
+},
 
 }
 
@@ -115,4 +115,17 @@ local function lsp_highlight_document(client)
   illuminate.on_attach(client)
   -- end
 end
+-- test
+-- on_attach = function(client)
+--   if client.server_capabilities.documentFormattingProvider then
+--     vim.cmd(
+--     [[
+--     augroup LspFormatting
+--     autocmd! * <buffer>
+--     autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
+--     augroup END
+--     ]]
+--     )
+--   end
+-- end
 

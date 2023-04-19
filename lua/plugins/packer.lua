@@ -32,12 +32,18 @@ require('packer').init({
       -- For vsnip users
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
+      -- snip
+      'rafamadriz/frientdly-snippets',
+      -- For luasnip users
       'L3MON4D3/LuaSnip',
+      -- 'saadparwaiz1/cmp_luasnip'
+      'onsails/lspkind.nvim',
 
       -- use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})-- Snippets plugin
       --'kyazdani42/nvim-tree.lua'--LuaSnip',-- Snippets plugin
     }
     -- tree
+    --
     use {
       'kyazdani42/nvim-tree.lua',
       requires = {
@@ -131,6 +137,9 @@ require('packer').init({
       'tpope/vim-dadbod',
       'kristijanhusak/vim-dadbod-ui',
       'tpope/vim-surround',
+      'voldikss/vim-floaterm',
+      --java
+      'mfussenegger/nvim-jdtls',
       'jiangmiao/auto-pairs',
       'tpope/vim-repeat',
       'junegunn/vim-easy-align',
