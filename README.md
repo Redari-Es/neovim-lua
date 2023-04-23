@@ -27,6 +27,7 @@
 删掉插件vim-close 另一个同autopairl类似的插件，它在vimscript中也设置了\<CR>
 
 - 准备配置下lazygit ，原本使用的是theniceboy的，现在看能不能自已配置一个颜色出来。
+-  lspsaga, 在那一行注释掉
 
 ## lua 配置
 
