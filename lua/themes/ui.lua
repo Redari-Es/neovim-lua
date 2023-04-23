@@ -54,7 +54,8 @@ hi SpecialKey ctermfg = blue guifg = grey70
 "set background=light
 "set cursorcolumn
 ""
-set guicursor=n-c-v:ver50-ncvCursor
+""set guicursor=n-c-v:ver50-ncvCursor
+""set guicursor=i:block-iCursor-blinkon0,v:block-vCursor
 ""let g:indentLine_concealcursor = ''
 ""显示当前的行和列
 ""set cursorline cursorcolumn
