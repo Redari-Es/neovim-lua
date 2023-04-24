@@ -84,7 +84,7 @@ let g:coc_global_extensions = [
       \ 'coc-yank']
 
 " \'coc-java',
-      "\ 'coc-lua',
+" \ 'coc-lua',
       "\ 'coc-html',
       "\ 'coc-python',
       "\ 'coc-gocode',
@@ -181,9 +181,9 @@ noremap <silent> <leader>ts :CocList tasks<CR>
 " coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-e> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<c-e>'
-let g:coc_snippet_prev = '<c-n>'
 imap <C-e> <Plug>(coc-snippets-expand-jump)
+let g:coc_snippet_next = '<c-i>'
+let g:coc_snippet_prev = '<c-n>'
 let g:snips_author = 'Redari-Es'
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
@@ -215,7 +215,7 @@ let g:instant_markdown_port = 8880
 " <Plug>MarkdownPreview
 " <Plug>MarkdownPreviewStop
 " <Plug>MarkdownPreviewToggle
-
+autocmd FileType markdown setlocal expandtab shiftwidth=4
 " example
 nmap <C-s> <Plug>MarkdownPreview
 nmap <M-s> <Plug>MarkdownPreviewStop
@@ -459,7 +459,7 @@ noremap <c-t> :silent! Vista ocfinder coc<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 "let g:vista_default_executive = 'ctags'
 let g:vista_default_executive = 'coc'
-let g:vista_fzf_preview = ['right:50%']
+let g:vista_fzf_preview = ['right:60%']
 let g:vista#renderer#enable_icon = 1
 let g:vista#renderer#icons = {
       \   "function": "\uf794",
@@ -946,7 +946,7 @@ let g:agit_no_default_mappings = 1
 " === lazygit.nvim
 " ===
 noremap <c-g> :LazyGit<CR>
-let g:lazygit_floating_window_winblend = 0 " transparency of floating window
+let g:lazygit_floating_window_winblend = 1 " transparency of floating window
 let g:lazygit_floating_window_scaling_factor = 1.0 " scaling factor for floating window
 let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
 let g:lazygit_use_neovim_remote = 1 " for neovim-remote support

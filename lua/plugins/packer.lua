@@ -12,6 +12,7 @@ require('packer').init({
   git = {
     default_url_format = 'https://gitclone.com/github.com/%s'}
     -- default_url_format = 'https://github.com/%s'}
+    -- default_url_format = 'https://github.com/%s'}
   })
   --
   -- local use = require('packer').use
@@ -101,7 +102,9 @@ require('packer').init({
     --
     use{'iamcco/mathjax-support-for-mkdp'}
 
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    use {'iamcco/markdown-preview.nvim'}
+    -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    --
 
     -- telecope
     use {
@@ -312,6 +315,5 @@ require('packer').init({
     if packer_bootstrap then
       require('packer',sync())
     end
-
-
-  end)
+  end
+  )

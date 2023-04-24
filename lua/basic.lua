@@ -8,8 +8,8 @@ local set = {
   wrap = true, -- default on
   wrapscan = true, -- default on
   tabstop = 2,
-  shiftwidth = 2,
   expandtab = true,
+  shiftwidth = 2,
   --noexpandtab=true,
   softtabstop = -1,
   -- softtabstop = 2,
@@ -72,8 +72,9 @@ local set = {
   ttyfast = true,
   visualbell = true,
   --
+  -- columns=80,
   colorcolumn = '100',
-  updatetime = 1000,
+  updatetime = 6000,
   virtualedit = 'block',
   lazyredraw = true,
   --

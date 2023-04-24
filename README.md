@@ -19,7 +19,10 @@
 
 ### bug
 
-- 旧nvim中编辑markdown实时渲染需要手动换行敲两个空格或者在加一行的问题，回车不能自动换行，应该与EOF有关。
+
+fixed b-1 由于我设置shiftstop为2导致的， 我将其对md文件时设置shiftstop为4个解决该问题
+
+- b-1 旧nvim中编辑markdown实时渲染需要手动换行敲两个空格或者在加一行的问题，回车不能自动换行，应该与EOF有关。
 - nvim中的字符显示，中文只能显示半边，设置了全宽也没用，待解决, 英语正常
 - 回车会自动输入一行![bug](pic/autopair-0)
 在编辑lua和一些文件时会出现，最后在[issues](https://github.com/windwp/nvim-autopairs/issues/93) 中找到

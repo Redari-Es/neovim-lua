@@ -179,6 +179,11 @@ _G.packer_plugins = {
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/far.vim",
     url = "https://gitclone.com/github.com/brooth/far.vim"
   },
+  ["frientdly-snippets"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/frientdly-snippets",
+    url = "https://gitclone.com/github.com/rafamadriz/frientdly-snippets"
+  },
   ["fzf.vim"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/fzf.vim",
@@ -214,6 +219,11 @@ _G.packer_plugins = {
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/jsonc.vim",
     url = "https://gitclone.com/github.com/neoclide/jsonc.vim"
   },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    url = "https://gitclone.com/github.com/onsails/lspkind.nvim"
+  },
   ["lspsaga.nvim"] = {
     config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\flspsaga\frequire\0" },
     loaded = true,
@@ -221,10 +231,8 @@ _G.packer_plugins = {
     url = "https://gitclone.com/github.com/tami5/lspsaga.nvim"
   },
   ["markdown-preview.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/redaries/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://gitclone.com/github.com/iamcco/markdown-preview.nvim"
   },
   ["mathjax-support-for-mkdp"] = {
@@ -267,6 +275,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
     url = "https://gitclone.com/github.com/theHamsta/nvim-dap-virtual-text"
+  },
+  ["nvim-jdtls"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    url = "https://gitclone.com/github.com/mfussenegger/nvim-jdtls"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -483,6 +496,11 @@ _G.packer_plugins = {
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-easymotion",
     url = "https://gitclone.com/github.com/easymotion/vim-easymotion"
   },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://gitclone.com/github.com/voldikss/vim-floaterm"
+  },
   ["vim-gitgutter"] = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
@@ -497,11 +515,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-illuminate",
     url = "https://gitclone.com/github.com/RRethy/vim-illuminate"
-  },
-  ["vim-instant-markdown"] = {
-    loaded = true,
-    path = "/home/redaries/.local/share/nvim/site/pack/packer/start/vim-instant-markdown",
-    url = "https://gitclone.com/github.com/suan/vim-instant-markdown"
   },
   ["vim-js"] = {
     loaded = true,
@@ -656,10 +669,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: markdown-preview.nvim
-time([[Setup for markdown-preview.nvim]], true)
-try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
-time([[Setup for markdown-preview.nvim]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
@@ -668,13 +677,6 @@ time([[Config for nvim-autopairs]], false)
 time([[Config for lspsaga.nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\flspsaga\frequire\0", "config", "lspsaga.nvim")
 time([[Config for lspsaga.nvim]], false)
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

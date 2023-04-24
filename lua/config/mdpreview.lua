@@ -95,11 +95,18 @@ let g:mkdp_preview_options = {
   " ${name} will be replace with the file name
   let g:mkdp_page_title = '「${name}」'
 
+  let g:mkdp_browserfunc = 'OpenMarkdownPreview'
   " recognized filetypes
   " these filetypes will have MarkdownPreview... commands
   let g:mkdp_filetypes = ['markdown']
 
+
   " set default theme (dark or light)
   " By default the theme is define according to the preferences of the system
   let g:mkdp_theme = 'light'
-  ]]
+
+  function OpenMarkdownPreview (url)
+    execute "silent ! chromium --new-window " . a:url
+    endfunction
+
+    ]]
