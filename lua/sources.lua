@@ -15,7 +15,7 @@ local array = {
   'config.lsp-config',
   --cmp
   "config.cmp",
-  --'config.nvim-cmp',
+  -- 'config.nvim-cmp',
   -- 'config.'
   "config.luasnip-config",
   'usermod.luasnip-key',
@@ -24,8 +24,8 @@ local array = {
   'config.mdpreview',
   'config.dap',
   "config.tree",
-  --'config.go',
-  --'config.golsp',
+  -- 'config.go',
+  -- 'config.golsp',
   --old-vim-config
   --
   'vim-config',
