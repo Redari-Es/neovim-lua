@@ -84,7 +84,7 @@ if has('persistent_undo')
     set splitbelow
     exec "!g++ -std=c++11 % -Wall -o %<"
     :sp
-    :res -5
+    :res -15
     :term ./%< && time
   elseif &filetype=='cs'
     set splitbelow
@@ -95,6 +95,7 @@ if has('persistent_undo')
   elseif &filetype == 'go'
     set splitbelow
     :sp
+    -- :term go run % && time
     :term go run % && time
   elseif &filetype == "swift"
     set splitbelow

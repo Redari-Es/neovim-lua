@@ -205,11 +205,12 @@ noremap \g :git
 noremap <c-g> :tabe<cr>:-tabmove<cr>:term lazygit<cr>
 "noremap <leader>- :ln<cr>
 "noremap <leader>= :lne<cr>
-
 "find pair
-""noremap , . %
-""vnoremap ki $%
-
+noremap , . %
+vnoremap ki $%
+" insert a pair of {} and go to the next line
+inoremap <c-y> <ESC>A {}<ESC>i<CR><ESC>ko
+""noremap <silent> <LEADER>o za
 ""open up lazygit
 
 ]]

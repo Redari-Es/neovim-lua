@@ -1,3 +1,10 @@
+require('cmp').setup {
+  -- Cmp配置
+  cmp_mapping.select_next_item=''
+}
+
+-- 导入Cmp的配置文件
+require('cmp_nvim_lsp').setup()
 vim.cmd[[
 
 " Coc 指定使用 nvim-cmp
