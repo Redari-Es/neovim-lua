@@ -12,7 +12,7 @@ local array = {
 	-- 'config.'
 	'config.dap',
 	"config.tree",
-	--'config.go',
+	-- 'config.go',
 	--'config.golsp',
 	--old-vim-config
 	--

@@ -34,7 +34,7 @@ local set = {
 	smartcase = true,
 	cmdheight = 1,
 	conceallevel = 1,
-	-- concealcursor = " ",
+	concealcursor = "",
 	-- 拼写检查
 	spelllang = 'en_us',
 	-- spell = true,

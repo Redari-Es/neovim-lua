@@ -11,52 +11,19 @@ autocmd BufWritePost *.nvimrc exec ":so %"
 augroup END
 
 ]]
+
 --
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
---[[ local map = vim.api.nvim_set_keymap
-local buf = vim.api.nvim_buf_set_keymap
---]]
+-- 文件为go则设置;->:
+-- 检测文件类型为go
+vim.cmd([[autocmd FileType go inoremap ; :]])
+vim.cmd([[autocmd FileType go inoremap : ;]])
 
---
--- map('n','<Leader>w', ':write<CR>', {noremap = true})
---vim.api.nvim_set_keymap('n', '<Leader>w', ':write<CR>', {noremap = true})
-
-
-
---[[
-
-local map = function (key)
-local opts = { norelocal map = function (key)
-local opts = { noremap = true }
-for i, v in pairs(key) do
-if type(i) == 'string' then
-ops[i] = v
-end
-end
-
---
-local buffer = opts.buffer
-opts.buffer = nil
-if buffer then
-vim.api.nvi nvim_buf_set_keymap(0,key[1],key[2],key[3],opts)
-else
-vim.api.nvim_set_keymap(key[1],key[2],key[3],opts)
-end
-end
-
-
---]]
---[[
-local function map(mode,lhs,rhs,opts)
-local options = { noremap = true, silent = true}
-if opts then
-options = vim.tbl.extend("force",options,opts)
-end
-vim.api.set_keymap(mode,lhs,rhs,options)
-end
---]]
+-- 映射键位
+-- vim.api.nvim_buf_set_keymap(0, 'n', ';', ':', { noremap = true, silent = true })
+-- vim.api.nvim_buf_set_keymap(0, 'n', ':', ';', { noremap = true, silent = true })
 --
 local map = vim.api.nvim_set_keymap
 local opts = {noremap = true,silent = true}
