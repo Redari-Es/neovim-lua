@@ -4,7 +4,7 @@ vim.g.snips_author = 'David Chen'
 
 vim.g.python3_host_prog = '/usr/bin/python3'
 
-vim.g.mkdp_browser = 'webs'
+vim.g.mkdp_browser = 'chromium'
 -- vim.g.mkdp_browser = 'surf'
 vim.g.mkdp_browserfunc = 'open '
 

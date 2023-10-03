@@ -17,7 +17,7 @@ local compileRun = function()
 		vim.cmd("term node %")
 	elseif ft == 'html' then
 		split()
-		vim.cmd("term webs %<.html &")
+		vim.cmd("term surf %<.html &")
 	elseif ft == 'python' then
 		split()
 		vim.cmd("term python3 % && time")
