@@ -23,6 +23,7 @@ Plug ('puremourning/vimspector', {['do']= './install_gadget.py --enable-c --enab
 -- coc
 -- Plug('neoclide/coc.nvim',{['branch']='release',['do']='yarn install'})
 -- Plug('neoclide/coc.nvim',{['branch']='master',['do']='yarn install --frozen-lockfile'})
+-- Plug('fatih/vim-go' , {['do']='GoUpdateBinaries'})
 Plug('neoclide/coc.nvim',{['branch']='release'})
 -- Plug('neoclide/coc.nvim')
 Plug('SirVer/ultisnips')

@@ -6,11 +6,16 @@ snippet err "error"
 err error$0
 endsnippet
 
-snippet checke "Check Error"
+snippet check "Check Error"
 if err != nil {
 	return err
 }
 ${0}
+endsnippet
+snippet checke "checkerro"
+if err:=${1};err!=nil{
+	fmt.Println(err)
+}
 endsnippet
 
 snippet cq "Current Question"
@@ -27,6 +32,19 @@ $0
 
 endsnippet
 
+snippet type "struct"
+type ${1} struct{
+	${2}
+}
+$0
+endsnippet
+
+snippet any "interface"
+type ${1} interface{
+	${2}
+}
+$0
+endsnippet
 
 snippet forr "For loop range"
 for ${1:_}, ${2:v} := range ${3:struct} {
@@ -200,21 +218,12 @@ endsnippet
 snippet 2] "[][]"
 [$1][$2]$0
 endsnippet
-
 #map
 snippet 2} "{}{}"
 {$1},{$2}$0
 endsnippet
 
-# type struct
-snippet tp "type struct" -b
-type $1 struct{
-	$2
-}
-$0
-endsnippet
 
-#
 ###Testing
 snippet fatal "t.fatal" -b
 t.Fatal("$1")$0

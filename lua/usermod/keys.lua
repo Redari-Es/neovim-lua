@@ -17,9 +17,10 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- 文件为go则设置;->:
--- 检测文件类型为go
-vim.cmd([[autocmd FileType go inoremap ; :]])
-vim.cmd([[autocmd FileType go inoremap : ;]])
+-- 检测文件类型为go,kt,xml
+vim.cmd([[autocmd FileType go,kt,xml inoremap ; :]])
+vim.cmd([[autocmd FileType go,kt,xml inoremap : ;]])
+vim.cmd([[autocmd FileType md set tw=80]])
 
 -- 映射键位
 -- vim.api.nvim_buf_set_keymap(0, 'n', ';', ':', { noremap = true, silent = true })

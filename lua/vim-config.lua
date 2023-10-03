@@ -95,6 +95,7 @@ if has('persistent_undo')
 	elseif &filetype == 'go'
 		set splitbelow
 		:sp
+		:res -5
 		:term go run % && time
 	elseif &filetype == "swift"
 		set splitbelow
@@ -112,9 +113,8 @@ if has('persistent_undo')
 		:term web "127.0.0.1:8080/PHP/%<.php"&
 	elseif &filetype == 'html'
 		:sp
-		silent! :term web %<.html &
-		"silent! :term surf %<.html &
-		"silent!   exec "!".g:mkdp_browser." % &"
+		silent! :term webs %<.html &
+		-- "silent! :term surf %<.html &
 	elseif &filetype == 'markdown'
 		""exec "InstantMarkdownPreview"
 		exec "MarkdownPreview"

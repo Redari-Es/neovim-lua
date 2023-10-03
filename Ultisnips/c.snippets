@@ -1,7 +1,21 @@
+priority -30
 snippet cm "Comment Section"
 /* ${0} */
 endsnippet
 
-snippet st "printf"
-printf(${0});
+snippet pt "printf" -i
+printf("${1}");$0
 endsnippet
+
+snippet rt "return" -i
+return ${1};$0
+endsnippet
+
+snippet av "argv" -i
+argv$0
+endsnippet
+
+snippet . "->" -w
+->$0
+endsnippet
+

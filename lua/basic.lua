@@ -7,6 +7,7 @@ local set = {
 	showtabline = 2,
 	wrap = true, -- default on
 	wrapscan = true, -- default on
+	autochdir=ture,
 	tabstop = 2,
 	-- expandtab = true,
 	shiftwidth = 2,
@@ -20,7 +21,7 @@ local set = {
 	sidescroll = 1,
 	list = true,
 	listchars = "eol:↴,tab:| ,trail:▫",
-	viewoptions="cursor,folds,slash,unix",
+	viewoptions="cursor,curdir,folds,slash,unix",
 	cursorline = true,
 	cursorcolumn = false,
 	-- coc
@@ -43,16 +44,18 @@ local set = {
 	fencs = 'utf8,gbk,gb2312',
 	enc = 'utf-8',
 	ambw = 'double',
+	-- ambw = 'single',
 
 	autoread = true,
 	ruler = true,
 	matchtime = 1,
 	showmatch = true,
-	scrolloff = 10,--999
+	scrolloff =10,--999 -10
 	--
 	ttimeoutlen = 0,
 	timeout = false, -- set notimeout, if you use vim-which-key
 	title = true,
+	-- tw = 80,
 	tw = 0, --default
 	-- indentexpr="=",
 	indentexpr="",
@@ -61,7 +64,7 @@ local set = {
 	foldmethod = 'indent',
 	foldlevel = 99,
 	foldenable = true,
-	-- formatoptions = '-=tc',
+	-- formatoptions = '-=tcqj',
 	splitright = true,
 	splitbelow = true,
 	--noshowmod

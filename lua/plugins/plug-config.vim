@@ -192,7 +192,8 @@ let g:instant_markdown_autostart = 1
 let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
 let g:instant_markdown_mathjax = 1
 let g:instant_markdown_autoscroll = 1
-let g:instant_markdown_browser = "chromium"
+" let g:instant_markdown_browser = "chromium"
+let g:instant_markdown_browser = "webs"
 "let g:instant_markdown_browser = "surf"
 let g:instant_markdown_port = 8880
 
@@ -477,7 +478,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-i>"
 " let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']"silent! au BufEnter,BufRead,BufNewFile * silent! unmap <c-r>
 " Solve extreme insert-mode lag on macOS (by disabling autotrigger)
 augroup ultisnips_no_auto_expansin

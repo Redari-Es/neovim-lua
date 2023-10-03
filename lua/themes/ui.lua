@@ -32,21 +32,17 @@ vim.opt.termguicolors = true
 vim.cmd [[
 
 syntax enable
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme deus
-"color deus
+set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+silent! color deus
+"" colorscheme deus
 hi NonText ctermfg = blue guifg = grey10
-""hi NonText ctermfg = gray guifg = grey10
 hi SpecialKey ctermfg = blue guifg = grey70
 "set CursorLine color
 ""hi CursorLine guifg = #ff770f
 ""hi CursorLine guifg = #42A5F5
 "" set CursorLineNr color
 hi CursorLineNr guifg = #ff770f
-
-""
-
 
 "let background=dark
 "let ayucolor="mirage"
