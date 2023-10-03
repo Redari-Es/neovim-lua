@@ -87,6 +87,14 @@ local nmappings = {
 	{ from = "R",             to = ":Joshuto<CR>" },
 }
 
+-- 文件为go则设置;->:
+-- 检测文件类型为go,kt,xml
+vim.cmd([[autocmd FileType go,kt,xml inoremap ; :]])
+vim.cmd([[autocmd FileType go,kt,xml inoremap : ;]])
+-- vim.cmd([[autocmd FileType md set tw=80]])
+
+
+
 for _, mapping in ipairs(nmappings) do
 	vim.keymap.set(mapping.mode or "n", mapping.from, mapping.to, { noremap = true })
 end

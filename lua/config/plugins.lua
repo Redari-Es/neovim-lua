@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		--"https://gitclone.com/github.com/folke/lazy.nvim.git",
-		"https://gitclone.com/github.com/folke/lazy.nvim.git",
+		"https://github.com/folke/lazy.nvim.git",
 		"--branch=stable", -- latest stable release
 		lazypath,
 	})
@@ -64,7 +64,10 @@ require("lazy").setup({
 	require("config.plugins.fun"),
 	require("config.plugins.winbar"),
 	require("config.plugins.leap"),
-	{ "dstein64/vim-startuptime" },
+	require("config.plugins.startify"),
+	--{ "dstein64/vim-startuptime" },
+	-- { "mhinz/vim-startify" },
+
 }, {
 })
 

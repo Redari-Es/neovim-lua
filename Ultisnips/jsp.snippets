@@ -1,0 +1,61 @@
+priority -30
+
+extends java,html
+
+snippet out "System.out.println()"
+out.print("${1}");$0
+endsnippet
+
+snippet jsp "jsp code"
+<%
+${1}
+%>
+$0
+endsnippet
+
+snippet utf "support the chinese language" -b
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>$0
+endsnippet
+
+snippet setget "set request encoding utf-8"
+request.setCharacterEncoding("UTF-8");                         //必须在getParameter等一系列方法的最前面。
+$0
+endsnippet
+
+snippet get "get form value"
+request.getParameter("${1:form_name}"$0);
+endsnippet
+
+snippet gets "get form values"
+request.getParameterValues("${1:form_name}"$0);
+endsnippet
+
+snippet strcn "String support for chinese"
+String ${1:name} = new String((request.getParameter("$1")).getBytes("ISO-8859-1"),"UTF-8");
+$0
+endsnippet
+
+snippet include "jsp:include"
+<jsp:include page="${1:file}"/>
+$0
+endsnippet
+
+snippet forward "page forward"
+<jsp:forward page="${1:relativeURL}"/>
+$0
+endsnippet
+
+snippet att "getAttribute()"
+request.getAttribute("${1:name}");
+$0
+endsnippet
+
+snippet addr "getRemoteAddr()"
+request.getRemoteAddr();
+$0
+endsnippet
+
+snippet redirect "sendRedirect"
+response.sendRedirect("${1:anotherpage.html}");
+endsnippet
+

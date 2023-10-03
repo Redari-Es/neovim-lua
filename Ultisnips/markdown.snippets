@@ -1,10 +1,20 @@
+priority -40
 snippet th "Table Heading"
 | ${1:Key} | ${2:Value} |
 |-|-|
-${0}
+$0
 endsnippet
 
 snippet tr "Table Row"
-| ${1:Term} | ${2:Definition} |
-${0}
+| ${1:Term} | ${2:Definition} |$0
+endsnippet
+
+snippet pc "div pic" -b
+<div class="pic" align=center>
+<img src="${1:./}" width="${2:"60%"} height="${3:40%}" ></div>
+$0
+endsnippet
+
+snippet br "next line" -i
+</br>$0
 endsnippet
