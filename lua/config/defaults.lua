@@ -1,6 +1,68 @@
 vim.o.termguicolors = true
 vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
+-- Shon which is myself
+local set = {
+	ttyfast = true,
+	autochdir = true,
+	exrc = true,
+	secure = false,
+	number = true,
+	relativenumber = true,
+	cursorline = true,
+	expandtab = false,
+	tabstop = 2,
+	smarttab = true,
+	shiftwidth = 2,
+	softtabstop = 2,
+	autoindent = true,
+	autoread = true,
+	list = true,
+	listchars = 'eol:↴,tab:|\\ ,trail:▫',
+	scrolloff = 4,
+	ttimeoutlen = 0,
+	timeout = false,
+	viewoptions = 'cursor,folds,slash,unix',
+	wrap = true,
+	textwidth = 0,
+	indentexpr = '',
+	foldmethod = 'indent',
+	foldlevel = 99,
+	foldenable = true,
+	foldlevelstart = 99,
+	splitright = true,
+	splitbelow = true,
+	showmode = false,
+	ignorecase = true,
+	smartcase = true,
+	inccommand = 'split',
+	completeopt = 'menuone,noinsert,noselect,preview',
+	lazyredraw = true,
+	visualbell = true,
+	colorcolumn = '100',
+	updatetime = 100,
+	virtualedit = 'block',
+	ambw = 'double',
+	concealcursor = "",
+	enc = 'utf-8',
+	title = true,
+	helplang = 'cn',
+	showcmd = true,
+	-- mouse = 'a',
+	history = 1000,
+
+
+}
+for k, v in pairs(set) do
+	vim.opt[k] = v
+end
+vim.o.completeopt = 'longest,noinsert,menuone,noselect,preview'
+vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.o.formatoptions = vim.o.formatoptions:gsub('tc', '')
+--]]
+--
+-- TheCW
+--[[
 vim.o.ttyfast = true
 vim.o.autochdir = true
 vim.o.exrc = true
@@ -43,6 +105,8 @@ vim.o.colorcolumn = '100'
 vim.o.updatetime = 100
 vim.o.virtualedit = 'block'
 
+--]]
+-- color
 vim.cmd([[
 silent !mkdir -p $HOME/.config/nvim/tmp/backup
 silent !mkdir -p $HOME/.config/nvim/tmp/undo
@@ -85,7 +149,19 @@ tnoremap <C-N> <C-\><C-N>
 tnoremap <C-O> <C-\><C-N><C-O>
 ]])
 
-vim.cmd([[hi NonText ctermfg=gray guifg=grey10]])
+vim.cmd([[
+"hi NonText ctermfg=gray guifg=grey10
+hi NonText ctermfg = blue guifg = grey10
+hi SpecialKey ctermfg = blue guifg = grey70
+hi CursorLineNr guifg = #ff770f
+"mutt
+au BufRead /tmp/mutt-* set tw=72  ""tw=zh
+let g:neoterm_autoscroll = 1
+""test
+let g:indentLine_concealcursor = ''
+,
+]])
+
 
 local config_path = vim.fn.stdpath("config")
 local current_config_path = config_path .. "/lua/config/machine_specific.lua"
