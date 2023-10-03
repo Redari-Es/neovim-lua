@@ -1,4 +1,4 @@
-" interestind stess
+vim.cmd([[
 noremap   [a<LEADER>   1k
 noremap   [r<LEADER>   2k
 noremap   [s<LEADER>   3k
@@ -398,3 +398,4 @@ noremap 'aih<LEADER> 196j
 noremap 'ain<LEADER> 197j
 noremap 'aie<LEADER> 198j
 noremap 'aii<LEADER> 199j
+]])
