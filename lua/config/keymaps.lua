@@ -82,6 +82,7 @@ local nmappings = {
 	{ from = "<leader>rv",    to = ":e .vim.lua<CR>" },
 	{ from = ",v",            to = "v%" },
 	{ from = "<leader><esc>", to = "<nop>" },
+	{ from = "tw",            to = ":NvimTreeToggle<CR>" },
 
 	-- Joshuto
 	{ from = "R",             to = ":Joshuto<CR>" },
@@ -89,8 +90,8 @@ local nmappings = {
 
 -- 文件为go则设置;->:
 -- 检测文件类型为go,kt,xml
-vim.cmd([[autocmd FileType go,kt,xml inoremap ; :]])
-vim.cmd([[autocmd FileType go,kt,xml inoremap : ;]])
+vim.cmd([[autocmd FileType go,ts,tsx,kt,xml inoremap ; :]])
+vim.cmd([[autocmd FileType go,ts,tsx,kt,xml inoremap : ;]])
 -- vim.cmd([[autocmd FileType md set tw=80]])
 
 
