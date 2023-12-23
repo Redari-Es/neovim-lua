@@ -56,6 +56,11 @@ M.config = {
 				'jsonls',
 				'html',
 				'clangd',
+				'dockerls',
+				'ansiblels',
+				'terraformls',
+				'texlab',
+				'pyright',
 			})
 
 			-- F.configureInlayHints()
@@ -145,6 +150,9 @@ M.config = {
 				cpp = true,
 				objc = true,
 				objcpp = true,
+				dockerfile = true,
+				terraform = true,
+				tex = true,
 			}
 
 			vim.api.nvim_create_autocmd("BufWritePre", {
@@ -153,7 +161,7 @@ M.config = {
 					if format_on_save_filetypes[vim.bo.filetype] then
 						local lineno = vim.api.nvim_win_get_cursor(0)
 						vim.lsp.buf.format({ async = false })
-						vim.api.nvim_win_set_cursor(0, lineno)
+						pcall(vim.api.nvim_win_set_cursor, 0, lineno)
 					end
 				end,
 			})

@@ -8,8 +8,8 @@ return {
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
+					"markdown",
 					"html",
-					"css",
 					"javascript",
 					"typescript",
 					"query",
@@ -20,7 +20,12 @@ return {
 					"bash",
 					"go",
 					"lua",
-					"vim"
+					"kdl",
+					"vim",
+					"terraform",
+					"dockerfile",
+					"yaml",
+					"python",
 				},
 				highlight = {
 					enable = true,
@@ -65,3 +70,4 @@ return {
 		end
 	},
 }
+
