@@ -1,0 +1,17 @@
+priority -20
+snippet rcc "React class"
+import React,{Component} from 'react';
+
+class ${1:Hello} extends Component{
+	constructor(props){
+	super(props);
+	${2}
+}
+	render(){
+		return(
+		${3:jsx}
+		$0
+		);
+	}
+}
+endsnippet

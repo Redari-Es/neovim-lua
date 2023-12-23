@@ -1,5 +1,5 @@
 ##
-priority -30
+priority -40
 # TODO: go-snippets  <26-09-21, Redari-Es> #
 ##
 snippet err "error"
@@ -12,6 +12,7 @@ if err != nil {
 }
 ${0}
 endsnippet
+
 snippet checke "checkerro"
 if err:=${1};err!=nil{
 	fmt.Println(err)
@@ -72,29 +73,33 @@ if err != nil {
 ${0}
 endsnippet
 
-snippet pt "Printf"
+snippet pt "Printf" -i
 fmt.Printf(${1})${0}
 endsnippet
-snippet ptl "Println"
+
+snippet ptl "Println" -i
 fmt.Println(${1})${0}
 endsnippet
 
-snippet ft "fprintf"
+snippet ft "fprintf" -i
 fmt.Fprintf(${1})${0}
 endsnippet
-snippet ftl "fprintln"
+
+snippet ftl "fprintln" -i
 fmt.Fprintln(${1})${0}
 endsnippet
-snippet st "sprintf"
+snippet st "sprintf" -i
 fmt.Sprintf(${1})${0}
 endsnippet
-snippet stl "sprintln"
+snippet stl "sprintln" -i
 fmt.Sprintln(${1})${0}
 endsnippet
 
-snippet vp "Description" b
-
-
+snippet dp "Description" -b
+/* {date}
+** Author: Shon
+** Email: shon@redaries.xyz
+*/
 endsnippet
 
 # start

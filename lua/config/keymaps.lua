@@ -90,8 +90,8 @@ local nmappings = {
 
 -- 文件为go则设置;->:
 -- 检测文件类型为go,kt,xml
-vim.cmd([[autocmd FileType go,ts,tsx,kt,xml inoremap ; :]])
-vim.cmd([[autocmd FileType go,ts,tsx,kt,xml inoremap : ;]])
+vim.cmd([[autocmd FileType go,lua,ts,tsx,kotlin,xml inoremap ; :]])
+vim.cmd([[autocmd FileType go,lua,ts,tsx,kotlin,xml inoremap : ;]])
 -- vim.cmd([[autocmd FileType md set tw=80]])
 
 
