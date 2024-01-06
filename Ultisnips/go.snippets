@@ -1,9 +1,12 @@
 ##
-priority -40
+priority -100
 # TODO: go-snippets  <26-09-21, Redari-Es> #
 ##
-snippet err "error"
-err error$0
+snippet err "err"
+if err!=nil{
+	log.Panic(err)
+}
+$0
 endsnippet
 
 snippet check "Check Error"
