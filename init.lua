@@ -1,3 +1,5 @@
 require("config.defaults")
 require("config.keymaps")
+require("config.keymaps_shon")
 require("config.plugins")
+-- require("config.packer")

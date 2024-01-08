@@ -1,4 +1,20 @@
-vim.g.mapleader = " "
+-- Shon
+-- vim.cmd [[
+-- let g:neoterm_autoscroll=1
+-- autocmd TermOpen term://* startinsert
+-- tnoremap <C-N> <C-\><C-N>
+-- tnoremap <C-O> <C-\><C-N><C-O>
+-- ""
+-- augroup NVIMRC
+-- autocmd!
+-- autocmd BufWritePost *.nvimrc exec ":so %"
+-- augroup END
+--
+-- ]]
+
+
+vim.g.maplocalleader = ' '
+vim.g.mapleader = ' '
 
 local mode_nv = { "n", "v" }
 local mode_v = { "v" }
@@ -38,6 +54,7 @@ local nmappings = {
 	-- Useful actions
 	{ from = ",.",            to = "%",                                                                   mode = mode_nv },
 	{ from = "<c-y>",         to = "<ESC>A {}<ESC>i<CR><ESC>ko",                                          mode = mode_i },
+	{ from = "<c-k>",         to = "<ESC>",                                                               mode = mode_i },
 	{ from = "\\v",           to = "v$h", },
 	{ from = "<c-a>",         to = "<ESC>A",                                                              mode = mode_i },
 
@@ -82,7 +99,8 @@ local nmappings = {
 	{ from = "<leader>rv",    to = ":e .vim.lua<CR>" },
 	{ from = ",v",            to = "v%" },
 	{ from = "<leader><esc>", to = "<nop>" },
-	{ from = "tw",            to = ":NvimTreeToggle<CR>" },
+	-- { from = "tt",            to = ":NvimTreeToggle<CR>" },
+	{ from = "tw",            to = ":Neotree<CR>" },
 
 	-- Joshuto
 	{ from = "R",             to = ":Joshuto<CR>" },
@@ -93,7 +111,6 @@ local nmappings = {
 vim.cmd([[autocmd FileType go,lua,ts,tsx,kotlin,xml,yaml inoremap ; :]])
 vim.cmd([[autocmd FileType go,lua,ts,tsx,kotlin,xml,yaml inoremap : ;]])
 -- vim.cmd([[autocmd FileType md set tw=80]])
-
 
 
 for _, mapping in ipairs(nmappings) do

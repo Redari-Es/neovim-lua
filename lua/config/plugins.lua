@@ -65,10 +65,12 @@ require("lazy").setup({
 	-- dropbar which use moust click the snip
 	-- require("config.plugins.winbar"),
 	require("config.plugins.fontend"),
-	require("config.plugins.tools"),
 	require("config.plugins.tree"),
 	require("config.plugins.leap"),
 	require("config.plugins.startify"),
+	-- myself
+	require("config.plugins.tools"),
+	require("config.plugins.dadbod"),
 	{ "dstein64/vim-startuptime" },
 	-- { "mhinz/vim-startify" },
 

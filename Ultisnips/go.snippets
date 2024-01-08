@@ -9,6 +9,13 @@ if err!=nil{
 $0
 endsnippet
 
+snippet efatal "fatal"
+if err!=nil{
+	log.Fatal(err)
+}
+$0
+endsnippet
+
 snippet check "Check Error"
 if err != nil {
 	return err

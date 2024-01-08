@@ -4,30 +4,32 @@ return {
 		"iamcco/markdown-preview.nvim",
 		"iamcco/mathjax-support-for-mkdp",
 		"mzlogin/vim-markdown-toc",
-		ft = { "markdown" },
+		"dhruvasagar/vim-table-mode",
 		build = "yarn install",
+		init = function()
+			vim.g.mkdp__filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
 		config = function()
-			vim.g.instant_markdown_autostart = 0
-
-
+			vim.g.instant_markdown_autostart = 1
 			-- markdown 1
 			vim.cmd([[
 			" ===
 " === vim-instant-markdown
 " === 实时浏览md文件
-let g:instant_markdown_slow = 0
-let g:instant_markdown_autostart = 1
-"let g:instant_markdown_open_to_the_world = 1
-"let g:instant_markdown_allow_unsafe_content = 1
-"let g:instant_markdown_allow_external_content = 0
-let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
-let g:instant_markdown_mathjax = 1
-let g:instant_markdown_autoscroll = 1
-" let g:instant_markdown_browser = "chromium"
-let g:instant_markdown_browser = "webs"
-"let g:instant_markdown_browser = "surf"
-let g:instant_markdown_port = 8880
-
+-- let g:instant_markdown_slow = 0
+-- let g:instant_markdown_autostart = 1
+-- "let g:instant_markdown_open_to_the_world = 1
+-- "let g:instant_markdown_allow_unsafe_content = 1
+-- "let g:instant_markdown_allow_external_content = 0
+-- let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
+-- let g:instant_markdown_mathjax = 1
+-- let g:instant_markdown_autoscroll = 1
+-- " let g:instant_markdown_browser = "chromium"
+-- "let g:instant_markdown_browser = "webs"
+-- let g:instant_markdown_browser = "surf"
+-- let g:instant_markdown_port = 8880
+--
 " ===
 " === markdown-preview.nvim
 " ===
@@ -67,13 +69,12 @@ noremap <LEADER>mp :MarkdownPreview<CR>
 "let g:table_mode_disable_mappings = 1
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 
-
-
 			]])
 			-- markdown 1
 			-- markdownpreview-config
 			-- iamcco
 
+			-- config
 			vim.cmd [[
 " set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
@@ -113,7 +114,8 @@ let g:mkdp_open_ip = ''
 " valid: `/path/with\ space/xxx`
 " invalid: `/path/with\\ space/xxx`
 " default: ''
-let g:mkdp_browser = 'chromium'
+"" let g:mkdp_browser = 'chromium'
+let g:mkdp_browser = 'surf'
 
 " set to 1, echo preview page url in command line when open preview page
 " default is 0
