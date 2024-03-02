@@ -71,8 +71,11 @@ require("lazy").setup({
 	-- myself
 	require("config.plugins.tools"),
 	require("config.plugins.dadbod"),
+	require("config.plugins.leetcode"),
+	require("config.plugins.autopairs"),
 	{ "dstein64/vim-startuptime" },
 	-- { "mhinz/vim-startify" },
+
 
 }, {
 })

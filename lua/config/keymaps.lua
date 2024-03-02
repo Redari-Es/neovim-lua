@@ -54,7 +54,7 @@ local nmappings = {
 	-- Useful actions
 	{ from = ",.",            to = "%",                                                                   mode = mode_nv },
 	{ from = "<c-y>",         to = "<ESC>A {}<ESC>i<CR><ESC>ko",                                          mode = mode_i },
-	{ from = "<c-k>",         to = "<ESC>",                                                               mode = mode_i },
+	{ from = "<leader>k",     to = "<ESC>",                                                               mode = mode_i },
 	{ from = "\\v",           to = "v$h", },
 	{ from = "<c-a>",         to = "<ESC>A",                                                              mode = mode_i },
 
@@ -108,8 +108,8 @@ local nmappings = {
 
 -- 文件为go则设置;->:
 -- 检测文件类型为go,kt,xml
-vim.cmd([[autocmd FileType go,lua,js,ts,tsx,kotlin,xml,yaml inoremap ; :]])
-vim.cmd([[autocmd FileType go,lua,js,ts,tsx,kotlin,xml,yaml inoremap : ;]])
+vim.cmd([[autocmd FileType go,lua,js,jsx,ts,tsx,kotlin,xml,yaml inoremap ; :]])
+vim.cmd([[autocmd FileType go,lua,js,jsx,ts,tsx,kotlin,xml,yaml inoremap : ;]])
 -- vim.cmd([[autocmd FileType md set tw=80]])
 
 
