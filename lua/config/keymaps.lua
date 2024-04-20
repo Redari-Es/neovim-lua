@@ -23,6 +23,8 @@ local nmappings = {
 	{ from = "S",             to = ":w<CR>" },
 	{ from = "Q",             to = ":q<CR>" },
 	{ from = ";",             to = ":",                                                                   mode = mode_nv },
+	{ from = ";",             to = ":",                                                                   mode = mode_i },
+	{ from = ":",             to = ";",                                                                   mode = mode_i },
 	{ from = "Y",             to = "\"+y",                                                                mode = mode_v },
 	{ from = "`",             to = "~",                                                                   mode = mode_nv },
 
@@ -108,10 +110,18 @@ local nmappings = {
 
 -- 文件为go则设置;->:
 -- 检测文件类型为go,kt,xml
-vim.cmd([[autocmd FileType go,lua,js,jsx,ts,tsx,kotlin,xml,yaml inoremap ; :]])
-vim.cmd([[autocmd FileType go,lua,js,jsx,ts,tsx,kotlin,xml,yaml inoremap : ;]])
+-- vim.cmd([[autocmd FileType go,lua,js,jsx,ts,tsx,kotlin,xml,yaml inoremap ; :]])
+-- vim.cmd([[autocmd FileType go,lua,js,jsx,ts,tsx,kotlin,xml,yaml inoremap : ;]])
 -- vim.cmd([[autocmd FileType md set tw=80]])
+-- 定义函数以创建自动命令
+-- vim.cmd("autocmd FileType go,lua,js,jsx,ts,tsx,kotlin,xml,yaml inoremap ; :")
+-- vim.cmd("autocmd FileType go,lua,js,jsx,ts,tsx,kotlin,xml,yaml inoremap : ;")
 
+vim.cmd([[autocmd FileType go inoremap ; :]])
+vim.cmd([[autocmd FileType go inoremap : ;]])
+
+-- vim.cmd([[autocmd FileType go,jsx,tsx,js,lua,kotlin,xml,yaml inoremap <buffer> ; :]])
+-- vim.cmd([[autocmd FileType go,jsx,tsx,js,lua,kotlin,xml,yaml inoremap <buffer> : ;]])
 
 for _, mapping in ipairs(nmappings) do
 	vim.keymap.set(mapping.mode or "n", mapping.from, mapping.to, { noremap = true })

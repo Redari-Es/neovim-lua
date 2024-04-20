@@ -52,6 +52,8 @@ M.config = {
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-nvim-lua",
+		-- "hrsh7th/cmp-nvim-cmdline",
+
 		"hrsh7th/cmp-calc",
 		-- "andersevenrud/cmp-tmux",
 		{
@@ -67,8 +69,8 @@ M.config = {
 				-- optional call to setup (see customization section)
 				require("cmp_nvim_ultisnips").setup {}
 			end,
-		}
-		-- "L3MON4D3/LuaSnip",
+		},
+		"L3MON4D3/LuaSnip",
 	},
 }
 
@@ -186,7 +188,7 @@ M.configfunc = function()
 			{ name = "path" },
 			{ name = "nvim_lua" },
 			{ name = "calc" },
-			-- { name = "luasnip" },
+			{ name = "luasnip" },
 			-- { name = 'tmux',    option = { all_panes = true, } },  -- this is kinda slow
 		}),
 		mapping = cmp.mapping.preset.insert({
@@ -249,4 +251,3 @@ end
 
 
 return M
-

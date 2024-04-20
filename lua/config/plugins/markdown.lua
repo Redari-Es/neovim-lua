@@ -1,6 +1,15 @@
 return {
+
 	{
-		-- "instant-markdown/vim-instant-markdown",
+
+		"instant-markdown/vim-instant-markdown",
+		ft = { "markdown" },
+		build = "yarn install",
+		config = function()
+			vim.g.instant_markdown_autostart = 0
+		end,
+	},
+	{
 		"iamcco/markdown-preview.nvim",
 		"iamcco/mathjax-support-for-mkdp",
 		"mzlogin/vim-markdown-toc",
@@ -181,7 +190,8 @@ let g:mkdp_preview_options = {
 	let g:mkdp_theme = 'light'
 
 	function OpenMarkdownPreview (url)
-		execute "silent ! chromium --new-window " . a:url
+		-- execute "silent ! chromium --new-window " . a:url
+		execute "silent ! surf --new-window " . a:url
 		endfunction
 
 		]]

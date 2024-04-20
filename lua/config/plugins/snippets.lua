@@ -3,6 +3,7 @@ return {
 		"SirVer/ultisnips",
 		dependencies = {
 			"honza/vim-snippets",
+			'theniceboy/vim-snippets',
 		},
 		config = function()
 			vim.g.UltiSnipsSnippetDirectories = { "~/.config/nvim/Ultisnips" }

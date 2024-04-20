@@ -4,7 +4,7 @@ if not vim.loop.fs_stat(lazypath) then
 		"git",
 		"clone",
 		"--filter=blob:none",
-		--"https://gitclone.com/github.com/folke/lazy.nvim.git",
+		-- "https://gitclone.com/github.com/folke/lazy.nvim.git",
 		"https://github.com/folke/lazy.nvim.git",
 		"--branch=stable", -- latest stable release
 		lazypath,
@@ -31,6 +31,10 @@ end
 vim.keymap.set("n", "<leader>pl", ":Lazy<CR>", { noremap = true })
 
 require("lazy").setup({
+	"folke/which-key.nvim",
+	{ "folke/neoconf.nvim",      cmd = "Neoconf" },
+	"folke/neodev.nvim",
+	-- other
 	require("config.plugins.telescope").config,
 	require("config.plugins.fzf"),
 	require("config.plugins.colorscheme"),
@@ -71,11 +75,14 @@ require("lazy").setup({
 	-- myself
 	require("config.plugins.tools"),
 	require("config.plugins.dadbod"),
-	require("config.plugins.leetcode"),
+	require("config.plugins.goto-preview"),
+	require("config.plugins.rayso"),
+	require("config.plugins.flash"),
+	require("config.plugins.mini-animate"),
+	require("config.plugins.smoothcursor"),
+	-- require("config.plugins.leetcode"),
 	require("config.plugins.autopairs"),
 	{ "dstein64/vim-startuptime" },
-	-- { "mhinz/vim-startify" },
-
 
 }, {
 })

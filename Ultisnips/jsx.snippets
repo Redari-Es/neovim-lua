@@ -1,8 +1,26 @@
 priority -20
+extends html
+
+snippet cn "className"
+className='${1} $0'
+endsnippet
 
 snippet react "import"
 import React from 'react';
 $0
+endsnippet
+
+snippet rfcc "react function component"
+export const ${1:Name} ()=>{
+return(
+$0
+)
+}
+endsnippet
+snippet fun "func"
+${1:funName}()=>{
+$0
+}
 endsnippet
 
 snippet func "function"
