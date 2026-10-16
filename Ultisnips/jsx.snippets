@@ -1,0 +1,59 @@
+priority -20
+extends html,js,tsx
+
+snippet effect "useEffect" 
+useEffect(()=>{
+$0
+},[])
+endsnippet
+
+snippet navigation "useNavigation"
+const navigation=useNavigation()
+endsnippet
+
+snippet cn "className" -i
+className='${1} $0'
+endsnippet
+
+snippet react "import"
+import React from 'react';
+$0
+endsnippet
+
+snippet rfcc "react function component"
+export const ${1:Name} ()=>{
+return(
+$0
+)
+}
+endsnippet
+snippet fun "func"
+${1:funName}()=>{
+$0
+}
+endsnippet
+
+snippet func "function"
+export default function ${1:Name} {
+return(
+$0
+);
+}
+endsnippet
+
+snippet rcc "React class"
+import React,{Component} from 'react';
+
+class ${1:Hello} extends Component{
+	constructor(props){
+	super(props);
+	${2}
+}
+	render(){
+		return(
+		${3:jsx}
+		$0
+		);
+	}
+}
+endsnippet

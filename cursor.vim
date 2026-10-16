@@ -8,7 +8,7 @@ noremap   [h<LEADER>   6k
 noremap   [n<LEADER>   7k
 noremap   [e<LEADER>   8k
 noremap   [i<LEADER>   9k
-nremap  [ao<LEADER>  10k
+noremap  [ao<LEADER>  10k
 noremap  [aa<LEADER>  11k
 noremap  [ar<LEADER>  12k
 noremap  [as<LEADER>  13k
@@ -397,4 +397,4 @@ noremap 'aid<LEADER> 195j
 noremap 'aih<LEADER> 196j
 noremap 'ain<LEADER> 197j
 noremap 'aie<LEADER> 198j
-noremap 'aii<LEADER> 199jo
+noremap 'aii<LEADER> 199j

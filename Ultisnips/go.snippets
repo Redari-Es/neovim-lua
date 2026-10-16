@@ -1,9 +1,19 @@
 ##
-priority -30
+priority -100
 # TODO: go-snippets  <26-09-21, Redari-Es> #
 ##
-snippet err "error"
-err error$0
+snippet err "err"
+if err!=nil{
+	log.Panic(err)
+}
+$0
+endsnippet
+
+snippet efatal "fatal"
+if err!=nil{
+	log.Fatal(err)
+}
+$0
 endsnippet
 
 snippet check "Check Error"
@@ -12,6 +22,7 @@ if err != nil {
 }
 ${0}
 endsnippet
+
 snippet checke "checkerro"
 if err:=${1};err!=nil{
 	fmt.Println(err)
@@ -47,55 +58,79 @@ $0
 endsnippet
 
 snippet forr "For loop range"
-for ${1:_}, ${2:v} := range ${3:struct} {
-	${4}
+for _, ${1:thing} := range ${2:things} {
+	${3://TODO}
 }
-$0
+
 endsnippet
-snippet forkv "range"
-for k,v:=range ${1:struct}{
-	$0
-}
+# 打印
+snippet pt "Printf" 
+fmt.Printf(${1})${0}
 endsnippet
 
-snippet fori "For loop i"
-for ${1:i} := ${2:0}; $1 < ${3:len}; $1++ {
-	${4}
-}
-$0
+snippet ft "fprintf" 
+fmt.Fprintf(${1})${0}
 endsnippet
 
-snippet ie "Check Error"
+snippet stf "sprintf" 
+fmt.Sprintf(${1})${0}
+endsnippet
+
+snippet st "Println" 
+fmt.Println(${1})${0}
+endsnippet
+
+snippet ftl "fprintln" 
+fmt.Fprintln(${1})${0}
+endsnippet
+snippet stl "sprintln" 
+fmt.Sprintln(${1})${0}
+endsnippet
+snippet re "Return Error if any"
+if err != nil {
+	return err
+}
+${0}
+endsnippet
+
+snippet iep "Panic if error"
 if err != nil {
 	panic(err)
 }
 ${0}
 endsnippet
 
-snippet pt "Printf"
-fmt.Printf(${1})${0}
-endsnippet
-snippet ptl "Println"
-fmt.Println(${1})${0}
-endsnippet
-
-snippet ft "fprintf"
-fmt.Fprintf(${1})${0}
-endsnippet
-snippet ftl "fprintln"
-fmt.Fprintln(${1})${0}
-endsnippet
-snippet st "sprintf"
-fmt.Sprintf(${1})${0}
-endsnippet
-snippet stl "sprintln"
-fmt.Sprintln(${1})${0}
+snippet iel "Log if error"
+if err != nil {
+	log.Println(err)
+}
+${0}
 endsnippet
 
-snippet vp "Description" b
-
-
+snippet ier "Return if error"
+if err != nil {
+	return err
+}
+${0}
 endsnippet
+
+
+snippet dp "Description" 
+/* {date}
+** Author: Shon
+** Email: shon@redaries.xyz
+*/
+endsnippet
+snippet re "Return Error if any"
+if err != nil {
+	return err
+}
+${0}
+endsnippet
+
+
+
+
 
 # start
 snippet go "Starting code"
@@ -103,7 +138,6 @@ package main
 
 import (
 		"fmt"
-		"time"
 		)
 
 func main() {
@@ -142,7 +176,7 @@ const(
 endsnippet
 
 ## fuction_name
-snippet func "def"
+snippet fn "Function"
 func ${1:func_name}(${2:parse_type}) ${3:return_type}{
 	return
 }
