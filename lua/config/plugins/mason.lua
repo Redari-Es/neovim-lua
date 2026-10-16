@@ -3,6 +3,7 @@ return {
 	lazy = false,
 	dependencies = {
 		{ "williamboman/mason.nvim", build = ":MasonUpdate", },
+		{ "neovim/nvim-lspconfig" },
 	},
 	config = function()
 		require("mason").setup({

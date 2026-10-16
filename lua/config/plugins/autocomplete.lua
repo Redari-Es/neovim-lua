@@ -48,6 +48,7 @@ M.config = {
 	"hrsh7th/nvim-cmp",
 	after = "SirVer/ultisnips",
 	dependencies = {
+		"SirVer/ultisnips",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-nvim-lsp",
@@ -65,12 +66,12 @@ M.config = {
 		},
 		{
 			"quangnguyen30192/cmp-nvim-ultisnips",
+			"L3MON4D3/LuaSnip",
 			config = function()
 				-- optional call to setup (see customization section)
 				require("cmp_nvim_ultisnips").setup {}
 			end,
 		},
-		"L3MON4D3/LuaSnip",
 	},
 }
 

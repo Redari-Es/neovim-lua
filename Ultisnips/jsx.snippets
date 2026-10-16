@@ -1,7 +1,17 @@
 priority -20
-extends html
+extends html,js,tsx
 
-snippet cn "className"
+snippet effect "useEffect" 
+useEffect(()=>{
+$0
+},[])
+endsnippet
+
+snippet navigation "useNavigation"
+const navigation=useNavigation()
+endsnippet
+
+snippet cn "className" -i
 className='${1} $0'
 endsnippet
 

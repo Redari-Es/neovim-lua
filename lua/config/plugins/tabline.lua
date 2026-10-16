@@ -1,6 +1,6 @@
 return {
 	'akinsho/bufferline.nvim',
-	version = "*",
+	-- version = "*",
 	dependencies = 'nvim-tree/nvim-web-devicons',
 	opts = {
 		options = {
@@ -16,7 +16,7 @@ return {
 				style = "icon",
 			},
 			show_buffer_close_icons = false,
-			show_close_icon = false,
+			show_close_icon = true,
 			enforce_regular_tabs = true,
 			show_duplicate_prefix = false,
 			tab_size = 16,

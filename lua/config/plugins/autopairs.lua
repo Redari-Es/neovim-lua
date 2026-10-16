@@ -1,19 +1,20 @@
 return {
 	'windwp/nvim-autopairs',
+	event = "InsertEnter",
 	'windwp/nvim-ts-autotag',
 	config = function()
 		-- require('auautopairs-conf.lua')
 		local disable_filetype = { "TelescopePrompt" }
-		local disable_in_macro = false   -- disable when recording or executing a macro
+		local disable_in_macro = false     -- disable when recording or executing a macro
 		local disable_in_visualblock = false -- disable when insert after visual block mode
 		local disable_in_replace_mode = true
 		local ignored_next_char = [=[[%w%%%'%[%"%.%`%$]]=]
 		local enable_moveright = true
-		local enable_afterquote = true     -- add bracket pairs after quote
+		local enable_afterquote = true       -- add bracket pairs after quote
 		local enable_check_bracket_line = true --- check bracket in same line
 		local enable_bracket_in_quote = true --
-		local enable_abbr = false          -- trigger abbreviation
-		local break_undo = true            -- switch for basic rule break undo sequence
+		local enable_abbr = false            -- trigger abbreviation
+		local break_undo = true              -- switch for basic rule break undo sequence
 		local check_ts = false
 		local map_cr = true
 		local map_bs = true -- map the <BS> key
@@ -24,11 +25,26 @@ return {
 		local Rule = require('nvim-autopairs.rule')
 
 		npairs.setup({
+			--
+			fast_wrap = {
+				map = '<M-e>',
+				chars = { '{', '[', '(', '"', "'" },
+				pattern = [=[[%'%"%>%]%)%}%,]]=],
+				end_key = '$',
+				before_key = 'h',
+				after_key = 'l',
+				cursor_pos_before = true,
+				keys = 'qwertyuiopzxcvbnmasdfghjkl',
+				manual_position = true,
+				highlight = 'Search',
+				highlight_grey = 'Comment'
+			},
+			--
 			check_ts = true,
 			ts_config = {
 				lua = { 'string' }, -- it will not add a pair on that treesitter node
 				javascript = { 'template_string' },
-				java = false, -- don't check treesitter on java
+				java = false,   -- don't check treesitter on java
 			}
 		})
 
@@ -49,6 +65,11 @@ return {
 		})
 
 		--- other
+		require('nvim-ts-autotag').setup {
+			autotag = {
+				enable = true,
+			}
+		}
 	end
 
 }

@@ -2,6 +2,8 @@ local M = {}
 
 local F = {}
 
+local documentation_window_open = false
+
 M.config = {
 	{
 		'weilbith/nvim-code-action-menu',
@@ -42,6 +44,10 @@ M.config = {
 				"lvimuser/lsp-inlayhints.nvim",
 				branch = "anticonceal",
 			},
+			"MunifTanjim/prettier.nvim",
+			-- "mjlbach/lsp_signature.nvim",
+			"airblade/vim-rooter",
+			"b0o/schemastore.nvim",
 			-- "mjlbach/lsp_signature.nvim",
 		},
 
@@ -124,7 +130,67 @@ M.config = {
 			require("config.lsp.flutter").setup(lsp)
 			require("config.lsp.html").setup(lspconfig, lsp)
 
+			require 'lspconfig'.terraformls.setup {}
+			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+				pattern = { "*.tf", "*.tfvars", "*.lua" },
+				callback = function()
+					vim.lsp.buf.format()
+				end,
+			})
+			require 'lspconfig'.yamlls.setup({
+				settings = {
+					redhat = {
+						telemetry = {
+							enabled = false
+						}
+					},
+					yaml = {
+						schemaStore = {
+							enable = false,
+							url = "",
+						},
+						-- schemas = require('schemastore').yaml.schemas(),
+						validate = false,
+						customTags = {
+							"!fn",
+							"!And",
+							"!If",
+							"!Not",
+							"!Equals",
+							"!Or",
+							"!FindInMap sequence",
+							"!Base64",
+							"!Cidr",
+							"!Ref",
+							"!Sub",
+							"!GetAtt",
+							"!GetAZs",
+							"!ImportValue",
+							"!Select",
+							"!Split",
+							"!Join sequence"
+						}
+					},
+				}
+			})
+
 			lsp.setup()
+
+
+			-- Neovim hasn't added foldingRange to default capabilities, users must add it manually
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities.textDocument.foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true
+			}
+			local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+			for _, ls in ipairs(language_servers) do
+				require('lspconfig')[ls].setup({
+					capabilities = capabilities
+					-- you can add other fields for setting up lsp server in this table
+				})
+			end
+
 			require("fidget").setup({})
 
 			local lsp_defaults = lspconfig.util.default_config
@@ -139,15 +205,55 @@ M.config = {
 			F.configureDocAndSignature()
 			F.configureKeybinds()
 
+			local prettier = require("prettier")
+
+			prettier.setup({
+				bin = 'prettierd',
+				filetypes = {
+					"css",
+					"graphql",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"json",
+					"less",
+					"markdown",
+					"scss",
+					"typescript",
+					"typescriptreact",
+					"yaml",
+				},
+				cli_options = {
+					arrow_parens = "always",
+					bracket_spacing = true,
+					bracket_same_line = false,
+					embedded_language_formatting = "auto",
+					end_of_line = "lf",
+					html_whitespace_sensitivity = "css",
+					-- jsx_bracket_same_line = false,
+					jsx_single_quote = false,
+					print_width = 80,
+					prose_wrap = "preserve",
+					quote_props = "as-needed",
+					semi = true,
+					single_attribute_per_line = false,
+					single_quote = false,
+					tab_width = 2,
+					trailing_comma = "es5",
+					use_tabs = false,
+					vue_indent_script_and_style = false,
+				},
+			})
+
 			local format_on_save_filetypes = {
 				dart = true,
 				json = true,
 				go = true,
-				tsx = true,
-				jsx = true,
 				lua = true,
 				html = true,
 				javascript = true,
+				typescript = true,
+				typescriptreact = true,
 				c = true,
 				cpp = true,
 				objc = true,
@@ -215,20 +321,22 @@ F.configureDocAndSignature = function()
 	vim.api.nvim_create_autocmd({ "CursorHold" }, {
 		pattern = "*",
 		callback = function()
-			vim.diagnostic.open_float(0, {
-				scope = "cursor",
-				focusable = false,
-				zindex = 10,
-				close_events = {
-					"CursorMoved",
-					"CursorMovedI",
-					"BufHidden",
-					"InsertCharPre",
-					"InsertEnter",
-					"WinLeave",
-					"ModeChanged",
-				},
-			})
+			if not documentation_window_open then
+				vim.diagnostic.open_float(0, {
+					scope = "cursor",
+					focusable = false,
+					zindex = 10,
+					close_events = {
+						"CursorMoved",
+						"CursorMovedI",
+						"BufHidden",
+						"InsertCharPre",
+						"InsertEnter",
+						"WinLeave",
+						"ModeChanged",
+					},
+				})
+			end
 		end,
 		group = group,
 	})
@@ -250,6 +358,18 @@ F.configureDocAndSignature = function()
 	-- lspsignature.setup(F.signature_config)
 end
 
+local documentation_window_open_index = 0
+local function show_documentation()
+	documentation_window_open_index = documentation_window_open_index + 1
+	local current_index = documentation_window_open_index
+	documentation_window_open = true
+	vim.defer_fn(function()
+		if current_index == documentation_window_open_index then
+			documentation_window_open = false
+		end
+	end, 500)
+	vim.lsp.buf.hover()
+end
 
 F.configureKeybinds = function()
 	vim.api.nvim_create_autocmd('LspAttach', {
@@ -257,7 +377,7 @@ F.configureKeybinds = function()
 		callback = function(event)
 			local opts = { buffer = event.buf, noremap = true, nowait = true }
 
-			vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, opts)
+			vim.keymap.set('n', '<leader>h', show_documentation, opts)
 			vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 			vim.keymap.set('n', 'gD', ':tab sp<CR><cmd>lua vim.lsp.buf.definition()<cr>', opts)
 			vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)

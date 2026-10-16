@@ -4,9 +4,12 @@ local M = {}
 M.config = {
 	{
 		"nvim-telescope/telescope.nvim",
+		tag = '0.1.8',
+		-- dir = "/Users/david/.config/nvim/_local_plugins/telescope.nvim",
 		-- tag = '0.1.1',
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+			"AckslD/nvim-neoclip.lua",
 			{
 				"LukasPietzschmann/telescope-tabs",
 				config = function()
@@ -118,8 +121,8 @@ M.config = {
 				}
 			})
 
-			ts.load_extension("yank_history")
-			ts.load_extension('dap')
+			ts.load_extension('neoclip')
+			-- ts.load_extension('dap')
 			ts.load_extension('telescope-tabs')
 			ts.load_extension('fzf')
 			ts.load_extension('simulators')
@@ -129,8 +132,8 @@ M.config = {
 				apple_simulator = true,
 			})
 			-- ts.load_extension("ui-select")
-			ts.load_extension("flutter")
-			local tsdap = ts.extensions.dap;
+			-- ts.load_extension("flutter")
+			-- local tsdap = ts.extensions.dap;
 			-- vim.keymap.set("n", "<leader>'v", tsdap.variables, m)
 			-- vim.keymap.set("n", "<leader>'a", tsdap.commands, m)
 			-- vim.keymap.set("n", "<leader>'b", tsdap.list_breakpoints, m)
@@ -163,4 +166,3 @@ M.config = {
 
 
 return M
-

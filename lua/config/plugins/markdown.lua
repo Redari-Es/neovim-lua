@@ -124,7 +124,8 @@ let g:mkdp_open_ip = ''
 " invalid: `/path/with\\ space/xxx`
 " default: ''
 "" let g:mkdp_browser = 'chromium'
-let g:mkdp_browser = 'surf'
+-- let g:mkdp_browser = 'surf'
+let g:mkdp_browser = 'firefox'
 
 " set to 1, echo preview page url in command line when open preview page
 " default is 0

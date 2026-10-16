@@ -13,7 +13,7 @@
 -- ]]
 
 
-vim.g.maplocalleader = ' '
+-- vim.g.maplocalleader = ' '
 vim.g.mapleader = ' '
 
 local mode_nv = { "n", "v" }
@@ -140,3 +140,24 @@ vim.keymap.set("n", "<leader>q", function()
 		run_vim_shortcut([[<C-w>j:q<CR>]])
 	end
 end, { noremap = true, silent = true })
+
+-- vim.keymap.set("n", "q", "<nop>", { noremap = true })
+-- vim.keymap.set("n", ",q", "q", { noremap = true })
+--
+-- for _, mapping in ipairs(nmappings) do
+-- 	vim.keymap.set(mapping.mode or "n", mapping.from, mapping.to, { noremap = true })
+-- end
+--
+-- local function run_vim_shortcut(shortcut)
+-- 	local escaped_shortcut = vim.api.nvim_replace_termcodes(shortcut, true, false, true)
+-- 	vim.api.nvim_feedkeys(escaped_shortcut, 'n', true)
+-- end
+--
+-- -- close win below
+-- vim.keymap.set("n", "<leader>q", function()
+-- 	require("trouble").close()
+-- 	local wins = vim.api.nvim_tabpage_list_wins(0)
+-- 	if #wins > 1 then
+-- 		run_vim_shortcut([[<C-w>j:q<CR>]])
+-- 	end
+-- end, { noremap = true, silent = true })

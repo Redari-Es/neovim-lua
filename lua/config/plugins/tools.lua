@@ -25,7 +25,7 @@ return {
 	'theniceboy/pair-maker.vim',
 	'theniceboy/vim-move',
 	-- Documentation
-	'KabbAmine/zeavim.vim', -- " <LEADER>z to find doc
+	-- 'KabbAmine/zeavim.vim', -- " <LEADER>z to find doc
 	-- Other useful utilities
 	'lambdalisue/suda.vim', -- " do stuff like :sudowrite
 	-- 'TobinPalmer/rayso.nvim',-- 生成漂亮的代码浏览图

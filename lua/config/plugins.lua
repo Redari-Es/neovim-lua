@@ -75,13 +75,13 @@ require("lazy").setup({
 	-- myself
 	require("config.plugins.tools"),
 	require("config.plugins.dadbod"),
-	require("config.plugins.goto-preview"),
-	require("config.plugins.rayso"),
-	require("config.plugins.flash"),
-	require("config.plugins.mini-animate"),
+	-- require("config.plugins.goto-preview"),
+	-- require("config.plugins.rayso"),
+	-- require("config.plugins.flash"),
+	-- require("config.plugins.mini-animate"),
 	require("config.plugins.smoothcursor"),
 	-- require("config.plugins.leetcode"),
-	require("config.plugins.autopairs"),
+	-- require("config.plugins.autopairs"),
 	{ "dstein64/vim-startuptime" },
 
 }, {

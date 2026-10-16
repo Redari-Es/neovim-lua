@@ -8,6 +8,7 @@ end
 return {
 	{
 		"mfussenegger/nvim-dap",
+		"nvim-neotest/nvim-nio",
 		dependencies = {
 			{
 				"ravenxrz/DAPInstall.nvim",
@@ -26,6 +27,7 @@ return {
 		config = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
+			local nio = require("nio")
 
 			dapui.setup()
 			require("nvim-dap-virtual-text").setup()
