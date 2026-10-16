@@ -1,4 +1,4 @@
 return {
-	setup = function(lspconfig, lsp)
+	setup = function()
 	end
 }

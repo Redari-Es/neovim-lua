@@ -33,7 +33,11 @@ vim.keymap.set("n", "<leader>pl", ":Lazy<CR>", { noremap = true })
 require("lazy").setup({
 	"folke/which-key.nvim",
 	{ "folke/neoconf.nvim",      cmd = "Neoconf" },
-	"folke/neodev.nvim",
+	{
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {},
+	},
 	-- other
 	require("config.plugins.telescope").config,
 	require("config.plugins.fzf"),

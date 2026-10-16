@@ -10,14 +10,15 @@ local preview_stack_trace = function()
 	end
 end
 return {
-	setup = function(lsp)
+	setup = function()
 		vim.api.nvim_create_autocmd("BufEnter", {
 			pattern = "__FLUTTER_DEV_LOG__",
 			callback = function()
 				vim.keymap.set("n", "p", preview_stack_trace, { silent = true, noremap = true, buffer = true })
 			end
 		})
-		local dart_lsp = lsp.build_options('dartls', {})
+		-- 原 lsp-zero 的 build_options('dartls', {}) 只做一件事：带上 cmp 补全能力
+		local dart_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 		local flutter = require('flutter-tools')
 		flutter.setup({
@@ -33,7 +34,7 @@ return {
 				on_attach = function()
 					vim.cmd('highlight! link FlutterWidgetGuides Comment')
 				end,
-				capabilities = dart_lsp.capabilities,
+				capabilities = dart_capabilities,
 				settings = {
 					enableSnippets = false,
 					showTodos = true,

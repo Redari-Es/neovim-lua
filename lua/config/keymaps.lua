@@ -56,7 +56,6 @@ local nmappings = {
 	-- Useful actions
 	{ from = ",.",            to = "%",                                                                   mode = mode_nv },
 	{ from = "<c-y>",         to = "<ESC>A {}<ESC>i<CR><ESC>ko",                                          mode = mode_i },
-	{ from = "<leader>k",     to = "<ESC>",                                                               mode = mode_i },
 	{ from = "\\v",           to = "v$h", },
 	{ from = "<c-a>",         to = "<ESC>A",                                                              mode = mode_i },
 

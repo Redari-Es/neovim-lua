@@ -10,8 +10,9 @@ M.config = {
 		cmd = 'CodeActionMenu',
 	},
 	{
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v2.x',
+		-- nvim-lspconfig 现在通过原生 vim.lsp.config() 提供服务器定义，
+		-- 不再需要 lsp-zero 垫片（已归档，且内部仍调用被弃用的 lspconfig.xxx.setup）
+		'neovim/nvim-lspconfig',
 		dependencies = {
 			{
 				"folke/trouble.nvim",
@@ -24,20 +25,18 @@ M.config = {
 					},
 				},
 			},
-			{ 'neovim/nvim-lspconfig' },
 			{
-				'williamboman/mason.nvim',
+				'mason-org/mason.nvim',
 				build = function()
 					vim.cmd([[MasonInstall]])
 				end,
 			},
-			{ 'williamboman/mason-lspconfig.nvim' },
+			{ 'mason-org/mason-lspconfig.nvim' },
 			{ 'hrsh7th/cmp-nvim-lsp' },
 			{
 				'j-hui/fidget.nvim',
 				tag = "legacy"
 			},
-			"folke/neodev.nvim",
 			"ray-x/lsp_signature.nvim",
 			"ldelossa/nvim-dap-projects",
 			{
@@ -45,99 +44,72 @@ M.config = {
 				branch = "anticonceal",
 			},
 			"MunifTanjim/prettier.nvim",
-			-- "mjlbach/lsp_signature.nvim",
 			"airblade/vim-rooter",
 			"b0o/schemastore.nvim",
-			-- "mjlbach/lsp_signature.nvim",
 		},
 
 		config = function()
-			local lsp = require('lsp-zero').preset({})
-			M.lsp = lsp
+			-- Neovim hasn't added foldingRange to default capabilities, users must add it manually
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities.textDocument.foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true
+			}
+			capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-			lsp.ensure_installed({
-				'tsserver',
-				'eslint',
-				'gopls',
-				'jsonls',
-				'html',
-				'clangd',
-				'dockerls',
-				'ansiblels',
-				'terraformls',
-				'texlab',
-				'pyright',
-			})
-
-			-- F.configureInlayHints()
-
-			lsp.on_attach(function(client, bufnr)
-				lsp.default_keymaps({ buffer = bufnr })
-				client.server_capabilities.semanticTokensProvider = nil
-				require("config.plugins.autocomplete").configfunc()
-				if vim.bo[bufnr].filetype ~= "dart" then
-					require("lsp_signature").on_attach(F.signature_config, bufnr)
-				end
-				-- require("lsp-inlayhints").on_attach(client, bufnr)
-				-- vim.api.nvim_create_augroup("lsp_augroup", { clear = true })
-				-- vim.api.nvim_create_autocmd("InsertEnter", {
-				-- 	buffer = bufnr,
-				-- 	callback = function() vim.lsp.inlay_hint(bufnr, false) end,
-				-- 	group = "lsp_augroup",
-				-- })
-				-- vim.lsp.inlay_hint(bufnr, true)
-				-- vim.api.nvim_create_autocmd("InsertLeave", {
-				-- 	buffer = bufnr,
-				-- 	callback = function() vim.lsp.inlay_hint(bufnr, true) end,
-				-- 	group = "lsp_augroup",
-				-- })
-				-- vim.cmd('highlight! link LspInlayHint Comment')
-				vim.diagnostic.config({
-					severity_sort = true,
-					underline = true,
-					signs = true,
-					virtual_text = false,
-					update_in_insert = false,
-					float = true,
-				})
-			end)
-
-			lsp.set_sign_icons({
-				error = '✘',
-				warn = '▲',
-				hint = '⚑',
-				info = '»'
-			})
-
-			lsp.set_server_config({
+			-- 对所有 LSP server 生效的默认配置（替代 lsp-zero 的 set_server_config）
+			vim.lsp.config('*', {
+				capabilities = capabilities,
 				on_init = function(client)
 					client.server_capabilities.semanticTokensProvider = nil
 				end,
 			})
 
-			lsp.format_on_save({
-				format_opts = {
-					-- async = false,
-					-- timeout_ms = 10000,
+			require('mason').setup({
+				ui = {
+					icons = {
+						package_installed = "✓",
+						package_pending = "➜",
+						package_uninstalled = "✗"
+					}
+				}
+			})
+			-- mason-lspconfig v2：ensure_installed + automatic_enable 走原生 vim.lsp.config
+			-- dartls 由 flutter-tools 自行管理；custom_elements_ls 的 lspconfig 定义缺少
+			-- filetypes 限制，automatic_enable 下会 attach 到所有缓冲区
+			require('mason-lspconfig').setup({
+				ensure_installed = {
+					'lua_ls',
+					'ts_ls',
+					'eslint',
+					'gopls',
+					'jsonls',
+					'html',
+					'clangd',
+					'dockerls',
+					'ansiblels',
+					'terraformls',
+					'texlab',
+					'pyright',
+				},
+				automatic_enable = {
+					exclude = { 'dartls', 'custom_elements_ls' },
 				},
 			})
 
+			require("config.lsp.lua").setup()
+			require("config.lsp.json").setup()
+			require("config.lsp.flutter").setup()
+			require("config.lsp.html").setup()
 
-			local lspconfig = require('lspconfig')
-
-			require("config.lsp.lua").setup(lspconfig, lsp)
-			require("config.lsp.json").setup(lspconfig, lsp)
-			require("config.lsp.flutter").setup(lsp)
-			require("config.lsp.html").setup(lspconfig, lsp)
-
-			require 'lspconfig'.terraformls.setup {}
+			vim.lsp.config('terraformls', {})
 			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 				pattern = { "*.tf", "*.tfvars", "*.lua" },
 				callback = function()
 					vim.lsp.buf.format()
 				end,
 			})
-			require 'lspconfig'.yamlls.setup({
+			vim.lsp.config('yamlls', {
 				settings = {
 					redhat = {
 						telemetry = {
@@ -174,31 +146,42 @@ M.config = {
 				}
 			})
 
-			lsp.setup()
-
-
-			-- Neovim hasn't added foldingRange to default capabilities, users must add it manually
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities.textDocument.foldingRange = {
-				dynamicRegistration = false,
-				lineFoldingOnly = true
-			}
-			local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
-			for _, ls in ipairs(language_servers) do
-				require('lspconfig')[ls].setup({
-					capabilities = capabilities
-					-- you can add other fields for setting up lsp server in this table
-				})
+			-- 诊断配置（合并自原 lsp-zero preset 的 configure_diagnostics 与 on_attach 中的配置）
+			vim.diagnostic.config({
+				severity_sort = true,
+				underline = true,
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = '✘',
+						[vim.diagnostic.severity.WARN] = '▲',
+						[vim.diagnostic.severity.HINT] = '⚑',
+						[vim.diagnostic.severity.INFO] = '»',
+					},
+				},
+				virtual_text = false,
+				update_in_insert = false,
+				float = { border = 'rounded' },
+			})
+			if vim.o.signcolumn == 'auto' then
+				vim.opt.signcolumn = 'yes'
 			end
 
-			require("fidget").setup({})
+			vim.api.nvim_create_autocmd('LspAttach', {
+				desc = 'lsp on_attach',
+				callback = function(event)
+					local bufnr = event.buf
+					local client = vim.lsp.get_client_by_id(event.data.client_id)
+					if client then
+						client.server_capabilities.semanticTokensProvider = nil
+					end
+					require("config.plugins.autocomplete").configfunc()
+					if vim.bo[bufnr].filetype ~= "dart" then
+						require("lsp_signature").on_attach(F.signature_config, bufnr)
+					end
+				end,
+			})
 
-			local lsp_defaults = lspconfig.util.default_config
-			lsp_defaults.capabilities = vim.tbl_deep_extend(
-				'force',
-				lsp_defaults.capabilities,
-				require('cmp_nvim_lsp').default_capabilities()
-			)
+			require("fidget").setup({})
 
 			require('nvim-dap-projects').search_project_config()
 
@@ -288,7 +271,8 @@ F.configureInlayHints = function()
 				remove_colon_end = true,
 			},
 			type_hints = {
-				-- type and other hints
+				-- type and other hints. Note that type hints
+				-- shown before parameter
 				show = true,
 				prefix = "",
 				separator = ", ",
@@ -309,14 +293,17 @@ F.configureInlayHints = function()
 end
 
 F.configureDocAndSignature = function()
-	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-		vim.lsp.handlers.signature_help, {
-			-- silent = true,
-			focusable = false,
-			border = "rounded",
-			zindex = 60,
-		}
-	)
+	-- vim.lsp.with() was removed in Nvim 0.12; wrap the handler and merge the
+	-- config ourselves instead.
+	local signature_cfg = {
+		-- silent = true,
+		focusable = false,
+		border = "rounded",
+		zindex = 60,
+	}
+	vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, config)
+		vim.lsp.handlers.signature_help(err, result, ctx, vim.tbl_deep_extend("force", config or {}, signature_cfg))
+	end
 	local group = vim.api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
 	vim.api.nvim_create_autocmd({ "CursorHold" }, {
 		pattern = "*",
@@ -393,6 +380,12 @@ F.configureKeybinds = function()
 			vim.keymap.set('n', '<leader>t', ':Trouble<cr>', opts)
 			vim.keymap.set('n', '<leader>-', vim.diagnostic.goto_prev, opts)
 			vim.keymap.set('n', '<leader>=', vim.diagnostic.goto_next, opts)
+
+			-- 原 lsp-zero default_keymaps 提供、configureKeybinds 未覆盖的按键
+			vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
+			vim.keymap.set('n', '<F3>', function() vim.lsp.buf.format({ async = true }) end, opts)
+			vim.keymap.set('x', '<F3>', function() vim.lsp.buf.format({ async = true }) end, opts)
+			vim.keymap.set('n', '<F4>', vim.lsp.buf.code_action, opts)
 		end
 	})
 end

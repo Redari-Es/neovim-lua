@@ -183,6 +183,7 @@ M.configfunc = function()
 			end,
 		},
 		sources = cmp.config.sources({
+			{ name = "lazydev" },
 			{ name = "nvim_lsp" },
 			{ name = "buffer" },
 		}, {
