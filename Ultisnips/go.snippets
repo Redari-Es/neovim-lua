@@ -1,79 +1,156 @@
 ##
+priority -100
 # TODO: go-snippets  <26-09-21, Redari-Es> #
 ##
-snippet checke "Check Error"
+snippet err "err"
+if err!=nil{
+	log.Panic(err)
+}
+$0
+endsnippet
+
+snippet efatal "fatal"
+if err!=nil{
+	log.Fatal(err)
+}
+$0
+endsnippet
+
+snippet check "Check Error"
 if err != nil {
 	return err
 }
 ${0}
 endsnippet
 
+snippet checke "checkerro"
+if err:=${1};err!=nil{
+	fmt.Println(err)
+}
+endsnippet
+
 snippet cq "Current Question"
 app.result.questions[app.curResultIndex]${0}
 endsnippet
 
-# map 初始化map 类型 
+snippet rune "rune"
+var ${1} = []rune(${2})$0
+endsnippet
+# map 初始化map 类型
 snippet map "map"
 map:=[]${1:int}{$2}
 $0
+
 endsnippet
 
-# rune 字面量
-snippet rune "" -b
-var $1 = []rune($2)
+snippet type "struct"
+type ${1} struct{
+	${2}
+}
+$0
+endsnippet
+
+snippet any "interface"
+type ${1} interface{
+	${2}
+}
 $0
 endsnippet
 
 snippet forr "For loop range"
-for ${1:_}, ${2:k} := range ${3:thing} {
-	${4}
+for _, ${1:thing} := range ${2:things} {
+	${3://TODO}
 }
-$0
+
+endsnippet
+# 打印
+snippet pt "Printf" 
+fmt.Printf(${1})${0}
 endsnippet
 
-snippet fori "For loop i"
-for ${1:i} := ${2:0}; $1 < ${3:len}; $1++ {
-	${4}
-}
-$0
+snippet ft "fprintf" 
+fmt.Fprintf(${1})${0}
 endsnippet
 
-snippet ie "Check Error"
+snippet stf "sprintf" 
+fmt.Sprintf(${1})${0}
+endsnippet
+
+snippet st "Println" 
+fmt.Println(${1})${0}
+endsnippet
+
+snippet ftl "fprintln" 
+fmt.Fprintln(${1})${0}
+endsnippet
+snippet stl "sprintln" 
+fmt.Sprintln(${1})${0}
+endsnippet
+snippet re "Return Error if any"
+if err != nil {
+	return err
+}
+${0}
+endsnippet
+
+snippet iep "Panic if error"
 if err != nil {
 	panic(err)
 }
 ${0}
 endsnippet
 
-snippet st "Println"
-fmt.Println(${1})${0}
+snippet iel "Log if error"
+if err != nil {
+	log.Println(err)
+}
+${0}
 endsnippet
 
-snippet vp "Description" b
-
-
+snippet ier "Return if error"
+if err != nil {
+	return err
+}
+${0}
 endsnippet
+
+
+snippet dp "Description" 
+/* {date}
+** Author: Shon
+** Email: shon@redaries.xyz
+*/
+endsnippet
+snippet re "Return Error if any"
+if err != nil {
+	return err
+}
+${0}
+endsnippet
+
+
+
+
 
 # start
 snippet go "Starting code"
 package main
 
 import (
-	"fmt"
-	"time"
-)
+		"fmt"
+		)
 
 func main() {
-${1}
+	${1}
 }
 ${0}
 endsnippet
 
 # Time
 snippet tt "Run time" -b
-	bT:=time.Now()
-	eT:=time.Since(bT)
-	fmt.Println("Running cost：%v",eT)
+bT:=time.Now()
+eT:=time.Since(bT)
+fmt.Println("Running cost：%v",eT)
 endsnippet
 
 # cost()
@@ -81,36 +158,36 @@ snippet cost "func cost" -b
 //@brief：耗时统计函数
 // defer timeCost()()
 func timeCost() func() {
-	start := time.Now()
-	return func() {
-		tc:=time.Since(start)
-		fmt.Printf("time cost = %v\n", tc)
-	}
+start := time.Now()
+				 return func() {
+tc:=time.Since(start)
+		 fmt.Printf("time cost = %v\n", tc)
+				 }
 }
 endsnippet
 
 
 
 # const
-snippet cons "const"
+snippet const "const"
 const(
-	${1:}
-		)
+		${1:}
+		)$0
 endsnippet
 
 ## fuction_name
-snippet func "def"
+snippet fn "Function"
 func ${1:func_name}(${2:parse_type}) ${3:return_type}{
-	return 
-}	
+	return
+}
 $0
 endsnippet
 
 ## fuction_name
 snippet funcn "def Noname"
 func (${2:parse_type}) ${3:return_type}{
-	return 
-}	
+	return
+}
 $0
 endsnippet
 
@@ -128,7 +205,7 @@ endsnippet
 # eif
 snippet lif "elise if"
 else if ${1}{
-$2
+	$2
 }$0
 endsnippet
 
@@ -147,8 +224,20 @@ snippet := ":=" -b
 $1 := $2
 $0
 endsnippet
+# var
+snippet val ""
+${1} := ${2}
+$0
+endsnippet
+
+snippet : ":=" -i
+:=$0
+endsnippet
 
 
+snippet str "string" -i
+string$0
+endsnippet
 # list
 snippet li "" -b
 $1 := []int{$2}$0
@@ -160,34 +249,19 @@ $1 := []string{"$2"}$0
 endsnippet
 
 # array
-snippet 2] "[][]" 
+snippet 2] "[][]"
 [$1][$2]$0
 endsnippet
-
 #map
 snippet 2} "{}{}"
 {$1},{$2}$0
 endsnippet
 
-# type struct
-snippet tp "type struct" b
-type $1 struct{
-	$2
-}
-$0
-endsnippet
-
-# make
-snippet make "make" -b
-make([]$1,$2)
-$0
-endsnippet
 
 ###Testing
 snippet fatal "t.fatal" -b
 t.Fatal("$1")$0
 endsnippet
-
 ## array
 snippet . "quick list" -i
 [$1]$0
@@ -196,6 +270,11 @@ endsnippet
 ## array
 snippet ./ "quick map" -i
 {$1}$0
+endsnippet
+
+# make
+snippet make "m"  -b
+make([]$1,$2)$0
 endsnippet
 
 ### fmt output input bufio

@@ -1,3 +1,4 @@
+extends js
 snippet st "console.log"
 console.log(${0});
 endsnippet
@@ -200,9 +201,9 @@ $1.defaultProps = {$4};
 $1.propTypes = {`!p
 props = t[3]
 if props:
-  snip >> 1
-  for prop in props.split(', '):
-    snip += prop + ': PropTypes.any,'
+	snip >> 1
+	for prop in props.split(', '):
+		snip += prop + ': PropTypes.any,'
 `
 };
 
@@ -393,15 +394,15 @@ endsnippet
 
 snippet us.e "useEffect" w
 useEffect(() => {
-  $1
+	$1
 })${0:;}
 endsnippet
 
 snippet us.er "useEffect with return" w
 useEffect(() => {
-  $1
+	$1
 	return () => {
-    $2
+		$2
 	};
 })${0:;}
 endsnippet

@@ -1,0 +1,74 @@
+global !p
+from vimsnippets import get_comment_format
+endglobal
+
+snippet todo "TODO comment" bw
+`!p snip.rv=get_comment_format()[0]` TODO: ${2:Something} $0${3: <${4:`!v strftime('%m/%d, %Y')`}${5:, `!v g:snips_author`}>} `!p snip.rv=get_comment_format()[2]`
+endsnippet
+
+snippet shon "RESUME" bw
+## RESUME
+
+- **Project Name**: ${1:ProjectName}
+- **Author**: ShonH
+- **Email**: shonh@redaries.xyz
+- **CopyRight**: MIT License
+- **Blog**: [www.redaries.xyz](http://www.redaries.xyz)
+- **CreateTime**: `!v strftime('%m/%d,%Y')`
+$0
+endsnippet
+
+
+snippet shonh "Project Description" bw
+# RESUME
+
+## 项目信息
+
+- **项目名称**: ${1:ProjectName}
+- **作者**: ShonH
+- **邮箱**: shonh@redaries.xyz
+- **版权信息**: MIT License
+- **博客**: [www.redaries.xyz](http://www.redaries.xyz)
+- **创建时间**: `!v strftime('%m/%d,%Y)`
+
+## 项目概述
+
+- **简介** $1是一个XXX
+- **目标用户**
+- **主要功能**
+
+## 技术栈
+
+- **前端**: React,Material-UI,Tailwind CSS,Animate CSS
+- **后端**: Go,Gin,XORM,Mariadb(MySQL),Redis
+- **API**: RESTful API
+- **测试**:pprof
+- **部署**: Docker,Kubernetes
+
+## 开发进度
+
+- **当前阶段**: 开发中
+- **预计发布日期**: 2024年6月
+- **里程碑**:
+  - 2024年4月: 用户注册和登录功能完成
+  - 2024年5月: XXX功能完成
+  - 2024年6月: XXX功能完成
+
+## 贡献指南
+
+- **如何贡献**: 请查看[CONTRIBUTING.md](CONTRIBUTING.md)文件了解如何参与项目。
+- **问题跟踪**: 项目问题和功能请求可以在[GitHub Issues](https://github.com/redaries/Health/issues)中提交。
+
+## 许可证
+
+$1项目使用MIT许可证。有关详细信息，请参见[LICENSE](LICENSE)文件。
+
+## 联系信息
+
+- **作者**: ShonH
+- **邮箱**: shonh@redaries.xyz
+- **博客**: [www.redaries.xyz](http://www.redaries.xyz)
+
+---
+$0
+endsnippet
