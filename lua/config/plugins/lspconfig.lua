@@ -15,17 +15,6 @@ M.config = {
 		'neovim/nvim-lspconfig',
 		dependencies = {
 			{
-				"folke/trouble.nvim",
-				opts = {
-					use_diagnostic_signs = true,
-					action_keys = {
-						close = "<esc>",
-						previous = "u",
-						next = "e"
-					},
-				},
-			},
-			{
 				'mason-org/mason.nvim',
 				build = function()
 					vim.cmd([[MasonInstall]])
@@ -60,9 +49,6 @@ M.config = {
 			-- 对所有 LSP server 生效的默认配置（替代 lsp-zero 的 set_server_config）
 			vim.lsp.config('*', {
 				capabilities = capabilities,
-				on_init = function(client)
-					client.server_capabilities.semanticTokensProvider = nil
-				end,
 			})
 
 			require('mason').setup({
@@ -170,10 +156,6 @@ M.config = {
 				desc = 'lsp on_attach',
 				callback = function(event)
 					local bufnr = event.buf
-					local client = vim.lsp.get_client_by_id(event.data.client_id)
-					if client then
-						client.server_capabilities.semanticTokensProvider = nil
-					end
 					require("config.plugins.autocomplete").configfunc()
 					if vim.bo[bufnr].filetype ~= "dart" then
 						require("lsp_signature").on_attach(F.signature_config, bufnr)

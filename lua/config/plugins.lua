@@ -79,6 +79,10 @@ require("lazy").setup({
 	-- myself
 	require("config.plugins.tools"),
 	require("config.plugins.dadbod"),
+	require("config.plugins.trouble"),
+	require("config.plugins.todo-comments"),
+	require("config.plugins.persistence"),
+	require("config.plugins.meow-yarn"),
 	-- require("config.plugins.goto-preview"),
 	-- require("config.plugins.rayso"),
 	-- require("config.plugins.flash"),

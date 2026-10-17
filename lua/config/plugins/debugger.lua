@@ -8,8 +8,8 @@ end
 return {
 	{
 		"mfussenegger/nvim-dap",
-		"nvim-neotest/nvim-nio",
 		dependencies = {
+			"nvim-neotest/nvim-nio",
 			{
 				"ravenxrz/DAPInstall.nvim",
 				config = function()
@@ -21,8 +21,14 @@ return {
 			},
 			"theHamsta/nvim-dap-virtual-text",
 			"rcarriga/nvim-dap-ui",
-			"nvim-dap-virtual-text",
 			"nvim-telescope/telescope-dap.nvim",
+			{
+				-- Go 调试适配（delve），你的主语言必备
+				"leoluz/nvim-dap-go",
+				config = function()
+					require("dap-go").setup()
+				end,
+			},
 		},
 		config = function()
 			local dap = require("dap")
